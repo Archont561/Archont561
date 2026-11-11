@@ -1,3 +1,4 @@
+import { siZsh } from "simple-icons";
 import { ROOT } from "@/tools/lib/paths.ts";
 import { renderBanner } from "@/tools/lib/render/banner.ts";
 import { describe, expect, test } from "@/tools/tests/fixtures.ts";
@@ -12,6 +13,29 @@ describe("renderBanner", () => {
     expect(svg).toContain('<title id="title">Archont561</title>');
     expect(svg).toContain(`class="h">${config.title}</text>`);
     expect(svg).toContain('role="img"');
+  });
+
+  test("renders the Zsh logo and label in the header bar", () => {
+    expect(svg).toContain(siZsh.path);
+    expect(svg).toContain(">zsh</text>");
+  });
+
+  test("renders the embedded portal content when configured", () => {
+    const bannerWithPortal = renderBanner({
+      ...config,
+      portal: {
+        url: "https://example.org/",
+        label: "example.org",
+        kicker: "START HERE",
+        cta: "enter →",
+        routes: [{ path: "/docs/", text: "notes" }],
+      },
+    });
+    expect(bannerWithPortal).toContain("START HERE");
+    expect(bannerWithPortal).toContain("example.org");
+    expect(bannerWithPortal).toContain("/docs/");
+    expect(bannerWithPortal).toContain("enter →");
+    expect(bannerWithPortal).toContain("~ ❯");
   });
 
   test("draws block glyphs as vector cells, not text", () => {

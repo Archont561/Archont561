@@ -28,8 +28,8 @@ docs, hooks, or workflows: call the command that wraps them.
   Maven Central `io.github.archont561`, R-universe `archont561`, prefix.dev `archont561/archont561` +
   `archont561/geospatial` → `data/snapshot.json`; `--print` writes nothing). Accounts live in `data/profile.json`.
 - Render: `bun run tools readme` writes `README.md`, `docs/README.md`, `.github/PULL_REQUEST_TEMPLATE.md`,
-  `assets/banner.svg`, `assets/portal.svg` (animated map card linking the portfolio), `assets/cards/*.svg`
-  (featured project cards, the every-project card, the principles terminal), `assets/badges/*.svg`;
+  `assets/banner.svg` (animated hero banner with embedded Zsh logo and portfolio map), `assets/cards/*.svg`
+  (featured project cards, the every-project card), `assets/badges/*.svg`;
   `--check` fails on stale or orphaned output. Both steps: `bun run tools refresh` (`--commit` pushes; used by cron)
 - Regenerate typed registry clients: `bun run tools clients` (network; commit the output)
 - Lint: `bun run tools lint` (Biome, tsc, ast-grep, Alint, Vale, then maintenance: knip unused files/exports/deps,
@@ -160,10 +160,9 @@ Workflows use read-only `contents` by default and actions pinned to full commit 
   tree, so self-links are checked before a push; npmjs.com pages are excluded (403 to bots).
 - Alint's YAML JSONPath cannot address a workflow's `on:` key (YAML 1.1 reads it as boolean `true`);
   check triggers with `file_content_matches` instead.
-- `assets/portal.svg` takes the banner's width (`svgWidth`); its route texts are `data/profile.json`
-  `portfolio.portal.routes` with `{packages}`/`{registries}` tokens from the snapshot.
-- README order: portal → nav badges → principles terminal → `ls --infrastructure` cards → contribution log →
-  FAQ (`<details name="faq">`, one open at a time) → connect badges → figlet banner as the signature.
+- README order: figlet banner (with embedded Zsh logo and portfolio map) → nav badges → `ls --principles`
+  plain list → `ls --infrastructure` cards → contribution log →
+  FAQ (`<details name="faq">`, one open at a time) → connect badges.
   Verbose sections belong in the FAQ, not above it.
 - Project cards: `featured: true` in `data/profile.json` picks them, in file order. Stack chips are the repo's
   GitHub primary language and registry chips the registries with a real release (`shipsTo`), both from
