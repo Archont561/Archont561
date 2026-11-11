@@ -26,6 +26,15 @@ const C = {
   copper: "#B9794D",
 };
 
+const KIND_ACCENTS: Record<string, string> = {
+  geospatial: C.copper,
+  environments: C.moss,
+  testing: C.sage,
+  packaging: C.moss,
+  compilers: C.copper,
+  portfolio: C.green,
+};
+
 const FONT =
   "ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace";
 const ADVANCE = 0.6;
@@ -105,6 +114,7 @@ export function projectCard(card: ProjectCard): string {
   const left = M + 18;
   const right = W - M - 18;
   const cta = `${card.cta} →`;
+  const accent = KIND_ACCENTS[card.kind.toLowerCase()] ?? C.sage;
   const chips = layoutChips(card.stack, card.ships, left, right - cta.length * 12 * ADVANCE - 12)
     .map(
       (chip) =>
@@ -140,6 +150,7 @@ ${REDUCED}
 </defs>
 <rect class="spot" ${box} fill="none" stroke="${C.copper}" stroke-width="3" filter="url(#glow)"/>
 <rect ${box} fill="${C.surface}" stroke="${C.line}"/>
+<path d="M${fmt(M + 14)} ${fmt(M + 1)}H${fmt(W - M - 14)}" stroke="${accent}" stroke-width="2" stroke-linecap="round" opacity=".85"/>
 <rect class="spot" ${box} fill="none" stroke="${C.copper}" stroke-width="1.2"/>
 <g clip-path="url(#shape)"><rect class="sheen" x="0" y="0" width="120" height="${H}" fill="url(#sh)" transform="skewX(-18)"/></g>
 <g ${rise(0)}><text x="${left}" y="${M + 26}" font-size="11" fill="${C.muted}"><tspan fill="${C.moss}">~/archont561/</tspan>${esc(card.path)}</text>

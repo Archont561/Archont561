@@ -25,14 +25,17 @@ and I care most about the unglamorous part: the lockfile, the test harness, the 
 the review comment. Everything here is a public fact about the code — this profile
 publishes no name, location, employer, availability, or proficiency score.
 
-```ts
-const archont561: Profile = {
-  name: "<%= name %>",
-  role: "<%= profile.role %>",
-  focus: [<%- profile.focus.map(f => `"${f}"`).join(', ') %>],
-  principle: "<%= profile.principle %>",
-  reviewStyle: "<%= profile.reviewStyle %>",
-};
+```toml
+# pixi.toml — reproducible environment definition
+[workspace]
+name = "<%= name.toLowerCase() %>"
+channels = ["conda-forge", "archont561"]
+
+[package]
+role = "<%= profile.role %>"
+focus = [<%- profile.focus.map(f => `"${f}"`).join(', ') %>]
+principle = "<%= profile.principle %>"
+review-style = "<%= profile.reviewStyle %>"
 ```
 
 ## `> ls --infrastructure` — shipped and maintained
@@ -44,11 +47,21 @@ lists every repository. Stack and registry chips come from the captured snapshot
 <% row.forEach(card => { %>  <a href="<%= card.href %>"><img src="<%= card.src %>" width="49%" alt="<%= card.alt %>"></a>
 <% }); %></p>
 
+<p align="center">
+  <sub><% row.forEach((card, idx) => { %><code><%= card.slug %></code>: <a href="<%= card.repoUrl %>">repo</a> · <a href="<%= card.href %>">docs</a><% if (idx < row.length - 1) { %> &nbsp;|&nbsp; <% } %><% }); %></sub>
+</p>
+
 <% }); %>## `> cat contribution.log`
 
 ```diff
 <% contributionLog.forEach(entry => { %><%= entry.status === 'DONE' ? '-' : entry.status === 'WONT' ? '  ' : '+' %> [<%= entry.status %>]<% if (entry.icon) { %> <%= entry.icon %><% } %> <%= entry.text %>
 <% }); %>```
+
+| Ecosystem | Namespace | Released |
+| :--- | :--- | :---: |
+<% counted.filter(r => r.released > 0).forEach(r => { %>| **<%= r.label %>** | `<%= r.account %>` | <%= r.released %> |
+<% }); %><% channels.filter(r => r.packages.length > 0).forEach(r => { %>| **Conda** | `<%= r.account %>` | <%= r.packages.length %> |
+<% }); %>
 
 ## `> man archont561` — FAQ
 
