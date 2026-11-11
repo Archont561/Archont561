@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="728" height="236" viewBox="0 0 728 236" role="img" aria-labelledby="t d">
+<title id="t">$ ./principles --show</title>
+<desc id="d">lock: same lockfile, same result (Pixi + Conda lockfiles, SHA-pinned actions); test: test behaviour, not lines (Gherkin specs, property tests, a 90% floor); document: docs ship with the code (llms.txt and .md routes for agents); ship: small commits, green gate first (conventional commits, no force-push); enforce: if a machine can check it, it does (ast-grep, Alint, Vale, commitlint). Lock it, test it, document it, then ship it.</desc>
+<style>
+text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;white-space:pre}
+.cover{animation:type 16s steps(1) infinite}
+@keyframes type{1.56%{transform:translateX(0px)}1.94%{transform:translateX(8.4px)}2.31%{transform:translateX(16.8px)}2.69%{transform:translateX(25.2px)}3.06%{transform:translateX(33.6px)}3.44%{transform:translateX(42px)}3.81%{transform:translateX(50.4px)}4.19%{transform:translateX(58.8px)}4.56%{transform:translateX(67.2px)}4.94%{transform:translateX(75.6px)}5.31%{transform:translateX(84px)}5.69%{transform:translateX(92.4px)}6.06%{transform:translateX(100.8px)}6.44%{transform:translateX(109.2px)}6.81%{transform:translateX(117.6px)}7.19%{transform:translateX(126px)}7.56%{transform:translateX(134.4px)}7.94%{transform:translateX(142.8px)}8.31%{transform:translateX(151.2px)}8.69%{transform:translateX(159.6px)}91.25%{transform:translateX(159.6px)}96.25%{transform:translateX(0)}}
+.cmd{animation:cmd 16s linear infinite}
+@keyframes cmd{0%,91.25%{opacity:1}96.25%{opacity:0}100%{opacity:1}}
+.cur{animation:blink 1.1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.ft{animation:ft 16s linear infinite}
+@keyframes l0{0%,10.87%{opacity:0}12.44%,91.25%{opacity:1}96.25%,100%{opacity:0}}
+@keyframes l1{0%,12.87%{opacity:0}14.44%,91.25%{opacity:1}96.25%,100%{opacity:0}}
+@keyframes l2{0%,14.88%{opacity:0}16.44%,91.25%{opacity:1}96.25%,100%{opacity:0}}
+@keyframes l3{0%,16.88%{opacity:0}18.44%,91.25%{opacity:1}96.25%,100%{opacity:0}}
+@keyframes l4{0%,18.87%{opacity:0}20.44%,91.25%{opacity:1}96.25%,100%{opacity:0}}
+@keyframes ft{0%,21.81%{opacity:0}23.38%,91.25%{opacity:1}96.25%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.spot{opacity:0!important}.rise,.line{opacity:1!important;transform:none!important}.cover{display:none}}
+</style>
+<rect x=".5" y=".5" width="727" height="235" rx="12" fill="#131d18" stroke="#34453a"/>
+<path d="M.5 30V12.5a12 12 0 0 1 12-12h703a12 12 0 0 1 12 12V30z" fill="#1d2921"/>
+<line x1="0" y1="30" x2="728" y2="30" stroke="#34453a"/>
+<circle cx="20" cy="15" r="5.5" fill="#B9794D"/><circle cx="38" cy="15" r="5.5" fill="#8FA17D"/><circle cx="56" cy="15" r="5.5" fill="#a2c7ab"/>
+<text x="364" y="20" font-size="11.5" text-anchor="middle" fill="#a5b4a9">archont561 — zsh</text>
+<g class="cmd"><text x="22" y="60" font-size="14"><tspan fill="#B9794D">❯ </tspan><tspan fill="#e4ece5" font-weight="700">./principles --show</tspan></text>
+<rect class="cover" x="38.8" y="45" width="173.6" height="21" fill="#131d18"/></g>
+<text class="line" style="animation:l0 16s linear infinite" x="22" y="90" font-size="13.5"><tspan fill="#a2c7ab">lock      </tspan><tspan fill="#e4ece5">same lockfile, same result</tspan><tspan fill="#a5b4a9">  Pixi + Conda lockfiles, SHA-pinned actions</tspan></text>
+<text class="line" style="animation:l1 16s linear infinite" x="22" y="112" font-size="13.5"><tspan fill="#a2c7ab">test      </tspan><tspan fill="#e4ece5">test behaviour, not lines</tspan><tspan fill="#a5b4a9">  Gherkin specs, property tests, a 90% floor</tspan></text>
+<text class="line" style="animation:l2 16s linear infinite" x="22" y="134" font-size="13.5"><tspan fill="#a2c7ab">document  </tspan><tspan fill="#e4ece5">docs ship with the code</tspan><tspan fill="#a5b4a9">  llms.txt and .md routes for agents</tspan></text>
+<text class="line" style="animation:l3 16s linear infinite" x="22" y="156" font-size="13.5"><tspan fill="#a2c7ab">ship      </tspan><tspan fill="#e4ece5">small commits, green gate first</tspan><tspan fill="#a5b4a9">  conventional commits, no force-push</tspan></text>
+<text class="line" style="animation:l4 16s linear infinite" x="22" y="178" font-size="13.5"><tspan fill="#a2c7ab">enforce   </tspan><tspan fill="#e4ece5">if a machine can check it, it does</tspan><tspan fill="#a5b4a9">  ast-grep, Alint, Vale, commitlint</tspan></text>
+<text class="line ft" x="22" y="214" font-size="13.5" fill="#B9794D" font-weight="700">Lock it, test it, document it, then ship it.<tspan class="cur" fill="#a2c7ab"> █</tspan></text>
+</svg>

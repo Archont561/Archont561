@@ -1,0 +1,18 @@
+# Every hook delegates to `bun run tools <cmd>`; tools/commands/ and tools/lib/ own the logic.
+pre-commit:
+  parallel: true
+  jobs:
+    - name: lint
+      run: bun run tools lint
+    - name: readme
+      run: bun run tools readme --check
+
+commit-msg:
+  jobs:
+    - name: conventional-commit
+      run: bun run tools commitlint --edit {1}
+
+pre-push:
+  jobs:
+    - name: quality-gate
+      run: bun run tools check

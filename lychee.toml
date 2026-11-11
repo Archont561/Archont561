@@ -1,0 +1,13 @@
+# Link check for the rendered README and the docs: `bun run tools links`.
+# Links to this repository's own files are remapped to the working tree by the tool,
+# so a broken internal link fails before it is pushed.
+no_progress = true
+max_concurrency = 8
+max_retries = 2
+timeout = 20
+accept = ["200..=299", "429"]
+include_fragments = "anchor-only"
+exclude = [
+  # npm's website answers non-browser clients with 403; tools capture checks the npm registry API.
+  '^https://www\.npmjs\.com/',
+]

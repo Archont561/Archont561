@@ -1,0 +1,70 @@
+# PyPI publishes no OpenAPI description. This documents only what `capture` reads:
+# the XML-RPC endpoint (the user page sits behind a JavaScript challenge, but
+# `user_packages` still lists ownership) and the per-project JSON API.
+# `bun run tools clients` generates tools/lib/capture/clients/pypi/ from it.
+openapi: 3.1.0
+info:
+  title: PyPI (subset used by tools/)
+  version: "1"
+servers:
+  - url: https://pypi.org
+paths:
+  /pypi:
+    post:
+      operationId: xmlRpc
+      summary: XML-RPC call, e.g. user_packages
+      requestBody:
+        required: true
+        content:
+          text/xml:
+            schema:
+              type: string
+      responses:
+        "200":
+          description: XML-RPC method response.
+          content:
+            text/xml:
+              schema:
+                type: string
+  /pypi/{project}/json:
+    get:
+      operationId: getProject
+      summary: Project metadata and release files
+      parameters:
+        - name: project
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Project metadata.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Project"
+components:
+  schemas:
+    Project:
+      type: object
+      required: [info]
+      properties:
+        info:
+          type: object
+          properties:
+            version:
+              type: string
+            summary:
+              type: [string, "null"]
+        releases:
+          type: object
+          description: Release files keyed by version.
+          additionalProperties:
+            type: array
+            items:
+              $ref: "#/components/schemas/ReleaseFile"
+    ReleaseFile:
+      type: object
+      properties:
+        upload_time:
+          type: string

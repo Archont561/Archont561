@@ -1,0 +1,63 @@
+{
+  "name": "archont561",
+  "version": "1.0.0",
+  "description": "Geospatial tooling, made boring on purpose: locked environments, tested harnesses, agent-readable docs, and the repo management that keeps them honest.",
+  "author": "Archont561",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.4.2",
+  "homepage": "https://archont561.github.io/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Archont561/Archont561.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Archont561/Archont561/issues"
+  },
+  "keywords": [
+    "geospatial",
+    "reproducibility",
+    "testing",
+    "qgis",
+    "pixi",
+    "bun"
+  ],
+  "scripts": {
+    "tools": "bun tools/index.ts"
+  },
+  "devDependencies": {
+    "@0no-co/graphql.web": "^1.3.4",
+    "@aboviq/bun-test-cucumber": "^0.2.0",
+    "@archont561/bun-test-utils": "^0.2.0",
+    "@asamarts/alint": "^0.22.0",
+    "@ast-grep/cli": "^0.51.2",
+    "@biomejs/biome": "^2.6.6",
+    "@commitlint/cli": "^21.2.4",
+    "@commitlint/config-conventional": "^21.2.4",
+    "@eugeniughelbur/agents-md": "^0.2.0",
+    "@hey-api/openapi-ts": "^0.99.0",
+    "@secretlint/secretlint-rule-preset-recommend": "^13.1.0",
+    "@types/bun": "latest",
+    "@types/ejs": "^3.1.5",
+    "@vvago/vale": "^3.25.1",
+    "badge-maker": "^6.0.0",
+    "citty": "^0.2.2",
+    "dependency-cruiser": "^18.7.2",
+    "ejs": "^7.0.2",
+    "fast-check": "^4.10.2",
+    "figlet": "^1.12.0",
+    "gql.tada": "^1.11.4",
+    "knip": "^6.45.1",
+    "lefthook": "^2.2.2",
+    "secretlint": "^13.1.0",
+    "simple-icons": "^16.37.0",
+    "typescript": "^6.0.3"
+  },
+  "trustedDependencies": [
+    "@asamarts/alint",
+    "@ast-grep/cli",
+    "@vvago/vale",
+    "lefthook"
+  ]
+}

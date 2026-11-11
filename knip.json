@@ -1,0 +1,18 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema.json",
+  "entry": ["tools/commands/*.ts", "tools/tests/**/*.test.ts"],
+  "project": ["tools/**/*.ts"],
+  "ignore": ["tools/lib/capture/clients/**"],
+  "ignoreExportsUsedInFile": true,
+  "ignoreDependencies": [
+    "@asamarts/alint",
+    "@ast-grep/cli",
+    "@biomejs/biome",
+    "@commitlint/cli",
+    "@eugeniughelbur/agents-md",
+    "@secretlint/secretlint-rule-preset-recommend",
+    "@vvago/vale",
+    "dependency-cruiser",
+    "secretlint"
+  ]
+}

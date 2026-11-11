@@ -1,0 +1,437 @@
+{
+  "name": "Archont561",
+  "tagline": [
+    "Geospatial tooling, made boring on purpose: locked environments, tested harnesses,",
+    "agent-readable docs, and the repo management that keeps them honest."
+  ],
+  "accounts": {
+    "github": "Archont561",
+    "npmScope": "archont561",
+    "pypi": "Archont561",
+    "crates": "Archont561",
+    "nuget": "Archont561",
+    "maven": "io.github.archont561",
+    "rUniverse": "archont561",
+    "condaChannels": ["archont561/archont561", "archont561/geospatial"]
+  },
+  "banner": {
+    "text": "Archont561",
+    "font": "ANSI Shadow",
+    "title": "archont561@github: ~"
+  },
+  "portfolio": {
+    "url": "https://archont561.github.io/",
+    "label": "archont561.github.io",
+    "repo": "https://github.com/Archont561/archont561.github.io",
+    "pitch": "the portfolio is the entry point to every project, its field notes, and its packages.",
+    "portal": {
+      "kicker": "START HERE",
+      "cta": "enter portfolio →",
+      "alt": "Enter the portfolio at archont561.github.io: field notes, packages, search, and an agent-readable index",
+      "routes": [
+        {
+          "path": "/docs/",
+          "text": "field notes for every project"
+        },
+        {
+          "path": "/packages/",
+          "text": "{packages} released across {registries} registries"
+        },
+        {
+          "path": "/search/",
+          "text": "search projects, notes and packages"
+        },
+        {
+          "path": "/llms.txt",
+          "text": "agent-readable index of it all"
+        }
+      ]
+    },
+    "cards": {
+      "all": {
+        "name": "Every project",
+        "path": "docs",
+        "description": "Field notes, architecture and install guides for all {repos} repositories, plus search and llms.txt.",
+        "kind": "portfolio",
+        "stack": ["/docs/", "/search/", "/llms.txt"],
+        "cta": "archont561.github.io"
+      }
+    }
+  },
+  "badges": {
+    "nav": [
+      {
+        "id": "nav-portfolio",
+        "label": "portfolio",
+        "message": "start here",
+        "color": "#B9794D",
+        "logo": "qgis",
+        "url": "https://archont561.github.io/",
+        "alt": "Portfolio: start here"
+      },
+      {
+        "id": "nav-docs",
+        "label": "field notes",
+        "message": "docs",
+        "color": "#648b63",
+        "logo": "readthedocs",
+        "url": "https://archont561.github.io/docs/",
+        "alt": "Field notes"
+      },
+      {
+        "id": "nav-packages",
+        "label": "packages",
+        "message": "{packages} published",
+        "color": "#355b42",
+        "logo": "anaconda",
+        "url": "https://archont561.github.io/packages/",
+        "alt": "Packages: {packages} published"
+      },
+      {
+        "id": "nav-github",
+        "label": "github",
+        "message": "{repos} repos",
+        "color": "#355b42",
+        "logo": "github",
+        "url": "https://github.com/Archont561?tab=repositories",
+        "alt": "GitHub: {repos} repositories"
+      },
+      {
+        "id": "nav-llms",
+        "label": "llms.txt",
+        "message": "agent index",
+        "color": "#8FA17D",
+        "logo": "markdown",
+        "url": "https://archont561.github.io/llms.txt",
+        "alt": "llms.txt: agent-readable index"
+      }
+    ],
+    "registries": {
+      "npm": {
+        "logo": "npm",
+        "color": "#CB3837"
+      },
+      "pypi": {
+        "logo": "pypi",
+        "color": "#3775A9"
+      },
+      "crates": {
+        "logo": "rust",
+        "color": "#B9794D"
+      },
+      "nuget": {
+        "logo": "nuget",
+        "color": "#004880"
+      },
+      "maven": {
+        "logo": "apachemaven",
+        "color": "#C71A36"
+      },
+      "r-universe": {
+        "logo": "r",
+        "color": "#276DC3"
+      },
+      "conda": {
+        "logo": "anaconda",
+        "color": "#44A833"
+      }
+    },
+    "connect": [
+      {
+        "id": "connect-portfolio",
+        "label": "portfolio",
+        "message": "archont561.github.io",
+        "color": "#B9794D",
+        "logo": "qgis",
+        "url": "https://archont561.github.io/",
+        "alt": "Portfolio: archont561.github.io"
+      },
+      {
+        "id": "connect-packages",
+        "label": "package directory",
+        "message": "versions & installs",
+        "color": "#355b42",
+        "logo": "anaconda",
+        "url": "https://archont561.github.io/packages/",
+        "alt": "Package directory"
+      },
+      {
+        "id": "connect-github",
+        "label": "github",
+        "message": "Archont561",
+        "color": "#355b42",
+        "logo": "github",
+        "url": "https://github.com/Archont561",
+        "alt": "GitHub: Archont561"
+      },
+      {
+        "id": "connect-issues",
+        "label": "contact",
+        "message": "open an issue",
+        "color": "#648b63",
+        "logo": "github",
+        "url": "https://github.com/Archont561?tab=repositories",
+        "alt": "Contact: open an issue in the project repository"
+      }
+    ]
+  },
+  "health": {
+    "live": [
+      {
+        "alt": "CI",
+        "src": "https://github.com/Archont561/Archont561/actions/workflows/ci.yml/badge.svg?branch=main",
+        "url": "https://github.com/Archont561/Archont561/actions/workflows/ci.yml"
+      },
+      {
+        "alt": "Codecov coverage",
+        "src": "https://codecov.io/gh/Archont561/Archont561/graph/badge.svg",
+        "url": "https://codecov.io/gh/Archont561/Archont561"
+      },
+      {
+        "alt": "Profile refresh",
+        "src": "https://github.com/Archont561/Archont561/actions/workflows/refresh.yml/badge.svg?branch=main",
+        "url": "https://github.com/Archont561/Archont561/actions/workflows/refresh.yml"
+      }
+    ],
+    "badges": [
+      {
+        "id": "health-coverage",
+        "label": "coverage gate",
+        "message": "≥ {coverage}%",
+        "color": "#355b42",
+        "logo": "codecov",
+        "url": "https://github.com/Archont561/Archont561/blob/main/codecov.yml",
+        "alt": "Coverage gate: at least {coverage}%"
+      },
+      {
+        "id": "health-clean-code",
+        "label": "clean code",
+        "message": "PCC {pcc} pedantic",
+        "color": "#B9794D",
+        "url": "https://github.com/Archont561/Archont561/blob/main/docs/concepts/rule-register.md",
+        "alt": "polyglot-clean-code {pcc} presets"
+      },
+      {
+        "id": "health-biome",
+        "label": "lint",
+        "message": "biome",
+        "color": "#648b63",
+        "logo": "biome",
+        "url": "https://github.com/Archont561/Archont561/blob/main/biome.json",
+        "alt": "Linted and formatted with Biome"
+      },
+      {
+        "id": "health-commits",
+        "label": "commits",
+        "message": "conventional",
+        "color": "#648b63",
+        "logo": "conventionalcommits",
+        "url": "https://github.com/Archont561/Archont561/blob/main/.commitlintrc.json",
+        "alt": "Conventional Commits enforced by commitlint"
+      },
+      {
+        "id": "health-hooks",
+        "label": "hooks",
+        "message": "lefthook",
+        "color": "#8FA17D",
+        "logo": "lefthook",
+        "url": "https://github.com/Archont561/Archont561/blob/main/lefthook.yml",
+        "alt": "Git hooks by lefthook"
+      },
+      {
+        "id": "health-bun",
+        "label": "bun",
+        "message": "{bun}",
+        "color": "#8FA17D",
+        "logo": "bun",
+        "url": "https://github.com/Archont561/Archont561/blob/main/package.json",
+        "alt": "Bun {bun}"
+      },
+      {
+        "id": "health-license",
+        "label": "license",
+        "message": "MIT",
+        "color": "#355b42",
+        "logo": "opensourceinitiative",
+        "url": "https://github.com/Archont561/Archont561/blob/main/LICENSE",
+        "alt": "MIT license"
+      }
+    ]
+  },
+  "profile": {
+    "role": "Student · open-source contributor",
+    "focus": ["Geospatial systems", "Reproducible environments", "Testing infrastructure", "Repo management"],
+    "principle": "Lock it, test it, document it, then ship it.",
+    "reviewStyle": "Reproducible or it did not happen."
+  },
+  "toolbox": [
+    {
+      "icon": "🔒",
+      "title": "Reproducibility",
+      "text": "Pixi and Conda lockfiles · conda-forge style recipes · SHA-pinned GitHub Actions"
+    },
+    {
+      "icon": "🧪",
+      "title": "Testing",
+      "text": "pytest-bdd and Gherkin specs in every repository · typed Bun test extensions"
+    },
+    {
+      "icon": "🗺️",
+      "title": "Geospatial",
+      "text": "QGIS runtime and SDK tooling · point-cloud and ODM packaging"
+    },
+    {
+      "icon": "🧭",
+      "title": "Repo management",
+      "text": "dependency automation, link and structure gates, deliberate archives"
+    },
+    {
+      "icon": "📝",
+      "title": "Docs as code",
+      "text": "Fumadocs with `llms.txt` and parallel `.md` routes for agents"
+    },
+    {
+      "icon": "🤝",
+      "title": "Contribution",
+      "text": "issue-first, changelog-per-release, no push without a green gate"
+    }
+  ],
+  "projects": [
+    {
+      "name": "qgis-sdk",
+      "url": "https://github.com/Archont561/qgis-sdk",
+      "description": "Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins.",
+      "docs": "https://archont561.github.io/docs/projects/qgis-sdk/",
+      "kind": "geospatial",
+      "featured": true
+    },
+    {
+      "name": "qgis-agent-harness",
+      "url": "https://github.com/Archont561/qgis-agent-harness",
+      "description": "Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle.",
+      "docs": "https://archont561.github.io/docs/projects/qgis-agent-harness/",
+      "kind": "geospatial",
+      "featured": true
+    },
+    {
+      "name": "pixi-sandbox",
+      "url": "https://github.com/Archont561/pixi-sandbox",
+      "description": "Cloneable, verifiable environment packs for Pixi projects.",
+      "docs": "https://archont561.github.io/docs/projects/pixi-sandbox/",
+      "kind": "environments",
+      "featured": true
+    },
+    {
+      "name": "bun-test-utils",
+      "url": "https://github.com/Archont561/bun-test-utils",
+      "description": "Typed fixtures and test extensions for the Bun test runner.",
+      "docs": "https://archont561.github.io/docs/projects/bun-test-utils/",
+      "kind": "testing",
+      "featured": true
+    },
+    {
+      "name": "playtest",
+      "url": "https://github.com/Archont561/playtest",
+      "description": "Playwright-style testing for Rust.",
+      "docs": "https://archont561.github.io/docs/projects/playtest/",
+      "kind": "testing",
+      "featured": true
+    },
+    {
+      "name": "universe",
+      "url": "https://github.com/Archont561/universe",
+      "description": "Rust toolkit for self-hosted universes of software, data, models, and skills.",
+      "docs": "https://archont561.github.io/docs/projects/universe/",
+      "kind": "environments"
+    },
+    {
+      "name": "PyShellForge",
+      "url": "https://github.com/Archont561/PyShellForge",
+      "description": "Python DSL and AST-based compiler that emits clean, readable shell scripts.",
+      "docs": "https://archont561.github.io/docs/projects/pyshellforge/",
+      "kind": "compilers"
+    },
+    {
+      "name": "ODM-conda",
+      "url": "https://github.com/Archont561/ODM-conda",
+      "description": "Modular, Pixi-managed conda packaging for OpenDroneMap components.",
+      "docs": "https://archont561.github.io/docs/projects/odm-conda/",
+      "kind": "packaging"
+    },
+    {
+      "name": "CloudCompare-conda",
+      "url": "https://github.com/Archont561/CloudCompare-conda",
+      "description": "Cross-platform Conda packaging for point-cloud and mesh processing.",
+      "docs": "https://archont561.github.io/docs/projects/cloudcompare-conda/",
+      "kind": "packaging"
+    }
+  ],
+  "contributionLog": [
+    {
+      "status": "ACTIVE",
+      "icon": "🗺️",
+      "text": "Packaging: cross-platform Conda recipes for geospatial pipelines."
+    },
+    {
+      "status": "ACTIVE",
+      "icon": "🧪",
+      "text": "Testing: typed fixtures and BDD harnesses for Bun and pytest."
+    },
+    {
+      "status": "ACTIVE",
+      "icon": "📚",
+      "text": "Docs: agent-readable exports (llms.txt and `.md` routes) on the portfolio."
+    },
+    {
+      "status": "OPEN",
+      "icon": "📦",
+      "text": "Upstreaming: geospatial recipes toward conda-forge, one PR at a time."
+    },
+    {
+      "status": "OPEN",
+      "icon": "🧹",
+      "text": "Hygiene: keep every repository titled, licensed, and CI-gated."
+    },
+    {
+      "status": "DONE",
+      "icon": "📐",
+      "text": "Split repository-scoped detail out of this profile README."
+    },
+    {
+      "status": "WONT",
+      "icon": "",
+      "text": "Résumé claims, availability statements, or animated stat widgets."
+    }
+  ],
+  "principles": {
+    "command": "./principles --show",
+    "alt": "./principles --show: lock it, test it, document it, ship it, and let a machine enforce the rules.",
+    "lines": [
+      {
+        "key": "lock",
+        "rule": "same lockfile, same result",
+        "detail": "Pixi + Conda lockfiles, SHA-pinned actions"
+      },
+      {
+        "key": "test",
+        "rule": "test behaviour, not lines",
+        "detail": "Gherkin specs, property tests, a 90% floor"
+      },
+      {
+        "key": "document",
+        "rule": "docs ship with the code",
+        "detail": "llms.txt and .md routes for agents"
+      },
+      {
+        "key": "ship",
+        "rule": "small commits, green gate first",
+        "detail": "conventional commits, no force-push"
+      },
+      {
+        "key": "enforce",
+        "rule": "if a machine can check it, it does",
+        "detail": "ast-grep, Alint, Vale, commitlint"
+      }
+    ]
+  }
+}

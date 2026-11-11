@@ -1,0 +1,33 @@
+<%# Rendered into docs/README.md by `bun run tools readme` (tools/lib/render/docs.ts).
+    Documents and commands are discovered; edit their own files, not the index. -%>
+<!-- Generated from templates/docs.ejs by `bun run tools readme`. Do not edit by hand. -->
+
+# Documentation
+
+Development documentation for the Archont561 profile repository. The profile itself is
+rendered into the root `README.md`; the portfolio at
+[archont561.github.io](https://archont561.github.io/) is the entry point for every project.
+<% sections.forEach(section => { %>
+## <%= section.title %>
+
+| Document | Purpose |
+| --- | --- |
+<% section.docs.forEach(doc => { -%>
+| [<%= doc.title %>](<%= doc.path %>) | <%- doc.summary %> |
+<% }); -%>
+<% }); %>
+## Commands
+
+Every command is `bun run tools <name>`, the repository's only automation entrypoint. The table lists what
+`tools/index.ts` discovers in `tools/commands/`; `bun run tools <name> --help` shows the flags.
+
+| Command | What it does |
+| --- | --- |
+<% commands.forEach(command => { -%>
+| `<%= command.name %>` | <%- command.description %> |
+<% }); -%>
+
+## For agents
+
+[AGENTS.md](../AGENTS.md) holds the guidance for AI coding agents: commands, structure,
+conventions, and hard-won lessons.

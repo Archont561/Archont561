@@ -1,0 +1,312 @@
+# yaml-language-server: $schema=https://alint.org/_alint/configuration/schema.json
+#
+# Local Alint config adapted from vendor/clean-code-presets/alint/{strict,pedantic}.yml
+# (polyglot-clean-code v0.1.0), as docs/guides/adopting-presets.md path 2 describes.
+# Canonical PCC IDs and messages are kept; deviations are recorded in
+# docs/concepts/rule-register.md. Never edit the vendored presets.
+version: 1
+rules:
+  # PCC-R02 — automation lives under tools/ (entry tools/index.ts, commands in tools/commands/);
+  # workflows call it in single-line run steps. There is no scripts directory.
+  - id: pcc-r02-tools-entrypoint
+    kind: file_exists
+    paths: tools/index.ts
+    level: error
+    message: "[PCC-R02] Keep automation in tools/commands/*.ts behind `bun run tools <cmd>` and single-line workflow run steps."
+  - id: pcc-r02-no-scripts-dir
+    kind: file_absent
+    paths: scripts/**
+    level: error
+    message: "[PCC-R02] Keep automation in tools/commands/*.ts behind `bun run tools <cmd>` and single-line workflow run steps."
+  - id: pcc-r02-workflow-run-single-line
+    kind: yaml_path_matches
+    paths: .github/workflows/*.yml
+    path: $.jobs.*.steps[*].run
+    matches: ^bun (install --frozen-lockfile|run tools [a-z-]+.*)$
+    if_present: true
+    level: error
+    message: "[PCC-R02] Keep automation in tools/commands/*.ts behind `bun run tools <cmd>` and single-line workflow run steps."
+  # `tools` is the only package.json script: `bun run tools <cmd>` is the single automation
+  # entrypoint, with no per-command aliases or lifecycle scripts. Git hooks are installed by
+  # lefthook's own postinstall, which is why lefthook is a trusted dependency.
+  - id: tools-single-script
+    kind: json_path_equals
+    paths: package.json
+    path: $.scripts
+    equals:
+      tools: bun tools/index.ts
+    level: error
+    message: 'package.json has exactly one script, `"tools": "bun tools/index.ts"`; add automation as tools/commands/<name>.ts instead of a script.'
+  - id: tools-hooks-installed-by-lefthook
+    kind: json_path_equals
+    paths: package.json
+    path: $.trustedDependencies[?(@ == 'lefthook')]
+    equals: lefthook
+    level: error
+    message: "Keep lefthook in trustedDependencies: its postinstall installs the git hooks now that package.json has no prepare script."
+
+  # Pull request titles become squash commits, so pull-request.yml lints them with commitlint
+  # (through env, never shell interpolation) and re-runs when a title is edited.
+  - id: pr-title-linted
+    kind: file_content_matches
+    paths: .github/workflows/pull-request.yml
+    pattern: 'run: bun run tools commitlint --message "\$PR_TITLE"\s*\n\s*env:\s*\n\s*PR_TITLE: \$\{\{ github\.event\.pull_request\.title \}\}'
+    level: error
+    message: 'pull-request.yml must lint the PR title: `bun run tools commitlint --message "$PR_TITLE"` with PR_TITLE from env.'
+  - id: pr-title-edited-trigger
+    kind: file_content_matches
+    paths: .github/workflows/pull-request.yml
+    pattern: 'types: \[[^\]]*\bedited\b[^\]]*\]'
+    level: error
+    message: "pull-request.yml must trigger on `edited`, or a PR renamed after opening is never linted."
+
+  # PCC-R03 — pinned Bun CLIs, hooks, and commit configuration.
+  - id: pcc-r03-package-manifest
+    kind: file_exists
+    paths: package.json
+    level: error
+    message: "[PCC-R03] Pin Bun developer CLIs, hooks and Conventional Commit configuration."
+  - id: pcc-r03-bun-lock
+    kind: file_exists
+    paths: bun.lock
+    level: error
+    message: "[PCC-R03] Pin Bun developer CLIs, hooks and Conventional Commit configuration."
+  - id: pcc-r03-hooks
+    kind: file_exists
+    paths: lefthook.yml
+    level: error
+    message: "[PCC-R03] Pin Bun developer CLIs, hooks and Conventional Commit configuration."
+  # Toolchain: pixi provides Bun, actionlint, zizmor and lychee; it is not a second
+  # automation entry point, and workflows install the toolchain from the lock with it.
+  - id: pixi-manifest
+    kind: file_exists
+    paths: pixi.toml
+    level: error
+    message: "pixi.toml provides the toolchain (bun, actionlint, zizmor, lychee)."
+  - id: pixi-lock
+    kind: file_exists
+    paths: pixi.lock
+    level: error
+    message: "Commit pixi.lock so `pixi install --locked` and CI resolve the same toolchain."
+  - id: pixi-no-tasks
+    kind: file_content_forbidden
+    paths: pixi.toml
+    pattern: '(?m)^\[(?:[a-z0-9.-]+\.)?tasks\]'
+    level: error
+    message: "pixi.toml has no tasks: automation lives behind `bun run tools <cmd>`."
+  - id: workflows-use-pixi
+    kind: file_content_forbidden
+    paths: .github/workflows/*.yml
+    pattern: "oven-sh/setup-bun"
+    level: error
+    message: "Workflows install Bun and the maintenance tools with prefix-dev/setup-pixi from pixi.lock."
+  - id: workflows-pixi-locked
+    kind: file_content_matches
+    paths: .github/workflows/*.yml
+    pattern: 'prefix-dev/setup-pixi@[0-9a-f]{40} # v[\d.]+\n\s+with:\n\s+pixi-version: v[\d.]+\n\s+locked: true\n\s+activate-environment: true'
+    level: error
+    message: "setup-pixi must be SHA-pinned, pin pixi-version, install --locked, and activate the environment."
+  - id: workflows-pixi-never-unlocked
+    kind: file_content_forbidden
+    paths: .github/workflows/*.yml
+    pattern: '(?m)^\s+(?:locked|activate-environment): false'
+    level: error
+    message: "Every setup-pixi step installs --locked and activates the environment."
+  - id: pixi-bun-pinned
+    kind: toml_path_matches
+    paths: pixi.toml
+    path: $.dependencies.bun
+    matches: ^==1\.4\.\d+$
+    level: error
+    message: "[PCC-R03] pixi.toml pins Bun exactly, to the same 1.4.x as package.json packageManager."
+
+  # Maintenance checks (bun run tools lint / links) and their configs.
+  - id: maintenance-knip-config
+    kind: file_exists
+    paths: knip.json
+    level: error
+    message: "knip runs from `bun run tools` with knip.json; keep it."
+  - id: maintenance-depcruise-config
+    kind: file_exists
+    paths: .dependency-cruiser.json
+    level: error
+    message: "dependency-cruiser runs from `bun run tools` with .dependency-cruiser.json; keep it."
+  - id: maintenance-secretlint-config
+    kind: file_exists
+    paths: .secretlintrc.json
+    level: error
+    message: "secretlint runs from `bun run tools` with .secretlintrc.json; keep it."
+  - id: maintenance-lychee-config
+    kind: file_exists
+    paths: lychee.toml
+    level: error
+    message: "lychee runs from `bun run tools` with lychee.toml; keep it."
+  - id: renovate-release-age
+    kind: json_path_equals
+    paths: renovate.json
+    path: $.minimumReleaseAge
+    equals: "7 days"
+    level: error
+    message: "Renovate waits seven days before proposing a release: most hijacked packages are pulled within days."
+  - id: renovate-pins-action-digests
+    kind: file_content_matches
+    paths: renovate.json
+    pattern: '"helpers:pinGitHubActionDigests"'
+    level: error
+    message: "[PCC-R05] Renovate keeps GitHub Actions pinned to commit SHAs."
+  - id: renovate-only-bot
+    kind: file_absent
+    paths: .github/dependabot.yml
+    level: error
+    message: "Renovate updates bun.lock, pixi.lock and actions; a second bot would open duplicate PRs."
+  - id: pcc-r03-commitlint
+    kind: file_exists
+    paths: .commitlintrc.json
+    level: error
+    message: "[PCC-R03] Pin Bun developer CLIs, hooks and Conventional Commit configuration."
+  - id: pcc-r03-bun-package-manager
+    kind: json_path_matches
+    paths: package.json
+    path: $.packageManager
+    matches: ^bun@1\.4\.\d+$
+    level: error
+    message: "[PCC-R03] Pin Bun developer CLIs, hooks and Conventional Commit configuration."
+
+  # PCC-R04 — maintained documentation entrypoints. No CONTRIBUTING.md: this is a personal
+  # repository without outside contributors (see the rule register).
+  - id: pcc-r04-readme
+    kind: file_exists
+    paths: README.md
+    level: error
+    message: "[PCC-R04] Maintain README, AGENTS, contributing guidance, a documentation index, and a rule register."
+  - id: pcc-r04-agents
+    kind: file_exists
+    paths: AGENTS.md
+    level: error
+    message: "[PCC-R04] Maintain README, AGENTS, contributing guidance, a documentation index, and a rule register."
+  - id: pcc-r04-docs-index
+    kind: file_exists
+    paths: docs/README.md
+    level: error
+    message: "[PCC-R04] Maintain README, AGENTS, contributing guidance, a documentation index, and a rule register."
+  - id: pcc-r04-development-guide
+    kind: file_exists
+    paths: docs/guides/development-setup.md
+    level: error
+    message: "[PCC-R04] Maintain README, AGENTS, contributing guidance, a documentation index, and a rule register."
+  - id: pcc-r04-rule-register
+    kind: file_exists
+    paths: docs/concepts/rule-register.md
+    level: error
+    message: "[PCC-R04] Maintain README, AGENTS, contributing guidance, a documentation index, and a rule register."
+
+  # Generated files: each rendered file needs its template and keeps the generated header, and
+  # GitHub's other pull request template locations stay empty so templates/pr.ejs is the only source.
+  - id: generated-pr-template-source
+    kind: file_exists
+    paths: templates/pr.ejs
+    level: error
+    message: "The pull request template is rendered from templates/pr.ejs by `bun run tools readme`."
+  - id: generated-pr-template-header
+    kind: file_header
+    paths: .github/PULL_REQUEST_TEMPLATE.md
+    lines: 1
+    pattern: "^<!-- Generated from templates/pr\\.ejs by `bun run tools readme`\\. Do not edit by hand\\. -->"
+    level: error
+    message: "Render .github/PULL_REQUEST_TEMPLATE.md from templates/pr.ejs with `bun run tools readme`; do not write it by hand."
+  - id: generated-pr-template-single-location
+    kind: file_absent
+    paths:
+      - pull_request_template.md
+      - PULL_REQUEST_TEMPLATE.md
+      - docs/pull_request_template.md
+      - docs/PULL_REQUEST_TEMPLATE.md
+      - .github/pull_request_template.md
+      - .github/PULL_REQUEST_TEMPLATE/**
+      - .github/pull_request_template/**
+    level: error
+    message: "Only .github/PULL_REQUEST_TEMPLATE.md, rendered from templates/pr.ejs, may define a pull request template."
+  - id: generated-docs-index-source
+    kind: file_exists
+    paths: templates/docs.ejs
+    level: error
+    message: "docs/README.md is rendered from templates/docs.ejs by `bun run tools readme`."
+  - id: generated-docs-index-header
+    kind: file_header
+    paths: docs/README.md
+    lines: 1
+    pattern: "^<!-- Generated from templates/docs\\.ejs by `bun run tools readme`\\. Do not edit by hand\\. -->"
+    level: error
+    message: "Render docs/README.md from templates/docs.ejs with `bun run tools readme`; do not write it by hand."
+
+  # PCC-R05 — least-privilege CI and SHA-pinned actions. Issue forms are deliberately absent:
+  # this is a development-only repository with no user-facing product (see the rule register).
+  - id: pcc-r05-workflow-contents-read
+    kind: yaml_path_equals
+    paths: .github/workflows/*.yml
+    path: $.permissions.contents
+    equals: read
+    level: error
+    message: "[PCC-R05] Declare read-only workflow permissions and pin third-party actions to full commit SHAs."
+  - id: pcc-r05-pin-actions-to-sha
+    kind: yaml_path_matches
+    paths: .github/workflows/*.yml
+    path: $.jobs.*.steps[*].uses
+    matches: ^[a-zA-Z0-9._/-]+@[a-f0-9]{40}$
+    if_present: true
+    level: error
+    message: "[PCC-R05] Declare read-only workflow permissions and pin third-party actions to full commit SHAs."
+  - id: pcc-r05-pull-request-template
+    kind: file_exists
+    paths: .github/PULL_REQUEST_TEMPLATE.md
+    level: error
+    message: "[PCC-R05] Declare read-only workflow permissions and pin third-party actions to full commit SHAs."
+  - id: pcc-r05-no-issue-templates
+    kind: file_absent
+    paths: .github/ISSUE_TEMPLATE/**
+    level: error
+    message: "[PCC-R05] This development-only repository takes no issue forms; see docs/concepts/rule-register.md."
+
+  # PCC-R06 — no environment files, caches, or build output in the tree.
+  - id: pcc-r06-no-tracked-artifacts
+    kind: file_absent
+    paths:
+      - .env
+      - .DS_Store
+      - dist/**
+      - build/**
+      - .venv/**
+    level: error
+    message: "[PCC-R06] Keep environment files, dependency caches and build outputs out of the repository."
+
+  # PCC-R07 — every source module has a paired test (Pedantic), adapted to tools/:
+  # tools/lib/<dir>/<name>.ts → tools/tests/lib/<dir>/<name>.test.ts and
+  # tools/commands/<name>.ts → tools/tests/commands/<name>.test.ts. The depth-limited globs
+  # leave out the generated clients in tools/lib/capture/clients/ and the tools/index.ts entry.
+  - id: pcc-r07-lib-tests
+    kind: pair
+    primary: "tools/lib/*.ts"
+    partner: "tools/tests/lib/{stem}.test.ts"
+    level: error
+    message: "[PCC-R07] Every module needs a paired test at tools/tests/<same path under tools/>/<name>.test.ts."
+  - id: pcc-r07-lib-module-tests
+    kind: pair
+    primary: "tools/lib/*/*.ts"
+    partner: "tools/tests/lib/{parent_name}/{stem}.test.ts"
+    level: error
+    message: "[PCC-R07] Every module needs a paired test at tools/tests/<same path under tools/>/<name>.test.ts."
+  - id: pcc-r07-command-tests
+    kind: pair
+    primary: "tools/commands/*.ts"
+    partner: "tools/tests/commands/{stem}.test.ts"
+    level: error
+    message: "[PCC-R07] Every module needs a paired test at tools/tests/<same path under tools/>/<name>.test.ts."
+
+  # PCC-R08 — Conventional Commit types stay inside the approved vocabulary (Pedantic).
+  - id: pcc-r08-commit-types
+    kind: json_path_matches
+    paths: .commitlintrc.json
+    path: $.rules['type-enum'][2][*]
+    matches: ^(feat|fix|perf|docs|revert|refactor|test|build|ci|chore|style)$
+    level: error
+    message: "[PCC-R08] Keep Conventional Commit types and Backlog statuses inside their approved vocabularies."

@@ -1,0 +1,15 @@
+# Toolchain for this repository: Bun plus the maintenance binaries that ship no npm package.
+# Automation still lives behind `bun run tools <cmd>`; pixi only provides the executables,
+# so this file has no tasks. `pixi install` once, then use `pixi shell` (or rely on the
+# tools resolving .pixi/envs/default when the environment is not activated).
+[workspace]
+name = "archont561"
+channels = ["conda-forge"]
+platforms = ["linux-64", "linux-aarch64", "osx-64", "osx-arm64", "win-64"]
+
+[dependencies]
+# Must match package.json `packageManager` (a test keeps them equal).
+bun = "==1.4.2"
+actionlint = "==1.7.12"
+zizmor = "==1.32.0"
+lychee = "==0.24.2"
