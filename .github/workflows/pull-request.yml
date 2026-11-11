@@ -1,0 +1,42 @@
+name: Pull request
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pull-request-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  commits:
+    name: Conventional commits and title
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      # Bun, actionlint, zizmor and lychee from pixi.lock; the activated environment puts
+      # them on PATH for the single-line `bun run tools` steps below.
+      - uses: prefix-dev/setup-pixi@9936258fee697aff89b3fed6ca1f80a382ef694e # v0.11.3
+        with:
+          pixi-version: v0.84.2
+          locked: true
+          activate-environment: true
+          cache: true
+          cache-write: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      - run: bun install --frozen-lockfile
+      - run: bun run tools commitlint --from "$BASE_SHA" --to "$HEAD_SHA"
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      # The title becomes the squash-merge commit, so it follows the same rules.
+      - run: bun run tools commitlint --message "$PR_TITLE"
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}

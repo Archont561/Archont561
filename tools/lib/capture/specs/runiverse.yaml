@@ -1,0 +1,56 @@
+# R-universe publishes no OpenAPI description. This documents only the public,
+# unauthenticated endpoint `capture` reads; `bun run tools clients` generates
+# tools/lib/capture/clients/runiverse/ from it. Each universe is its own subdomain,
+# so calls pass `baseUrl: universeUrl(name)`. A universe with no built package
+# answers 404; the registered names then come from its registry repository on GitHub.
+openapi: 3.1.0
+info:
+  title: R-universe (subset used by tools/)
+  version: "1"
+servers:
+  - url: https://{universe}.r-universe.dev
+    variables:
+      universe:
+        default: archont561
+paths:
+  /api/packages:
+    get:
+      operationId: listUniversePackages
+      summary: Packages built in a universe
+      parameters:
+        - name: fields
+          in: query
+          description: Comma-separated DESCRIPTION and metadata fields to return.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: One entry per built package.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UniversePackage"
+        "404":
+          description: No package has been built in this universe yet.
+components:
+  schemas:
+    UniversePackage:
+      type: object
+      required: [Package, Version]
+      properties:
+        Package:
+          type: string
+        Version:
+          type: string
+        Title:
+          type: string
+        _published:
+          type: string
+        _registered:
+          type: boolean

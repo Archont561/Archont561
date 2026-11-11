@@ -1,0 +1,69 @@
+# The npm registry publishes no OpenAPI description. This documents only the two
+# public, unauthenticated endpoints `capture` reads; `bun run tools clients`
+# generates tools/lib/capture/clients/npm/ from it.
+openapi: 3.1.0
+info:
+  title: npm registry (subset used by tools/)
+  version: "1"
+servers:
+  - url: https://registry.npmjs.org
+paths:
+  /-/org/{scope}/package:
+    get:
+      operationId: listOrgPackages
+      summary: Packages owned by an npm organization
+      parameters:
+        - name: scope
+          in: path
+          required: true
+          description: Organization name without the leading @.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Package names mapped to the organization's access level.
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /{name}:
+    get:
+      operationId: getPackument
+      summary: Package metadata document
+      parameters:
+        - name: name
+          in: path
+          required: true
+          description: Package name; a scoped name is sent percent-encoded.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The packument.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Packument"
+components:
+  schemas:
+    Packument:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        dist-tags:
+          type: object
+          properties:
+            latest:
+              type: string
+          additionalProperties:
+            type: string
+        time:
+          type: object
+          description: Publication timestamps keyed by version, plus created and modified.
+          additionalProperties:
+            type: string

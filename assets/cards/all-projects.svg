@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="178" viewBox="0 0 420 178" role="img" aria-labelledby="t d">
+<title id="t">Every project (archont561.github.io)</title>
+<desc id="d">Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt. Stack: /docs/, /search/, /llms.txt.</desc>
+<style>
+text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;white-space:pre}
+.rise{opacity:0;animation:rise .6s ease-out forwards}
+@keyframes rise{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.spot{opacity:0;animation:spot 18s ease-in-out 15s infinite}
+@keyframes spot{0%{opacity:0}5%{opacity:.75}11.67%{opacity:.75}16.67%{opacity:0}100%{opacity:0}}
+.sheen{transform:translateX(-160px);animation:sheen 18s ease-in-out 15s infinite}
+@keyframes sheen{0%{transform:translateX(-160px)}16.67%{transform:translateX(460px)}100%{transform:translateX(460px)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}.spot{opacity:0!important}.rise,.line{opacity:1!important;transform:none!important}.cover{display:none}}
+</style>
+<defs>
+<filter id="glow" x="-10%" y="-20%" width="120%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
+<clipPath id="shape"><rect x="9" y="9" width="402" height="160" rx="12"/></clipPath>
+<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+</defs>
+<rect class="spot" x="9" y="9" width="402" height="160" rx="12" fill="none" stroke="#B9794D" stroke-width="3" filter="url(#glow)"/>
+<rect x="9" y="9" width="402" height="160" rx="12" fill="#1d2921" stroke="#34453a"/>
+<rect class="spot" x="9" y="9" width="402" height="160" rx="12" fill="none" stroke="#B9794D" stroke-width="1.2"/>
+<g clip-path="url(#shape)"><rect class="sheen" x="0" y="0" width="120" height="178" fill="url(#sh)" transform="skewX(-18)"/></g>
+<g class="rise" style="animation-delay:0.75s"><text x="27" y="35" font-size="11" fill="#a5b4a9"><tspan fill="#648b63">~/archont561/</tspan>docs</text>
+<text x="393" y="35" font-size="10.5" text-anchor="end" fill="#B9794D" letter-spacing="1.5">PORTFOLIO</text></g>
+<g class="rise" style="animation-delay:0.87s"><text x="27" y="67" font-size="21" font-weight="700" fill="#e4ece5">Every project</text></g>
+<g class="rise" style="animation-delay:0.99s"><text x="27" y="93" font-size="12.5" fill="#a5b4a9">Field notes, architecture and install guides</text><text x="27" y="111" font-size="12.5" fill="#a5b4a9">for all 23 repositories, plus search and…</text></g>
+<g class="rise" style="animation-delay:1.11s"><g transform="translate(27 129)"><rect width="55.6" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text x="27.8" y="14" text-anchor="middle" font-size="11" fill="#a2c7ab">/docs/</text></g><g transform="translate(88.6 129)"><rect width="68.8" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text x="34.4" y="14" text-anchor="middle" font-size="11" fill="#a2c7ab">/search/</text></g></g>
+<g class="rise" style="animation-delay:1.23s"><text x="393" y="144" font-size="12" text-anchor="end" fill="#a2c7ab">archont561.github.io <tspan fill="#B9794D">→</tspan></text></g>
+</svg>

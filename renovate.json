@@ -1,0 +1,51 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Replaces Dependabot: one bot for bun.lock, pixi.lock and the pinned GitHub Actions.",
+  "extends": ["config:recommended", "helpers:pinGitHubActionDigests", ":semanticCommits"],
+  "timezone": "Europe/Warsaw",
+  "schedule": ["before 6am on monday"],
+  "minimumReleaseAge": "7 days",
+  "internalChecksFilter": "strict",
+  "prConcurrentLimit": 5,
+  "packageRules": [
+    {
+      "description": "Commit types follow .commitlintrc.json: workflows are ci, everything else is build.",
+      "matchManagers": ["github-actions"],
+      "semanticCommitType": "ci"
+    },
+    {
+      "matchManagers": ["bun", "npm", "pixi"],
+      "semanticCommitType": "build"
+    },
+    {
+      "description": "conda-forge trails upstream Bun: packageManager follows pixi.toml by hand, and a test enforces that they match.",
+      "matchDepTypes": ["packageManager"],
+      "matchDepNames": ["bun"],
+      "enabled": false
+    },
+    {
+      "description": "Pixi tools: Bun, actionlint, zizmor and lychee from conda-forge.",
+      "matchManagers": ["pixi"],
+      "groupName": "pixi tools"
+    },
+    {
+      "matchPackageNames": [
+        "@biomejs/**",
+        "@ast-grep/**",
+        "@asamarts/alint",
+        "@vvago/vale",
+        "@commitlint/**",
+        "@secretlint/**",
+        "secretlint",
+        "knip",
+        "dependency-cruiser",
+        "lefthook"
+      ],
+      "groupName": "linters"
+    },
+    {
+      "matchPackageNames": ["ejs", "figlet", "badge-maker", "simple-icons"],
+      "groupName": "render"
+    }
+  ]
+}

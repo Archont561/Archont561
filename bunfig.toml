@@ -1,0 +1,18 @@
+[test]
+root = "tools/tests"
+# bun-test-utils first (added by `test-utils init`), then the repo's fast-check defaults.
+preload = ["./node_modules/@archont561/bun-test-utils/dist/plugin.js", "./tools/tests/setup.ts"]
+coverageReporter = ["text", "lcov"]
+coverageDir = "coverage"
+# Mirrors codecov.yml: CI and Codecov enforce the same 90% floor.
+coverageThreshold = { lines = 0.9, functions = 0.9 }
+coverageSkipTestFiles = true
+# Generated registry clients are excluded; tools/lib/capture/clients.ts binds them and is covered.
+# Command modules written to tmpdir by the discovery tests are not repository code.
+coveragePathIgnorePatterns = [
+  "tools/tests/**",
+  "tools/lib/capture/clients/**",
+  "node_modules/**",
+  "vendor/**",
+  "**/bun-test-utils-tmp-*/**",
+]

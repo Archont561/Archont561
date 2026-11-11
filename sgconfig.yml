@@ -1,0 +1,5 @@
+# ast-grep reads the vendored polyglot-clean-code Pedantic rules in place.
+# TypeScript rules in effect: PCC-S01 console.log, PCC-S05 nested ternary,
+# PCC-S06 process.env outside config/, PCC-S07 empty catch.
+ruleDirs:
+  - vendor/clean-code-presets/ast-grep/pedantic/rules

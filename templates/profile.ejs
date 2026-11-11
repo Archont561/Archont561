@@ -1,0 +1,183 @@
+<%_
+  const pad = (value, width) => String(value).padEnd(width);
+  const counted = registries.filter((r) => !r.id.startsWith('conda-'));
+  const channels = registries.filter((r) => r.id.startsWith('conda-'));
+  const sources = [...new Set(registries.map((r) => r.id.startsWith('conda-') ? 'prefix.dev' : r.label))];
+  const sourceList = sources.slice(0, -1).join(', ') + ', and ' + sources.at(-1);
+  const labelWidth = Math.max(...registries.map((r) => r.label.length)) + 2;
+  const accountWidth = Math.max(...registries.map((r) => r.account.length)) + 3;
+  const universe = registries.find((r) => r.id === 'r-universe');
+_%>
+[![<%= portfolio.portal.alt %>](assets/portal.svg)](<%= portfolio.url %>)
+
+<div align="center">
+
+<% badges.nav.forEach(b => { %><%- md(b) %>
+<% }); %>
+</div>
+
+## `> ./principles --show`
+
+[![<%= principles.alt %>](<%= principlesSrc %>)](<%= portfolio.url %>docs/)
+
+I build open-source tools that make geospatial and scientific software reproducible,
+and I care most about the unglamorous part: the lockfile, the test harness, the CI gate,
+the review comment. Everything here is a public fact about the code — this profile
+publishes no name, location, employer, availability, or proficiency score.
+
+```ts
+const archont561: Profile = {
+  name: "<%= name %>",
+  role: "<%= profile.role %>",
+  focus: [<%- profile.focus.map(f => `"${f}"`).join(', ') %>],
+  principle: "<%= profile.principle %>",
+  reviewStyle: "<%= profile.reviewStyle %>",
+};
+```
+
+## `> ls --infrastructure` — shipped and maintained
+
+Each card opens the project's page in the [portfolio](<%= portfolio.url %>); the last one
+lists every repository. Stack and registry chips come from the captured snapshot.
+
+<% rows.forEach(row => { %><p align="center">
+<% row.forEach(card => { %>  <a href="<%= card.href %>"><img src="<%= card.src %>" width="49%" alt="<%= card.alt %>"></a>
+<% }); %></p>
+
+<% }); %>## `> cat contribution.log`
+
+```diff
+<% contributionLog.forEach(entry => { %><%= entry.status === 'DONE' ? '-' : entry.status === 'WONT' ? '  ' : '+' %> [<%= entry.status %>]<% if (entry.icon) { %> <%= entry.icon %><% } %> <%= entry.text %>
+<% }); %>```
+
+## `> man archont561` — FAQ
+
+<details name="faq">
+<summary><b>📚 Which other projects are there?</b></summary>
+
+Every project, with its source repository; each name opens its page in the portfolio.
+
+| Project | What it is | Source |
+| --- | --- | --- |
+<% projects.forEach(p => { %>| [<%= p.name %>](<%= p.docs %>) | <%= p.description %> | [GitHub](<%= p.url %>) |
+<% }); %>
+</details>
+
+<details name="faq">
+<summary><b>📦 Where are the packages published?</b></summary>
+
+Packages are discovered from each account rather than listed by hand: the npm org, the
+PyPI and crates.io users, the NuGet owner, the Maven Central namespace, the R-universe
+registry, and the prefix.dev channels. Reserved names are counted apart from releases, and
+a `0.0.0` stub or a registered but unbuilt package is never presented as a published package.
+
+<!-- registry:start -->
+```text
+<% counted.forEach(r => { %><%= pad(r.label, labelWidth) %><%= pad(r.account, accountWidth) %>published <%= pad(r.released, 3) %><% if (r.reserved) { %> (reserved names: <%= r.reserved %>)<% } %>
+<% }); %><% channels.forEach(r => { %><%= pad(r.label, labelWidth) %><%= pad(r.account, accountWidth) %>packages <%= r.packages.length %>
+<% }); %><%= pad('latest', labelWidth) %><%= latest.name %> <%= latest.version %> · <%= latest.registry %> · <%= latest.published %>
+<%= pad('source', labelWidth) %><%= sourceList %> APIs, captured <%= captured %>
+```
+<!-- registry:end -->
+
+<% badges.registries.forEach(b => { %><%- md(b) %>
+<% }); %>
+Conda channels install from <%- channels.map(r => '`' + r.install + '`').join(' and ') %>.<% if (universe && universe.released) { %>
+R packages install with `install.packages("<name>", repos = "<%- universe.install %>")`.<% } %>
+
+The [packages page](<%= portfolio.url %>packages/) of the portfolio goes deeper:
+versions, licences, platforms, and install commands.
+
+</details>
+
+<details name="faq">
+<summary><b>🧭 What does “maintained” mean here?</b></summary>
+
+Counts are captured from the GitHub REST API by `bun run tools capture`, so they are refreshed
+rather than hand-tuned. No badge service is involved.
+
+<!-- repo-hygiene:start -->
+```text
+public repositories   <%= hygiene.owned %>  (authored: <%= hygiene.owned - hygiene.forks %>, forks: <%= hygiene.forks %>, archived: <%= hygiene.archived %>)
+topic metadata        <%= hygiene.titled %>/<%= hygiene.owned %> repositories
+primary languages     <%= hygiene.languages.map(l => `${l.name} ${l.count}`).join(' · ') %>
+source                GitHub REST, captured <%= captured %>
+```
+<!-- repo-hygiene:end -->
+
+Archived repositories stay visible on purpose: retiring work cleanly is part of
+maintaining it.
+
+</details>
+
+<details name="faq">
+<summary><b>🧰 Which toolchain is behind all this?</b></summary>
+
+<% toolbox.forEach(item => { %>- <%= item.icon %> **<%= item.title %>** — <%= item.text %>
+<% }); %>
+</details>
+
+<details name="faq">
+<summary><b>🩺 How healthy is this profile repo?</b></summary>
+
+<% live.forEach(b => { %><%- md(b) %>
+<% }); %>
+<% badges.health.forEach(b => { %><%- md(b) %>
+<% }); %>
+Every check runs through `bun run tools <cmd>` (citty commands discovered from `tools/commands/`), so
+lefthook, CI, and a local shell run the same code:
+
+```text
+lint        Biome · tsc · ast-grep · Alint · Vale    polyglot-clean-code <%= tokens.pcc %> pedantic presets
+            knip · dependency-cruiser · secretlint   unused code, import layering, leaked secrets
+            actionlint · zizmor                      valid, injection-free workflows
+links       lychee                                   repo links and anchors on every push; every link daily
+test        bun-test-utils scenarios                 fails under <%= tokens.coverage %>% lines or functions; Codecov gates PRs
+readme      --check                                  README.md and assets/ must match their sources
+commitlint  Conventional Commits                     commit-msg hook, every pull request and its title
+refresh     daily at 04:17 UTC                       captures registries and commits only on drift
+```
+
+Bun, actionlint, zizmor and lychee come from `pixi.lock`; everything else from `bun.lock`.
+
+</details>
+
+<details name="faq">
+<summary><b>🛠️ How is this README made?</b></summary>
+
+The terminal framing borrows from a free GitSkins community template by
+[@Avijit010325](https://github.com/Avijit010325)
+([community templates](https://www.gitskins.com/community-templates)); all text, links,
+and claims were rewritten to public repository facts. The portal, project and principles cards are hand-drawn
+animated SVGs, the footer banner is [figlet](https://www.npmjs.com/package/figlet) art, and
+the badges are rendered offline by [badge-maker](https://www.npmjs.com/package/badge-maker);
+all of them are committed under `assets/`, so only the three live status badges call a service.
+GitHub serves them as images, which cannot react to hover or know they scrolled into view,
+so the spotlight tours the project cards on its own and the terminal replays its command.
+`bun run tools capture` records live GitHub and registry facts in `data/snapshot.json` through
+clients generated from each registry's OpenAPI or GraphQL schema, and
+`bun run tools readme` renders `templates/profile.ejs` with them and `data/profile.json`.
+Edit those, never this file. The portfolio itself lives in
+[<%= portfolio.repo.replace('https://github.com/', '') %>](<%= portfolio.repo %>).
+
+</details>
+
+<details name="faq">
+<summary><b>📮 How do I get in touch?</b></summary>
+
+No contact channel is published here. The entry point for every project is an issue in
+its repository, and contributions that arrive with a failing test and a lockfile update
+are the kind most likely to be merged quickly.
+
+</details>
+
+---
+
+<div align="center">
+
+<% badges.connect.forEach(b => { %><%- md(b) %>
+<% }); %>
+
+[![<%= name %> — <%= tagline.join(' ') %>](assets/banner.svg)](<%= portfolio.url %>)
+
+</div>

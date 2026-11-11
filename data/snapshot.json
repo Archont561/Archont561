@@ -1,0 +1,743 @@
+{
+  "captured": "2026-11-11",
+  "github": {
+    "owned": 23,
+    "forks": 0,
+    "archived": 2,
+    "titled": 20,
+    "languages": [
+      {
+        "name": "Python",
+        "count": 14
+      },
+      {
+        "name": "Rust",
+        "count": 3
+      },
+      {
+        "name": "TypeScript",
+        "count": 2
+      },
+      {
+        "name": "Astro",
+        "count": 1
+      }
+    ],
+    "repos": [
+      {
+        "name": "Archont561",
+        "language": null,
+        "topics": [
+          "ascii-art",
+          "biome",
+          "bun",
+          "citty",
+          "clean-code",
+          "codecov",
+          "conventional-commits",
+          "ejs",
+          "figlet",
+          "github-actions",
+          "github-profile",
+          "graphql",
+          "hey-api",
+          "lefthook",
+          "openapi",
+          "portfolio",
+          "profile-readme",
+          "readme-generator",
+          "typescript"
+        ]
+      },
+      {
+        "name": "archont561.github.io",
+        "language": "TypeScript",
+        "topics": [
+          "conda",
+          "fumadocs",
+          "geospatial",
+          "github-pages",
+          "nextjs",
+          "personal-website",
+          "pixijs",
+          "portfolio",
+          "qgis",
+          "reproducibility",
+          "testing",
+          "unocss"
+        ]
+      },
+      {
+        "name": "archont561.r-universe.dev",
+        "language": null,
+        "topics": ["cran", "package-registry", "r", "r-package", "r-universe", "ropensci", "rstats"]
+      },
+      {
+        "name": "artifactspec",
+        "language": "Python",
+        "topics": ["ai-agents", "artifacts", "manim", "python", "visualization"]
+      },
+      {
+        "name": "bun-test-utils",
+        "language": "TypeScript",
+        "topics": [
+          "bdd",
+          "browser-testing",
+          "bun",
+          "bun-test",
+          "bun-test-runner",
+          "bun-testing",
+          "cassette-testing",
+          "mocking",
+          "property-based-testing",
+          "snapshot-testing",
+          "test-fixture",
+          "test-fixtures",
+          "testing",
+          "typescript"
+        ]
+      },
+      {
+        "name": "clifacet",
+        "language": "Rust",
+        "topics": [
+          "clap",
+          "cli",
+          "interactive",
+          "procedural-macros",
+          "prompt",
+          "ratatui",
+          "rust",
+          "rust-library",
+          "terminal",
+          "tui"
+        ]
+      },
+      {
+        "name": "CloudCompare-conda",
+        "language": "Python",
+        "topics": [
+          "3d",
+          "cloudcompare",
+          "conda",
+          "linux",
+          "macos",
+          "pixi",
+          "point-cloud",
+          "rattler-build",
+          "windows"
+        ]
+      },
+      {
+        "name": "digital-terrain-hub",
+        "language": "Astro",
+        "topics": []
+      },
+      {
+        "name": "geospatial-conda-recipes",
+        "language": null,
+        "topics": []
+      },
+      {
+        "name": "gh-repoconf",
+        "language": "Python",
+        "topics": [
+          "cli",
+          "code-generation",
+          "developer-tools",
+          "formatting",
+          "gh-extension",
+          "github-actions",
+          "github-cli",
+          "github-config",
+          "github-templates",
+          "issue-forms",
+          "linting",
+          "minijinja",
+          "pull-request-templates",
+          "repository-management",
+          "rust",
+          "toml",
+          "workflow-generator"
+        ]
+      },
+      {
+        "name": "NinjaODM",
+        "language": "Python",
+        "topics": []
+      },
+      {
+        "name": "ODM-conda",
+        "language": "Python",
+        "topics": [
+          "conda",
+          "conda-packaging",
+          "demo",
+          "gis",
+          "opendronemap",
+          "photogrammetry",
+          "pixi",
+          "point-cloud",
+          "rattler-build"
+        ]
+      },
+      {
+        "name": "pixi-sandbox",
+        "language": "Rust",
+        "topics": ["offline-first", "pixi", "rust", "sandbox"]
+      },
+      {
+        "name": "playtest",
+        "language": "Python",
+        "topics": ["bdd", "fixtures", "property-based-testing", "rust", "test-framework", "testing"]
+      },
+      {
+        "name": "polyglot-clean-code",
+        "language": "Python",
+        "topics": [
+          "alint",
+          "ast-grep",
+          "clean-code",
+          "code-quality",
+          "developer-experience",
+          "linting",
+          "polyglot",
+          "presets",
+          "quality-gates",
+          "semgrep",
+          "static-analysis",
+          "vale"
+        ]
+      },
+      {
+        "name": "PyShellForge",
+        "language": "Python",
+        "topics": [
+          "automation",
+          "bash",
+          "cli",
+          "code-generation",
+          "compiler",
+          "developer-tools",
+          "python",
+          "shell",
+          "shell-script",
+          "shell-scripting",
+          "transpiler"
+        ]
+      },
+      {
+        "name": "qgis-agent-harness",
+        "language": "Python",
+        "topics": [
+          "agent-harness",
+          "artefact-scoring",
+          "evaluation-harness",
+          "geoinformatics",
+          "geoprocessing",
+          "gis",
+          "llm-agents",
+          "model-context-protocol",
+          "pixi",
+          "python",
+          "qgis",
+          "reproducibility",
+          "research-software",
+          "spatial-data"
+        ]
+      },
+      {
+        "name": "qgis-sdk",
+        "language": "Python",
+        "topics": [
+          "geospatial",
+          "gis",
+          "pixi",
+          "pyqgis",
+          "pyqt6",
+          "python",
+          "qgis",
+          "qgis-plugin",
+          "qgis-plugins",
+          "sdk",
+          "typescript"
+        ]
+      },
+      {
+        "name": "rude-clean-code",
+        "language": "Python",
+        "topics": [
+          "best-practices",
+          "clean-code",
+          "code-quality",
+          "linter",
+          "linter-plugin",
+          "linting",
+          "python",
+          "python-package",
+          "solid",
+          "solid-principles",
+          "static-analysis"
+        ]
+      },
+      {
+        "name": "skills",
+        "language": "Python",
+        "topics": [
+          "agent-skills",
+          "ai-agents",
+          "claude",
+          "claude-code",
+          "conventional-commits",
+          "llm-tools",
+          "pixi",
+          "python",
+          "skills-registry"
+        ]
+      },
+      {
+        "name": "staged-recipes-submit",
+        "language": "Python",
+        "topics": [
+          "conda",
+          "conda-forge",
+          "conda-packaging",
+          "github-actions",
+          "rattler-build",
+          "staged-recipes"
+        ]
+      },
+      {
+        "name": "universe",
+        "language": "Rust",
+        "topics": [
+          "air-gapped",
+          "conda",
+          "developer-tools",
+          "offline-first",
+          "package-management",
+          "rust",
+          "self-hosted",
+          "software-distribution",
+          "supply-chain-security"
+        ]
+      },
+      {
+        "name": "workloop",
+        "language": "Python",
+        "topics": [
+          "ai-agents",
+          "archon",
+          "cli",
+          "coding-agents",
+          "continuous-delivery",
+          "developer-tools",
+          "github-automation",
+          "minijinja",
+          "opencode",
+          "pull-requests",
+          "quality-gates",
+          "rust",
+          "toml",
+          "workflow-automation"
+        ]
+      }
+    ]
+  },
+  "registries": [
+    {
+      "id": "npm",
+      "label": "npm",
+      "account": "@archont561",
+      "url": "https://www.npmjs.com/org/archont561",
+      "packages": [
+        {
+          "name": "@archont561/bun-test-utils",
+          "version": "0.2.0",
+          "published": "2026-11-10",
+          "description": "General-purpose test extension for the Bun test runner covering unit, integration, and e2e tests — Playwright-style typed fixtures composed with test.extend(), with scopes and LIFO teardown, plus BDD, property-based testing, snapshots, HTTP record/replay,",
+          "reserved": false,
+          "url": "https://www.npmjs.com/package/@archont561/bun-test-utils"
+        },
+        {
+          "name": "@archont561/ferra",
+          "version": "0.0.0",
+          "published": "2026-10-17",
+          "description": "OIDC trusted publishing setup package for @archont561/ferra",
+          "reserved": true,
+          "url": "https://www.npmjs.com/package/@archont561/ferra"
+        },
+        {
+          "name": "@archont561/geoquery",
+          "version": "0.0.0",
+          "published": "2026-10-08",
+          "description": "OIDC trusted publishing setup package for @archont561/geoquery",
+          "reserved": true,
+          "url": "https://www.npmjs.com/package/@archont561/geoquery"
+        },
+        {
+          "name": "@archont561/nadir",
+          "version": "0.0.0",
+          "published": "2026-10-08",
+          "description": "OIDC trusted publishing setup package for @archont561/nadir",
+          "reserved": true,
+          "url": "https://www.npmjs.com/package/@archont561/nadir"
+        },
+        {
+          "name": "@archont561/pathway",
+          "version": "0.1.2",
+          "published": "2026-10-17",
+          "description": "One Path value for native, virtual and URL paths in TypeScript",
+          "reserved": false,
+          "url": "https://www.npmjs.com/package/@archont561/pathway"
+        },
+        {
+          "name": "@archont561/playtest",
+          "version": "0.0.0",
+          "published": "2026-10-23",
+          "description": "Reserved package name on npm for @archont561/playtest",
+          "reserved": true,
+          "url": "https://www.npmjs.com/package/@archont561/playtest"
+        },
+        {
+          "name": "@archont561/polybridge",
+          "version": "0.0.0",
+          "published": "2026-10-15",
+          "description": "OIDC trusted publishing setup package for @archont561/polybridge",
+          "reserved": true,
+          "url": "https://www.npmjs.com/package/@archont561/polybridge"
+        },
+        {
+          "name": "@archont561/qgis-sdk",
+          "version": "0.7.0",
+          "published": "2026-11-06",
+          "description": "Typed QGIS plugin actions and host services for your web UI.",
+          "reserved": false,
+          "url": "https://www.npmjs.com/package/@archont561/qgis-sdk"
+        },
+        {
+          "name": "@archont561/qgis-sdk-ui",
+          "version": "0.1.0",
+          "published": "2026-10-27",
+          "description": "Light-DOM web components for QGIS SDK web views: form, pickers, progress and log on the @archont561/qgis-sdk store core, with React, Vue and Svelte wrappers and palette tokens.",
+          "reserved": false,
+          "url": "https://www.npmjs.com/package/@archont561/qgis-sdk-ui"
+        }
+      ]
+    },
+    {
+      "id": "pypi",
+      "label": "PyPI",
+      "account": "Archont561",
+      "url": "https://pypi.org/user/Archont561/",
+      "packages": [
+        {
+          "name": "geoquery-py",
+          "version": "0.0.0",
+          "published": "2026-10-16",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://pypi.org/project/geoquery-py/"
+        },
+        {
+          "name": "nadir-py",
+          "version": "0.0.0",
+          "published": "2026-10-15",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://pypi.org/project/nadir-py/"
+        },
+        {
+          "name": "playtest-py",
+          "version": "0.0.0",
+          "published": "2026-10-23",
+          "description": "Reserved package name on PyPI for playtest-py",
+          "reserved": true,
+          "url": "https://pypi.org/project/playtest-py/"
+        },
+        {
+          "name": "polybridge-py",
+          "version": "0.0.0",
+          "published": "2026-10-15",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://pypi.org/project/polybridge-py/"
+        },
+        {
+          "name": "pyshellforge",
+          "version": "0.1.0",
+          "published": "2026-11-10",
+          "description": "A Python-native DSL for building, composing and rendering structured Bash scripts.",
+          "reserved": false,
+          "url": "https://pypi.org/project/pyshellforge/"
+        },
+        {
+          "name": "qgis-sdk",
+          "version": "0.10.0",
+          "published": "2026-11-06",
+          "description": "The next-generation Python SDK for effortless QGIS plugin authoring.",
+          "reserved": false,
+          "url": "https://pypi.org/project/qgis-sdk/"
+        },
+        {
+          "name": "qgis-sdk-runtime",
+          "version": "0.10.0",
+          "published": "2026-11-06",
+          "description": "The Python runtime for building QGIS plugins with less boilerplate.",
+          "reserved": false,
+          "url": "https://pypi.org/project/qgis-sdk-runtime/"
+        },
+        {
+          "name": "qgis-sdk-tools",
+          "version": "0.10.0",
+          "published": "2026-11-06",
+          "description": "Scaffold, test and ship QGIS plugins from the command line.",
+          "reserved": false,
+          "url": "https://pypi.org/project/qgis-sdk-tools/"
+        },
+        {
+          "name": "rude-clean-code",
+          "version": "0.1.0",
+          "published": "2026-11-10",
+          "description": "Clean Code plugin for the Rude Python linter.",
+          "reserved": false,
+          "url": "https://pypi.org/project/rude-clean-code/"
+        }
+      ]
+    },
+    {
+      "id": "crates",
+      "label": "crates.io",
+      "account": "Archont561",
+      "url": "https://crates.io/users/Archont561",
+      "packages": [
+        {
+          "name": "clifacet",
+          "version": "0.5.0",
+          "published": "2026-11-10",
+          "description": "Composable command-line presentation modes",
+          "reserved": false,
+          "url": "https://crates.io/crates/clifacet"
+        },
+        {
+          "name": "clifacet-macros",
+          "version": "0.5.0",
+          "published": "2026-11-10",
+          "description": "Procedural macros for Clifacet",
+          "reserved": false,
+          "url": "https://crates.io/crates/clifacet-macros"
+        },
+        {
+          "name": "geoquery",
+          "version": "0.0.0",
+          "published": "2026-10-17",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://crates.io/crates/geoquery"
+        },
+        {
+          "name": "nadir-rs",
+          "version": "0.0.0",
+          "published": "2026-10-17",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://crates.io/crates/nadir-rs"
+        },
+        {
+          "name": "playtest",
+          "version": "0.0.0",
+          "published": "2026-10-22",
+          "description": "Reserved package name on crates.io for playtest",
+          "reserved": true,
+          "url": "https://crates.io/crates/playtest"
+        },
+        {
+          "name": "playtest-macros",
+          "version": "0.0.0",
+          "published": "2026-10-22",
+          "description": "Reserved package name on crates.io for playtest-macros",
+          "reserved": true,
+          "url": "https://crates.io/crates/playtest-macros"
+        },
+        {
+          "name": "polybridge",
+          "version": "0.0.0",
+          "published": "2026-10-15",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://crates.io/crates/polybridge"
+        },
+        {
+          "name": "polybridge-macros",
+          "version": "0.0.0",
+          "published": "2026-10-29",
+          "description": "placeholder",
+          "reserved": true,
+          "url": "https://crates.io/crates/polybridge-macros"
+        }
+      ]
+    },
+    {
+      "id": "nuget",
+      "label": "NuGet",
+      "account": "Archont561",
+      "url": "https://www.nuget.org/profiles/Archont561",
+      "packages": [
+        {
+          "name": "Playtest",
+          "version": "0.0.0",
+          "published": "2026-10-23",
+          "description": "Reserved placeholder for playtest polyglot testing framework",
+          "reserved": true,
+          "url": "https://www.nuget.org/packages/Playtest"
+        }
+      ]
+    },
+    {
+      "id": "maven",
+      "label": "Maven Central",
+      "account": "io.github.archont561",
+      "url": "https://central.sonatype.com/namespace/io.github.archont561",
+      "packages": [
+        {
+          "name": "playtest",
+          "version": "0.0.0",
+          "published": "2026-10-23",
+          "description": "Reserved placeholder package on Maven Central for playtest",
+          "reserved": true,
+          "url": "https://central.sonatype.com/artifact/io.github.archont561/playtest"
+        }
+      ]
+    },
+    {
+      "id": "r-universe",
+      "label": "R-universe",
+      "account": "archont561",
+      "url": "https://github.com/Archont561/archont561.r-universe.dev",
+      "install": "https://archont561.r-universe.dev",
+      "packages": [
+        {
+          "name": "playtest",
+          "version": null,
+          "published": null,
+          "description": null,
+          "reserved": true,
+          "url": "https://github.com/Archont561/playtest"
+        }
+      ]
+    },
+    {
+      "id": "conda-archont561",
+      "label": "Conda",
+      "account": "archont561/archont561",
+      "url": "https://prefix.dev/channels/@archont561/archont561",
+      "install": "https://prefix.dev/archont561/archont561",
+      "packages": [
+        {
+          "name": "cloudcompare",
+          "version": "2.13.2",
+          "published": "2026-10-26",
+          "description": "3D point cloud and mesh processing software",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/cloudcompare"
+        },
+        {
+          "name": "dem2points",
+          "version": "0.0.0.dev20220721",
+          "published": "2026-10-29",
+          "description": "Extract 3D points from a digital elevation model",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/dem2points"
+        },
+        {
+          "name": "fastrasterfilter",
+          "version": "1.0",
+          "published": "2026-10-29",
+          "description": "Fast median filtering of georeferenced raster DEMs",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/fastrasterfilter"
+        },
+        {
+          "name": "fpcfilter",
+          "version": "0.2",
+          "published": "2026-10-27",
+          "description": "Fast point-cloud cropping, sampling, and outlier filtering",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/fpcfilter"
+        },
+        {
+          "name": "odm-orthophoto",
+          "version": "0.0.0.dev20250225",
+          "published": "2026-10-29",
+          "description": "Rasterize textured 3D models into orthophotos",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/odm-orthophoto"
+        },
+        {
+          "name": "pixi-sandbox",
+          "version": "0.9.0",
+          "published": "2026-10-25",
+          "description": null,
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/pixi-sandbox"
+        },
+        {
+          "name": "qgis-sdk",
+          "version": "0.10.0",
+          "published": "2026-11-06",
+          "description": "Python SDK foundations for QGIS plugin development",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk"
+        },
+        {
+          "name": "qgis-sdk-runtime",
+          "version": "0.10.0",
+          "published": "2026-11-06",
+          "description": "The in-QGIS runtime of qgis-sdk, dependency-free",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk-runtime"
+        },
+        {
+          "name": "qgis-sdk-tools",
+          "version": "0.10.0",
+          "published": "2026-11-06",
+          "description": "The developer tooling of qgis-sdk - the `qgis-sdk` command",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk-tools"
+        },
+        {
+          "name": "universe",
+          "version": "0.1.0",
+          "published": "2026-11-11",
+          "description": "Thin front door for separately installable Universe producer and consumer tools",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe"
+        },
+        {
+          "name": "universe-airlock",
+          "version": "0.1.0",
+          "published": "2026-11-11",
+          "description": "Finite offline consumer for verified sealed Universe snapshots",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock"
+        },
+        {
+          "name": "universe-kit",
+          "version": "0.1.0",
+          "published": "2026-11-11",
+          "description": "Connected owner and producer CLI for portable Universe catalogs",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-kit"
+        }
+      ]
+    },
+    {
+      "id": "conda-geospatial",
+      "label": "Conda",
+      "account": "archont561/geospatial",
+      "url": "https://prefix.dev/channels/@archont561/geospatial",
+      "install": "https://prefix.dev/archont561/geospatial",
+      "packages": []
+    }
+  ]
+}

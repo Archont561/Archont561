@@ -1,0 +1,102 @@
+# Maven Central publishes no OpenAPI description. This documents only the public,
+# unauthenticated endpoints `capture` reads; `bun run tools clients` generates
+# tools/lib/capture/clients/maven/ from it. The Central Portal's Solr search lists a
+# namespace's artifacts (search.maven.org misses Portal-published ones); POMs, which
+# carry the description, come from the repository host (BASE_URLS.mavenRepo).
+openapi: 3.1.0
+info:
+  title: Maven Central (subset used by tools/)
+  version: "1"
+servers:
+  - url: https://central.sonatype.com
+paths:
+  /solrsearch/select:
+    get:
+      operationId: searchArtifacts
+      summary: Solr search; `g:<groupId>` lists every artifact in a namespace
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: rows
+          in: query
+          schema:
+            type: integer
+        - name: wt
+          in: query
+          schema:
+            type: string
+            enum: [json]
+      responses:
+        "200":
+          description: Matching artifacts with their latest version.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [response]
+                properties:
+                  response:
+                    type: object
+                    required: [numFound, docs]
+                    properties:
+                      numFound:
+                        type: integer
+                      docs:
+                        type: array
+                        items:
+                          $ref: "#/components/schemas/Artifact"
+  /maven2/{groupPath}/{artifact}/{version}/{file}:
+    servers:
+      - url: https://repo1.maven.org
+    get:
+      operationId: getRepositoryFile
+      summary: A file in the Maven repository layout, such as an artifact's POM
+      parameters:
+        - name: groupPath
+          in: path
+          required: true
+          description: The groupId with dots as slashes; sent percent-encoded, which the host accepts.
+          schema:
+            type: string
+        - name: artifact
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: file
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The file; POMs are XML.
+          content:
+            text/xml:
+              schema:
+                type: string
+components:
+  schemas:
+    Artifact:
+      type: object
+      required: [g, a, latestVersion]
+      properties:
+        id:
+          type: string
+        g:
+          type: string
+        a:
+          type: string
+        latestVersion:
+          type: string
+        timestamp:
+          type: integer
+          description: Milliseconds since the epoch of the latest release.

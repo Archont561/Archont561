@@ -1,0 +1,24 @@
+# Coverage policy. The README health badge reads its target from this file,
+# and bunfig.toml enforces the same floor locally.
+coverage:
+  precision: 1
+  round: down
+  range: "80...100"
+  status:
+    project:
+      default:
+        target: "90%"
+        threshold: "0%"
+    patch:
+      default:
+        target: "90%"
+
+comment:
+  layout: "condensed_header, diff, files"
+  require_changes: true
+
+ignore:
+  - "tools/tests/**"
+  - "tools/lib/capture/clients/**"
+  - "tools/index.ts"
+  - "vendor/**"

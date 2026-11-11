@@ -1,0 +1,97 @@
+# NuGet publishes no OpenAPI description. This documents only the two public,
+# unauthenticated V3 endpoints `capture` reads; `bun run tools clients` generates
+# tools/lib/capture/clients/nuget/ from it. Search lives on a separate host, so the
+# search call overrides the base URL (BASE_URLS.nugetSearch in clients.ts).
+openapi: 3.1.0
+info:
+  title: NuGet V3 API (subset used by tools/)
+  version: "1"
+servers:
+  - url: https://api.nuget.org
+paths:
+  /query:
+    servers:
+      - url: https://azuresearch-usnc.nuget.org
+    get:
+      operationId: searchPackages
+      summary: Search packages; `owner:<name>` lists every package an account owns
+      parameters:
+        - name: q
+          in: query
+          required: true
+          schema:
+            type: string
+        - name: take
+          in: query
+          schema:
+            type: integer
+        - name: prerelease
+          in: query
+          schema:
+            type: boolean
+        - name: semVerLevel
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Matching packages with their latest version.
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [totalHits, data]
+                properties:
+                  totalHits:
+                    type: integer
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/SearchResult"
+  /v3/registration5-gz-semver2/{id}/{version}.json:
+    get:
+      operationId: getRegistrationLeaf
+      summary: Registration leaf of one package version (gzip-encoded on the wire)
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Package id, lowercased.
+          schema:
+            type: string
+        - name: version
+          in: path
+          required: true
+          description: Normalized version, lowercased.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The leaf, including the publication timestamp.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  listed:
+                    type: boolean
+                  published:
+                    type: string
+components:
+  schemas:
+    SearchResult:
+      type: object
+      required: [id, version]
+      properties:
+        id:
+          type: string
+        version:
+          type: string
+        description:
+          type: string
+        summary:
+          type: string
+        owners:
+          type: array
+          items:
+            type: string

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://raw.githubusercontent.com/sverweij/dependency-cruiser/main/src/schema/configuration.schema.json",
+  "forbidden": [
+    {
+      "name": "no-circular",
+      "comment": "A cycle means two modules are one module; merge them or extract the shared part. Hey API's generated runtime has type-only cycles we do not own.",
+      "severity": "error",
+      "from": {
+        "pathNot": "^tools/lib/capture/clients/"
+      },
+      "to": {
+        "circular": true
+      }
+    },
+    {
+      "name": "no-orphans",
+      "comment": "A module nothing imports is dead code. Entry points, tests and declarations are exempt.",
+      "severity": "error",
+      "from": {
+        "orphan": true,
+        "pathNot": [
+          "^tools/index\\.ts$",
+          "^tools/commands/",
+          "^tools/tests/",
+          "\\.d\\.ts$",
+          "^tools/lib/capture/clients/"
+        ]
+      },
+      "to": {}
+    },
+    {
+      "name": "lib-is-not-a-command",
+      "comment": "tools/lib holds the logic; commands are thin citty wrappers over it, never the other way round.",
+      "severity": "error",
+      "from": {
+        "path": "^tools/lib/"
+      },
+      "to": {
+        "path": "^tools/commands/"
+      }
+    },
+    {
+      "name": "commands-are-leaves",
+      "comment": "One command never imports another; shared behaviour moves to tools/lib.",
+      "severity": "error",
+      "from": {
+        "path": "^tools/commands/([^/]+)\\.ts$"
+      },
+      "to": {
+        "path": "^tools/commands/",
+        "pathNot": "^tools/commands/$1\\.ts$"
+      }
+    },
+    {
+      "name": "production-never-imports-tests",
+      "comment": "Fixtures and test helpers stay in tools/tests.",
+      "severity": "error",
+      "from": {
+        "path": "^tools/",
+        "pathNot": "^tools/tests/"
+      },
+      "to": {
+        "path": "^tools/tests/"
+      }
+    },
+    {
+      "name": "generated-clients-behind-capture",
+      "comment": "Only capture/sources.ts and capture/clients.ts talk to the generated HTTP clients; everything else uses their typed results.",
+      "severity": "error",
+      "from": {
+        "pathNot": [
+          "^tools/lib/capture/(sources|clients)\\.ts$",
+          "^tools/lib/capture/clients/",
+          "^tools/tests/"
+        ]
+      },
+      "to": {
+        "path": "^tools/lib/capture/clients/"
+      }
+    },
+    {
+      "name": "not-to-unresolvable",
+      "comment": "Every import must resolve; a typo here is a runtime crash.",
+      "severity": "error",
+      "from": {},
+      "to": {
+        "couldNotResolve": true
+      }
+    },
+    {
+      "name": "no-non-package-json",
+      "comment": "Packages must be declared in package.json, not borrowed from a transitive dependency.",
+      "severity": "error",
+      "from": {},
+      "to": {
+        "dependencyTypes": ["npm-no-pkg", "npm-unknown"]
+      }
+    }
+  ],
+  "options": {
+    "includeOnly": "^tools/",
+    "tsConfig": {
+      "fileName": "tsconfig.json"
+    },
+    "tsPreCompilationDeps": true,
+    "enhancedResolveOptions": {
+      "exportsFields": ["exports"],
+      "conditionNames": ["import", "require", "node", "default", "types"],
+      "extensions": [".ts", ".d.ts", ".js", ".json"]
+    },
+    "reporterOptions": {
+      "text": {
+        "highlightFocused": true
+      }
+    }
+  }
+}

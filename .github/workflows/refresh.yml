@@ -1,0 +1,43 @@
+name: Refresh profile
+
+on:
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-profile
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Capture registries, render, commit on drift
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          persist-credentials: true
+      # Bun, actionlint, zizmor and lychee from pixi.lock; the activated environment puts
+      # them on PATH for the single-line `bun run tools` steps below.
+      - uses: prefix-dev/setup-pixi@9936258fee697aff89b3fed6ca1f80a382ef694e # v0.11.3
+        with:
+          pixi-version: v0.84.2
+          locked: true
+          activate-environment: true
+          cache: true
+          cache-write: false
+      - run: bun install --frozen-lockfile
+      - run: bun run tools refresh --commit
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+      # Daily, after the refresh: every external link in the README and docs still resolves.
+      - run: bun run tools links
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
