@@ -8,8 +8,6 @@
  */
 import { fill } from "@/tools/lib/render/badges.ts";
 
-export const PORTAL = "assets/portal.svg";
-
 export type PortalRoute = { path: string; text: string };
 
 export type PortalConfig = {

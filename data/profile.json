@@ -404,8 +404,8 @@
     }
   ],
   "principles": {
-    "command": "./principles --show",
-    "alt": "./principles --show: lock it, test it, document it, ship it, and let a machine enforce the rules.",
+    "command": "ls --principles",
+    "alt": "ls --principles: lock it, test it, document it, ship it, and let a machine enforce the rules.",
     "lines": [
       {
         "key": "lock",

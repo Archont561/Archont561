@@ -1,4 +1,4 @@
-[![Enter the portfolio at archont561.github.io: field notes, packages, search, and an agent-readable index](assets/portal.svg)](https://archont561.github.io/)
+[![Archont561 — Geospatial tooling, made boring on purpose: locked environments, tested harnesses, agent-readable docs, and the repo management that keeps them honest.](assets/banner.svg)](https://archont561.github.io/)
 
 <div align="center">
 
@@ -10,9 +10,14 @@
 
 </div>
 
-## `> ./principles --show`
+## `> ls --principles`
 
-[![./principles --show: lock it, test it, document it, ship it, and let a machine enforce the rules.](assets/cards/principles.svg)](https://archont561.github.io/docs/)
+- **lock** — same lockfile, same result (Pixi + Conda lockfiles, SHA-pinned actions)
+- **test** — test behaviour, not lines (Gherkin specs, property tests, a 90% floor)
+- **document** — docs ship with the code (llms.txt and .md routes for agents)
+- **ship** — small commits, green gate first (conventional commits, no force-push)
+- **enforce** — if a machine can check it, it does (ast-grep, Alint, Vale, commitlint)
+
 
 I build open-source tools that make geospatial and scientific software reproducible,
 and I care most about the unglamorous part: the lockfile, the test harness, the CI gate,
@@ -246,8 +251,5 @@ are the kind most likely to be merged quickly.
 [![Package directory](assets/badges/connect-packages.svg)](https://archont561.github.io/packages/)
 [![GitHub: Archont561](assets/badges/connect-github.svg)](https://github.com/Archont561)
 [![Contact: open an issue in the project repository](assets/badges/connect-issues.svg)](https://github.com/Archont561?tab=repositories)
-
-
-[![Archont561 — Geospatial tooling, made boring on purpose: locked environments, tested harnesses, agent-readable docs, and the repo management that keeps them honest.](assets/banner.svg)](https://archont561.github.io/)
 
 </div>

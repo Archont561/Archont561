@@ -1,6 +1,6 @@
 import type { Pkg, Registry } from "@/tools/lib/capture/sources.ts";
 import { ROOT } from "@/tools/lib/paths.ts";
-import { cardPath, PRINCIPLES } from "@/tools/lib/render/cards.ts";
+import { cardPath } from "@/tools/lib/render/cards.ts";
 import { CARD_DIR } from "@/tools/lib/render/outputs.ts";
 import {
   badgeCount,
@@ -169,23 +169,22 @@ describe("buildOutputs", async () => {
   test("renders the README, the banner, every card, and every badge", () => {
     expect(outputs.has("README.md")).toBe(true);
     expect(outputs.has("assets/banner.svg")).toBe(true);
-    expect(outputs.has(PRINCIPLES)).toBe(true);
     expect(outputs.has(cardPath("all-projects"))).toBe(true);
     expect([...outputs.keys()].filter((path) => path.startsWith("assets/badges/")).length).toBeGreaterThan(
       15,
     );
   });
 
-  test("opens on the portal, gathers the detail in one FAQ accordion, and signs off with the banner", () => {
+  test("opens on the banner, gathers the detail in one FAQ accordion, and signs off with connect badges", () => {
     const readme = outputs.get("README.md") as string;
-    expect(readme.indexOf("assets/portal.svg")).toBeLessThan(readme.indexOf("## "));
-    expect(readme.indexOf(PRINCIPLES)).toBeLessThan(readme.indexOf("assets/cards/qgis-sdk.svg"));
+    expect(readme.indexOf("assets/banner.svg")).toBeLessThan(readme.indexOf("## "));
+    expect(readme.indexOf("## `> ls --principles`")).toBeLessThan(
+      readme.indexOf("assets/cards/qgis-sdk.svg"),
+    );
     const summaries = [...readme.matchAll(/<details name="faq">\n<summary>/g)].length;
     expect(summaries).toBe([...readme.matchAll(/<details/g)].length);
     expect(summaries).toBeGreaterThan(5);
-    expect(readme.trimEnd().endsWith("(assets/banner.svg)](https://archont561.github.io/)\n\n</div>")).toBe(
-      true,
-    );
+    expect(readme.trimEnd().endsWith("</div>")).toBe(true);
   });
 
   test("links every card it renders, and the health answer keeps the live badges", () => {

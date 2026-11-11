@@ -8,7 +8,7 @@
   const accountWidth = Math.max(...registries.map((r) => r.account.length)) + 3;
   const universe = registries.find((r) => r.id === 'r-universe');
 _%>
-[![<%= portfolio.portal.alt %>](assets/portal.svg)](<%= portfolio.url %>)
+[![<%= name %> — <%= tagline.join(' ') %>](assets/banner.svg)](<%= portfolio.url %>)
 
 <div align="center">
 
@@ -16,9 +16,10 @@ _%>
 <% }); %>
 </div>
 
-## `> ./principles --show`
+## `> ls --principles`
 
-[![<%= principles.alt %>](<%= principlesSrc %>)](<%= portfolio.url %>docs/)
+<% principles.lines.forEach(line => { %>- **<%= line.key %>** — <%= line.rule %> (<%= line.detail %>)
+<% }); %>
 
 I build open-source tools that make geospatial and scientific software reproducible,
 and I care most about the unglamorous part: the lockfile, the test harness, the CI gate,
@@ -190,7 +191,4 @@ are the kind most likely to be merged quickly.
 
 <% badges.connect.forEach(b => { %><%- md(b) %>
 <% }); %>
-
-[![<%= name %> — <%= tagline.join(' ') %>](assets/banner.svg)](<%= portfolio.url %>)
-
 </div>

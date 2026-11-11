@@ -1,12 +1,5 @@
 import { ROOT } from "@/tools/lib/paths.ts";
-import {
-  contour,
-  contourColor,
-  PORTAL,
-  portalRoutes,
-  renderPortal,
-  svgWidth,
-} from "@/tools/lib/render/portal.ts";
+import { contour, contourColor, portalRoutes, renderPortal, svgWidth } from "@/tools/lib/render/portal.ts";
 import { buildOutputs } from "@/tools/lib/render/profile.ts";
 import { describe, expect, test } from "@/tools/tests/fixtures.ts";
 
@@ -91,10 +84,12 @@ test("svgWidth reads the root width and refuses an SVG without one", () => {
   expect(() => svgWidth("<svg viewBox='0 0 1 1'>")).toThrow(RangeError);
 });
 
-test("the card matches the banner's width and is linked from the README", async () => {
+test("the banner includes the portal content and is linked from the README", async () => {
   const outputs = await buildOutputs(ROOT);
-  expect(svgWidth(outputs.get(PORTAL) as string)).toBe(svgWidth(outputs.get("assets/banner.svg") as string));
-  expect(outputs.get("README.md")).toContain("](assets/portal.svg)](https://archont561.github.io/)");
+  const banner = outputs.get("assets/banner.svg") as string;
+  expect(banner).toContain("archont561.github.io");
+  expect(banner).toContain("/docs/");
+  expect(outputs.get("README.md")).toContain("](assets/banner.svg)](https://archont561.github.io/)");
 });
 
 test("contour colours step from the copper summit through sage slopes to forest lowlands", () => {

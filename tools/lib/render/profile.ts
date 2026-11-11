@@ -14,9 +14,9 @@ import { type Badge, type BadgeSpec, fill, renderBadge } from "@/tools/lib/rende
 import { renderBanner } from "@/tools/lib/render/banner.ts";
 import { DOCS_INDEX, renderDocsIndex } from "@/tools/lib/render/docs.ts";
 import { healthTokens, type Tokens } from "@/tools/lib/render/health.ts";
-import { PORTAL, portalRoutes, renderPortal, svgWidth } from "@/tools/lib/render/portal.ts";
+import { portalRoutes } from "@/tools/lib/render/portal.ts";
 import { PR_TEMPLATE, renderPrTemplate } from "@/tools/lib/render/pr.ts";
-import { pairs, principlesCard, projectCards } from "@/tools/lib/render/showcase.ts";
+import { pairs, projectCards } from "@/tools/lib/render/showcase.ts";
 
 export type RegistryView = Registry & { released: number; reserved: number };
 export type Release = Pkg & { registry: string };
@@ -113,8 +113,13 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
     registries: registryBadges(registries, profile.badges.registries),
   };
 
-  const banner = renderBanner({ ...profile.banner, tagline: profile.tagline });
-  const width = svgWidth(banner);
+  const portal = {
+    ...profile.portfolio.portal,
+    url: profile.portfolio.url,
+    label: profile.portfolio.label,
+    routes: portalRoutes(profile.portfolio.portal.routes, tokens),
+  };
+  const banner = renderBanner({ ...profile.banner, tagline: profile.tagline, portal });
   const cards = projectCards(
     profile.projects,
     snapshot.github.repos,
@@ -123,7 +128,6 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
     { docs: `${profile.portfolio.url}docs/`, repo: profile.portfolio.repo },
     tokens,
   );
-  const principles = principlesCard(profile.principles, profile.profile.principle, width);
 
   const readme = await ejs.renderFile(
     `${root}/templates/profile.ejs`,
@@ -139,7 +143,6 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
       md: markdownBadge,
       cards,
       rows: pairs(cards),
-      principlesSrc: principles[0],
     },
     { async: false },
   );
@@ -150,17 +153,6 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
     [DOCS_INDEX, await renderDocsIndex(root)],
     [PR_TEMPLATE, await renderPrTemplate(root)],
     ["assets/banner.svg", banner],
-    [
-      PORTAL,
-      renderPortal({
-        ...profile.portfolio.portal,
-        url: profile.portfolio.url,
-        label: profile.portfolio.label,
-        routes: portalRoutes(profile.portfolio.portal.routes, tokens),
-        width,
-      }),
-    ],
-    principles,
     ...cards.map((card): [string, string] => [card.src, card.svg]),
     ...all.map((badge): [string, string] => [badge.src, badge.svg]),
   ]);

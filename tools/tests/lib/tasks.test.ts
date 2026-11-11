@@ -33,7 +33,7 @@ describe("renderTask", () => {
     await renderTask(repo);
     await renderTask(repo, { check: true });
     expect(logs.out.at(-1)).toMatch(
-      /^✔ README\.md, docs\/README\.md, \.github\/PULL_REQUEST_TEMPLATE\.md, assets\/banner\.svg, assets\/portal\.svg, \d+ cards, and \d+ badges are current\.\n$/,
+      /^✔ README\.md, docs\/README\.md, \.github\/PULL_REQUEST_TEMPLATE\.md, assets\/banner\.svg, \d+ cards, and \d+ badges are current\.\n$/,
     );
   });
 
