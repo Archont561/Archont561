@@ -54,8 +54,8 @@ over fast-check inputs (25 examples each; `FC_NUM_RUNS` raises it). Fixtures: `r
 served by `httpMock` behind `networkGuard`; `worldArb(fc)` generates worlds), `repo` (temp root),
 `proc` (`runner` spies), `logs`, `exitCode`, plus built-ins such as `tmpdir`, `env`, `stdio`.
 Coverage floor is 90% (`bunfig.toml`, `codecov.yml`). A change is done when `bun run tools check`
-passes. After touching the banner, look at it in a browser: the reveal plays once, then only the
-shimmer and cursor move.
+passes. After touching the banner, look at it in a browser: the reveal plays once with SMIL, then
+freezes at the final prompt.
 <!-- agents-md:end id=testing -->
 
 <!-- agents-md:begin id=structure sha=d23bf9bb7293 -->
