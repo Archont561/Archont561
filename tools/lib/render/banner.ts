@@ -1,10 +1,10 @@
 /**
- * Animated terminal banner: figlet ASCII art typed out in an SVG.
+ * Animated terminal banner: figlet ASCII art and portfolio map typed out in an SVG.
  *
  * GitHub renders README images through <img>, which runs no JavaScript, so motion
- * comes from SMIL (typing and wipes) and CSS (the terrain shimmer and cursor). The
- * reveal plays once on load; the shimmer and cursor keep going. Under
- * `prefers-reduced-motion` everything is shown static.
+ * comes strictly from SMIL (typing, wipes, contour settling, ripple pin, and shine).
+ * The reveal sequence plays once with SMIL when viewers open the portfolio, and freezes
+ * cleanly at its finished state. Under `prefers-reduced-motion` everything is shown static.
  */
 import figlet, { type FontName } from "figlet";
 import { siZsh } from "simple-icons";
@@ -149,8 +149,15 @@ export function renderBanner(config: BannerConfig): string {
   const tagRows = config.tagline.map((line, i) => ({ line, y: y + i * 20 }));
   y = last(yTag);
 
+  const x0 = PAD;
+  const promptW = 2 * textCw;
   const clips: string[] = [];
   const body: string[] = [];
+  const gradients: string[] = [
+    `<linearGradient id="terrain" gradientUnits="userSpaceOnUse" x1="${x0}" y1="0" x2="${fmt(x0 + cols * artCw)}" y2="0">
+<stop offset="0" stop-color="${C.forest}"/><stop offset="0.5" stop-color="${C.sage}"/><stop offset="1" stop-color="${C.copper}"/>
+</linearGradient>`,
+  ];
   let clipId = 0;
 
   /** A clipPath whose rect grows from 0 to `w`, either per character or as one wipe. */
@@ -174,9 +181,6 @@ export function renderBanner(config: BannerConfig): string {
   };
   const appear = (begin: number) =>
     `<set attributeName="opacity" to="1" begin="${fmt(begin)}s" fill="freeze"/>`;
-
-  const x0 = PAD;
-  const promptW = 2 * textCw;
 
   // 1. "$ figlet ..." typed character by character.
   const t1 = 0.4;
@@ -240,12 +244,13 @@ export function renderBanner(config: BannerConfig): string {
     height = Math.ceil(yPrompt + 26);
 
     // Divider line inside terminal
+    const divClip = reveal(x0, yDivider - 2, 4, width - 2 * x0, t4 + 0.15, 0.35);
     body.push(
-      `<path d="M${x0} ${yDivider}H${width - x0}" stroke="${C.line}" stroke-dasharray="4 4" opacity=".6"/>`,
+      `<path d="M${x0} ${yDivider}H${width - x0}" stroke="${C.line}" stroke-dasharray="4 4" opacity=".6" class="anim" clip-path="url(#${divClip})"/>`,
     );
 
     // Command 3: "$ open ..."
-    const t5 = t4 + 0.3;
+    const t5 = t4 + 0.35;
     const d5 = third.length * 0.035;
     body.push(
       `<g class="seq" opacity="0">${appear(t5 - 0.12)}<text x="${x0}" y="${yCmd3}" class="p">$</text></g>`,
@@ -259,9 +264,12 @@ export function renderBanner(config: BannerConfig): string {
 
     // Contours & Grid
     const contours = Array.from({ length: 7 }, (_, level) => {
-      const cls = level % 2 ? "flow rev" : "flow";
       const stroke = contourColor(level);
-      return `<path class="${cls}" d="${contour(cx, cy, level)}" stroke="${stroke}" style="animation-duration:${14 + level * 3}s"/>`;
+      const dur = fmt(1.2 + level * 0.15);
+      const fromOffset = level % 2 ? 60 : -60;
+      return `<path class="contour" d="${contour(cx, cy, level)}" stroke="${stroke}" stroke-dasharray="5 4" stroke-dashoffset="${fromOffset}">
+<animate attributeName="stroke-dashoffset" from="${fromOffset}" to="0" begin="${fmt(tUrl - 0.15)}s" dur="${dur}s" fill="freeze"/>
+</path>`;
     }).join("\n");
 
     const grid = [0.25, 0.5, 0.75]
@@ -272,8 +280,11 @@ export function renderBanner(config: BannerConfig): string {
       .join("");
 
     const pin = `<g transform="translate(${fmt(cx)} ${fmt(cy)})">
-<circle class="pulse" r="10" fill="none" stroke="${C.copper}" stroke-width="2"/>
-<circle class="pulse late" r="10" fill="none" stroke="${C.copper}" stroke-width="2"/>
+<circle r="4" fill="none" stroke="${C.copper}" stroke-width="2" opacity="0">
+<set attributeName="opacity" to="1" begin="${fmt(tUrl)}s" fill="freeze"/>
+<animate attributeName="r" from="4" to="24" begin="${fmt(tUrl)}s" dur="1.2s" fill="freeze"/>
+<animate attributeName="opacity" from="1" to="0" begin="${fmt(tUrl)}s" dur="1.2s" fill="freeze"/>
+</circle>
 <path d="M0 0C-3 -6 -9 -10 -9 -16A9 9 0 1 1 9 -16C9 -10 3 -6 0 0Z" fill="${C.copper}"/>
 <circle cy="-16" r="3.5" fill="${C.paper}"/>
 </g>`;
@@ -322,11 +333,20 @@ export function renderBanner(config: BannerConfig): string {
     const ctaW = Math.ceil(portal.cta.length * rowCw + 32);
     const ctaX = width - PAD - ctaW;
     const ctaY = yKicker - 16;
+    const tCta = tRows + portal.routes.length * 0.25;
     body.push(
-      `<g class="seq" opacity="0"><set attributeName="opacity" to="1" begin="${fmt(tRows + portal.routes.length * 0.25)}s" fill="freeze"/>
+      `<g class="seq" opacity="0"><set attributeName="opacity" to="1" begin="${fmt(tCta)}s" fill="freeze"/>
 <rect x="${ctaX}" y="${ctaY}" width="${ctaW}" height="26" rx="13" fill="${C.copper}"/>
 <rect x="${ctaX}" y="${ctaY}" width="${ctaW}" height="26" rx="13" fill="url(#shine)"/>
 <text x="${fmt(ctaX + ctaW / 2)}" y="${ctaY + 17}" text-anchor="middle" class="cta">${esc(portal.cta)}</text></g>`,
+    );
+
+    gradients.push(
+      `<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#fff" stop-opacity="0"/>
+<stop offset="0.5" stop-color="#fff" stop-opacity="0"><animate attributeName="stop-opacity" values="0;0.45;0" begin="${fmt(tCta + 0.2)}s" dur="0.9s" fill="freeze"/></stop>
+<stop offset="1" stop-color="#fff" stop-opacity="0"/>
+</linearGradient>`,
     );
 
     clips.push(
@@ -334,7 +354,7 @@ export function renderBanner(config: BannerConfig): string {
     );
 
     // Idle zsh prompt at bottom
-    const tPrompt = tRows + portal.routes.length * 0.25 + 0.35;
+    const tPrompt = tCta + 0.35;
     body.push(
       `<g class="seq" opacity="0">${appear(tPrompt)}<text x="${x0}" y="${yPrompt}" class="p">~ ❯</text>` +
         `<rect class="cursor" x="${fmt(x0 + 3.2 * textCw)}" y="${fmt(yPrompt - TEXT_SIZE + 2)}" width="${fmt(textCw)}" height="${TEXT_SIZE + 2}" fill="${C.green}"/></g>`,
@@ -358,21 +378,7 @@ export function renderBanner(config: BannerConfig): string {
   const zshX = width - 38;
   const zshHeader = `<g transform="translate(${zshX} 8) scale(0.75)" fill="${C.copper}" opacity=".85"><path d="${siZsh.path}"/></g><text x="${zshX - 6}" y="22" text-anchor="end" class="h">zsh</text>`;
 
-  const defs = [
-    `<linearGradient id="terrain" gradientUnits="userSpaceOnUse" x1="${x0}" y1="0" x2="${fmt(x0 + cols * artCw)}" y2="0">
-<stop offset="0" class="s1" stop-color="${C.forest}"/><stop offset="0.5" class="s2" stop-color="${C.sage}"/><stop offset="1" class="s3" stop-color="${C.copper}"/>
-</linearGradient>`,
-    config.portal
-      ? `<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#fff" stop-opacity="0"/>
-<stop offset="0.5" stop-color="#fff" stop-opacity="0"><animate attributeName="stop-opacity" values="0;0;.35;0" keyTimes="0;.6;.8;1" dur="4.5s" repeatCount="indefinite"/></stop>
-<stop offset="1" stop-color="#fff" stop-opacity="0"/>
-</linearGradient>`
-      : "",
-    ...clips,
-  ]
-    .filter(Boolean)
-    .join("\n");
+  const defs = [...gradients, ...clips].filter(Boolean).join("\n");
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title desc">
 <title id="title">${esc(config.text)}</title>
@@ -390,24 +396,14 @@ text{font-family:${FONT};white-space:pre}
 .r{fill:${C.green};font-size:${TEXT_SIZE}px;font-weight:700}
 .d{fill:${C.muted};font-size:${TEXT_SIZE}px}
 .cta{fill:${C.paper};font-size:${TEXT_SIZE}px;font-weight:700}
-.flow{fill:none;stroke-width:1.3;stroke-dasharray:5 4;opacity:.85;animation:flow linear infinite}
-.rev{animation-direction:reverse}
+.contour{fill:none;stroke-width:1.3;opacity:.85}
 .grid path{stroke:${C.line};stroke-width:1;stroke-dasharray:2 5}
-.pulse{transform-box:fill-box;transform-origin:center;animation:pulse 2.6s ease-out infinite}
-.late{animation-delay:1.3s}
-.s1{animation:shift 9s ease-in-out infinite alternate}
-.s2{animation:shift 9s ease-in-out -3s infinite alternate}
-.s3{animation:shift 9s ease-in-out -6s infinite alternate}
 .cursor{animation:blink 1.1s steps(1) infinite}
-@keyframes flow{to{stroke-dashoffset:-90}}
-@keyframes pulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(3.2);opacity:0}}
-@keyframes shift{0%{stop-color:${C.forest}}33%{stop-color:${C.sage}}66%{stop-color:${C.green}}100%{stop-color:${C.copper}}}
 @keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){
 .anim{clip-path:none!important}
 .seq{opacity:1!important}
-.s1,.s2,.s3,.cursor,.flow,.pulse{animation:none!important}
-.pulse{opacity:0}
+.cursor{animation:none!important}
 }
 </style>
 <defs>

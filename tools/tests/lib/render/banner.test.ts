@@ -36,6 +36,9 @@ describe("renderBanner", () => {
     expect(bannerWithPortal).toContain("/docs/");
     expect(bannerWithPortal).toContain("enter →");
     expect(bannerWithPortal).toContain("~ ❯");
+    expect(bannerWithPortal).toContain('attributeName="stroke-dashoffset"');
+    expect(bannerWithPortal).toContain('attributeName="r"');
+    expect(bannerWithPortal).not.toContain('repeatCount="indefinite"');
   });
 
   test("draws block glyphs as vector cells, not text", () => {
