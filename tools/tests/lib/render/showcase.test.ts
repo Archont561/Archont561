@@ -1,6 +1,14 @@
 import type { Pkg, Registry, RepoFacts } from "@/tools/lib/capture/sources.ts";
 import { cardPath, PRINCIPLES } from "@/tools/lib/render/cards.ts";
-import { pairs, principlesCard, projectCards, shipsTo, slugOf } from "@/tools/lib/render/showcase.ts";
+import {
+  detectGridColumns,
+  greatestGrid,
+  pairs,
+  principlesCard,
+  projectCards,
+  shipsTo,
+  slugOf,
+} from "@/tools/lib/render/showcase.ts";
 import { describe, expect, test } from "@/tools/tests/fixtures.ts";
 
 const pkg = (name: string, version: string | null = "1.0.0", reserved = false): Pkg => ({
@@ -127,5 +135,36 @@ test.prop(
     expect(rows.flat()).toEqual(items);
     expect(rows.length).toBe(Math.ceil(items.length / 2));
     for (const row of rows.slice(0, -1)) expect(row.length).toBe(2);
+  },
+);
+
+test("detectGridColumns balances row counts and avoids lonely trailing items", () => {
+  expect(detectGridColumns(0)).toBe(0);
+  expect(detectGridColumns(1)).toBe(1);
+  expect(detectGridColumns(2)).toBe(2);
+  expect(detectGridColumns(3)).toBe(3);
+  expect(detectGridColumns(4)).toBe(2);
+  expect(detectGridColumns(5)).toBe(3);
+  expect(detectGridColumns(6)).toBe(3);
+  expect(detectGridColumns(7)).toBe(4);
+  expect(detectGridColumns(8)).toBe(4);
+});
+
+test.prop(
+  "greatestGrid preserves items and order, returning balanced rows",
+  (fc) => ({ items: fc.array(fc.integer(), { maxLength: 20 }) }),
+  (_fixtures, { items }) => {
+    const rows = greatestGrid(items);
+    expect(rows.flat()).toEqual(items);
+    if (items.length === 0) {
+      expect(rows).toEqual([]);
+    } else {
+      const cols = rows[0]?.length ?? 0;
+      for (const row of rows.slice(0, -1)) {
+        expect(row.length).toBe(cols);
+      }
+      expect(rows.at(-1)?.length).toBeGreaterThan(0);
+      expect(rows.at(-1)?.length).toBeLessThanOrEqual(cols);
+    }
   },
 );

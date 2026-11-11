@@ -1,12 +1,16 @@
-[![Archont561 — Geospatial tooling, made boring on purpose: locked environments, tested harnesses, agent-readable docs, and the repo management that keeps them honest.](assets/banner.svg)](https://archont561.github.io/)
-
 <div align="center">
 
-[![Portfolio: start here](assets/badges/nav-portfolio.svg)](https://archont561.github.io/)
-[![Field notes](assets/badges/nav-docs.svg)](https://archont561.github.io/docs/)
-[![Packages: 23 published](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
-[![GitHub: 23 repositories](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
-[![llms.txt: agent-readable index](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
+[![Archont561 — Geospatial tooling, made boring on purpose: locked environments, tested harnesses, agent-readable docs, and the repo management that keeps them honest.](assets/banner.svg)](https://archont561.github.io/)
+
+<br/>
+
+[![Portfolio: explore](assets/badges/nav-portfolio.svg)](https://archont561.github.io/)
+[![Docs: notes](assets/badges/nav-docs.svg)](https://archont561.github.io/docs/)
+[![Packages: 23](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
+<br/>
+
+[![GitHub: 23](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
 

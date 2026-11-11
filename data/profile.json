@@ -63,47 +63,47 @@
       {
         "id": "nav-portfolio",
         "label": "portfolio",
-        "message": "start here",
+        "message": "explore",
         "color": "#B9794D",
         "logo": "qgis",
         "url": "https://archont561.github.io/",
-        "alt": "Portfolio: start here"
+        "alt": "Portfolio: explore"
       },
       {
         "id": "nav-docs",
-        "label": "field notes",
-        "message": "docs",
+        "label": "docs",
+        "message": "notes",
         "color": "#648b63",
         "logo": "readthedocs",
         "url": "https://archont561.github.io/docs/",
-        "alt": "Field notes"
+        "alt": "Docs: notes"
       },
       {
         "id": "nav-packages",
         "label": "packages",
-        "message": "{packages} published",
+        "message": "{packages}",
         "color": "#355b42",
         "logo": "anaconda",
         "url": "https://archont561.github.io/packages/",
-        "alt": "Packages: {packages} published"
+        "alt": "Packages: {packages}"
       },
       {
         "id": "nav-github",
         "label": "github",
-        "message": "{repos} repos",
+        "message": "{repos}",
         "color": "#355b42",
         "logo": "github",
         "url": "https://github.com/Archont561?tab=repositories",
-        "alt": "GitHub: {repos} repositories"
+        "alt": "GitHub: {repos}"
       },
       {
         "id": "nav-llms",
         "label": "llms.txt",
-        "message": "agent index",
+        "message": "agents",
         "color": "#8FA17D",
         "logo": "markdown",
         "url": "https://archont561.github.io/llms.txt",
-        "alt": "llms.txt: agent-readable index"
+        "alt": "llms.txt: agents"
       }
     ],
     "registries": {

@@ -125,3 +125,40 @@ export function principlesCard(principles: Principles, footer: string, width: nu
 /** Rows of two, so the README can lay the grid out with plain `<p>` blocks. */
 export const pairs = <T>(items: T[]): T[][] =>
   Array.from({ length: Math.ceil(items.length / 2) }, (_, i) => items.slice(2 * i, 2 * i + 2));
+
+/**
+ * Detect the optimal number of columns to balance row lengths and minimize ragged trailing items.
+ */
+export function detectGridColumns(count: number, maxCols = 4): number {
+  if (count <= 3) return count;
+  let bestCols = 2;
+  let bestScore = -Infinity;
+  const upper = Math.min(count, maxCols);
+  for (let c = 2; c <= upper; c++) {
+    const rows = Math.ceil(count / c);
+    const lastRow = count % c === 0 ? c : count % c;
+    const fillRatio = lastRow / c;
+    const singlePenalty = lastRow === 1 && c > 2 ? 0.3 : 1.0;
+    const ratio = c / rows;
+    const ratioScore = 1 / (1 + Math.abs(ratio - 1.5));
+    const score = fillRatio * 2 + ratioScore * singlePenalty;
+    if (score > bestScore) {
+      bestScore = score;
+      bestCols = c;
+    }
+  }
+  return bestCols;
+}
+
+/**
+ * Arrange items into rows using an auto-detected optimal column count for a balanced, centered grid.
+ */
+export function greatestGrid<T>(items: T[], maxCols = 4): T[][] {
+  if (items.length === 0) return [];
+  const cols = detectGridColumns(items.length, maxCols);
+  const rows: T[][] = [];
+  for (let i = 0; i < items.length; i += cols) {
+    rows.push(items.slice(i, i + cols));
+  }
+  return rows;
+}
