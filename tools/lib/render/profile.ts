@@ -16,7 +16,7 @@ import { DOCS_INDEX, renderDocsIndex } from "@/tools/lib/render/docs.ts";
 import { healthTokens, type Tokens } from "@/tools/lib/render/health.ts";
 import { portalRoutes } from "@/tools/lib/render/portal.ts";
 import { PR_TEMPLATE, renderPrTemplate } from "@/tools/lib/render/pr.ts";
-import { pairs, projectCards } from "@/tools/lib/render/showcase.ts";
+import { greatestGrid, pairs, projectCards } from "@/tools/lib/render/showcase.ts";
 
 export type RegistryView = Registry & { released: number; reserved: number };
 export type Release = Pkg & { registry: string };
@@ -143,6 +143,7 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
       md: markdownBadge,
       cards,
       rows: pairs(cards),
+      navRows: greatestGrid(badges.nav),
     },
     { async: false },
   );

@@ -8,12 +8,15 @@
   const accountWidth = Math.max(...registries.map((r) => r.account.length)) + 3;
   const universe = registries.find((r) => r.id === 'r-universe');
 _%>
-[![<%= name %> — <%= tagline.join(' ') %>](assets/banner.svg)](<%= portfolio.url %>)
-
 <div align="center">
 
-<% badges.nav.forEach(b => { %><%- md(b) %>
-<% }); %>
+[![<%= name %> — <%= tagline.join(' ') %>](assets/banner.svg)](<%= portfolio.url %>)
+
+<br/>
+<% navRows.forEach((row, i) => { %>
+<% row.forEach(b => { %><%- md(b) %>
+<% }); %><% if (i < navRows.length - 1) { %><br/>
+<% } %><% }); %>
 </div>
 
 ## `> ls --principles`
