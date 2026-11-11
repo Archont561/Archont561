@@ -115,6 +115,8 @@ describe("projectCard", () => {
     expect(svg).toContain(">GEOSPATIAL</text>");
     for (const chip of ["Python", "PyPI", "Conda"]) expect(svg).toContain(`>${chip}</text>`);
     expect(svg).toContain('docs <tspan fill="#B9794D">→</tspan>');
+    expect(svg).toContain('stroke="#B9794D" stroke-width="2" stroke-linecap="round"');
+    expect(projectCard({ ...card, kind: "testing" })).toContain('stroke="#8FA17D" stroke-width="2"');
   });
 
   test("tours with the spotlight and goes still for reduced motion", () => {

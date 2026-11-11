@@ -86,6 +86,9 @@ describe("projectCards", () => {
       "https://x.test/docs/projects/notes/",
       "https://x.test/docs/",
     ]);
+    expect(cards[0]?.repoUrl).toBe("https://github.com/x/geo-tools");
+    expect(cards[0]?.slug).toBe("geo-tools");
+    expect(cards[2]?.slug).toBe("all-projects");
   });
 
   test("takes the stack from the repository's language, matched case-insensitively", () => {

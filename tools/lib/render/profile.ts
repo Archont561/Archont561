@@ -120,7 +120,7 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
     snapshot.github.repos,
     snapshot.registries,
     profile.portfolio.cards.all,
-    { docs: `${profile.portfolio.url}docs/` },
+    { docs: `${profile.portfolio.url}docs/`, repo: profile.portfolio.repo },
     tokens,
   );
   const principles = principlesCard(profile.principles, profile.profile.principle, width);

@@ -19,14 +19,17 @@ and I care most about the unglamorous part: the lockfile, the test harness, the 
 the review comment. Everything here is a public fact about the code — this profile
 publishes no name, location, employer, availability, or proficiency score.
 
-```ts
-const archont561: Profile = {
-  name: "Archont561",
-  role: "Student · open-source contributor",
-  focus: ["Geospatial systems", "Reproducible environments", "Testing infrastructure", "Repo management"],
-  principle: "Lock it, test it, document it, then ship it.",
-  reviewStyle: "Reproducible or it did not happen.",
-};
+```toml
+# pixi.toml — reproducible environment definition
+[workspace]
+name = "archont561"
+channels = ["conda-forge", "archont561"]
+
+[package]
+role = "Student · open-source contributor"
+focus = ["Geospatial systems", "Reproducible environments", "Testing infrastructure", "Repo management"]
+principle = "Lock it, test it, document it, then ship it."
+review-style = "Reproducible or it did not happen."
 ```
 
 ## `> ls --infrastructure` — shipped and maintained
@@ -40,13 +43,25 @@ lists every repository. Stack and registry chips come from the captured snapshot
 </p>
 
 <p align="center">
+  <sub><code>qgis-sdk</code>: <a href="https://github.com/Archont561/qgis-sdk">repo</a> · <a href="https://archont561.github.io/docs/projects/qgis-sdk/">docs</a> &nbsp;|&nbsp; <code>qgis-agent-harness</code>: <a href="https://github.com/Archont561/qgis-agent-harness">repo</a> · <a href="https://archont561.github.io/docs/projects/qgis-agent-harness/">docs</a></sub>
+</p>
+
+<p align="center">
   <a href="https://archont561.github.io/docs/projects/pixi-sandbox/"><img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects."></a>
   <a href="https://archont561.github.io/docs/projects/bun-test-utils/"><img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner."></a>
 </p>
 
 <p align="center">
+  <sub><code>pixi-sandbox</code>: <a href="https://github.com/Archont561/pixi-sandbox">repo</a> · <a href="https://archont561.github.io/docs/projects/pixi-sandbox/">docs</a> &nbsp;|&nbsp; <code>bun-test-utils</code>: <a href="https://github.com/Archont561/bun-test-utils">repo</a> · <a href="https://archont561.github.io/docs/projects/bun-test-utils/">docs</a></sub>
+</p>
+
+<p align="center">
   <a href="https://archont561.github.io/docs/projects/playtest/"><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
   <a href="https://archont561.github.io/docs/"><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."></a>
+</p>
+
+<p align="center">
+  <sub><code>playtest</code>: <a href="https://github.com/Archont561/playtest">repo</a> · <a href="https://archont561.github.io/docs/projects/playtest/">docs</a> &nbsp;|&nbsp; <code>all-projects</code>: <a href="https://github.com/Archont561/archont561.github.io">repo</a> · <a href="https://archont561.github.io/docs/">docs</a></sub>
 </p>
 
 ## `> cat contribution.log`
@@ -60,6 +75,14 @@ lists every repository. Stack and registry chips come from the captured snapshot
 - [DONE] 📐 Split repository-scoped detail out of this profile README.
    [WONT] Résumé claims, availability statements, or animated stat widgets.
 ```
+
+| Ecosystem | Namespace | Released |
+| :--- | :--- | :---: |
+| **npm** | `@archont561` | 4 |
+| **PyPI** | `Archont561` | 5 |
+| **crates.io** | `Archont561` | 2 |
+| **Conda** | `archont561/archont561` | 12 |
+
 
 ## `> man archont561` — FAQ
 

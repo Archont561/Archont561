@@ -38,7 +38,15 @@ export type AllProjectsCard = {
 export type Principles = { command: string; alt: string; lines: TerminalLine[] };
 
 /** A rendered card and how the README links it. */
-export type CardView = { src: string; href: string; alt: string; svg: string };
+export type CardView = {
+  name: string;
+  slug: string;
+  repoUrl: string;
+  src: string;
+  href: string;
+  alt: string;
+  svg: string;
+};
 
 export const slugOf = (name: string): string => name.toLowerCase();
 
@@ -68,7 +76,7 @@ export function projectCards(
   repos: RepoFacts[],
   registries: Registry[],
   all: AllProjectsCard,
-  links: { docs: string },
+  links: { docs: string; repo?: string },
   tokens: Tokens,
 ): CardView[] {
   const featured = projects.filter((project) => project.featured);
@@ -87,10 +95,21 @@ export function projectCards(
       index,
       count,
     });
-    return { src: cardPath(slug), href: project.docs, alt: `${project.name}: ${project.description}`, svg };
+    return {
+      name: project.name,
+      slug,
+      repoUrl: project.url,
+      src: cardPath(slug),
+      href: project.docs,
+      alt: `${project.name}: ${project.description}`,
+      svg,
+    };
   });
   const description = fill(all.description, tokens);
   cards.push({
+    name: all.name,
+    slug: "all-projects",
+    repoUrl: links.repo ?? links.docs,
     src: cardPath("all-projects"),
     href: links.docs,
     alt: `${all.name}: ${description}`,
