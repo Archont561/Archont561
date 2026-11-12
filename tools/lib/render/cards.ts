@@ -10,20 +10,21 @@
  */
 
 import { CARD_DIR } from "@/tools/lib/render/outputs.ts";
+import { brandExtras, palette } from "@/tools/lib/render/palette.ts";
 
 export const PRINCIPLES = `${CARD_DIR}/principles.svg`;
 export const cardPath = (slug: string): string => `${CARD_DIR}/${slug}.svg`;
 
 const C = {
-  paper: "#131d18",
-  surface: "#1d2921",
-  line: "#34453a",
-  ink: "#e4ece5",
-  muted: "#a5b4a9",
-  green: "#a2c7ab",
-  sage: "#8FA17D",
-  moss: "#648b63",
-  copper: "#B9794D",
+  paper: palette.paper,
+  surface: palette.surface,
+  line: palette.line,
+  ink: palette.ink,
+  muted: palette.muted,
+  green: palette.green,
+  sage: palette.sage,
+  moss: brandExtras.moss,
+  copper: brandExtras.copper,
 };
 
 const KIND_ACCENTS: Record<string, string> = {
@@ -146,7 +147,7 @@ ${REDUCED}
 <defs>
 <filter id="glow" x="-10%" y="-20%" width="120%" height="140%"><feGaussianBlur stdDeviation="5"/></filter>
 <clipPath id="shape"><rect ${box}/></clipPath>
-<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="${palette.white}" stop-opacity="0"/><stop offset=".5" stop-color="${palette.white}" stop-opacity=".06"/><stop offset="1" stop-color="${palette.white}" stop-opacity="0"/></linearGradient>
 </defs>
 <rect class="spot" ${box} fill="none" stroke="${C.copper}" stroke-width="3" filter="url(#glow)"/>
 <rect ${box} fill="${C.surface}" stroke="${C.line}"/>

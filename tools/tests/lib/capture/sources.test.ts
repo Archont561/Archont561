@@ -12,6 +12,7 @@ import {
   nugetOwner,
   parseUserPackages,
   pomDescription,
+  portfolioTokens,
   pypiUser,
   rUniverse,
   summarize,
@@ -228,5 +229,36 @@ describe("NuGet, Maven Central and R-universe", () => {
     await expect(rUniverse(clients(), "Archont561", "archont561")).rejects.toThrow(
       "Archont561/archont561.r-universe.dev: packages.json is not a file",
     );
+  });
+});
+
+describe("portfolioTokens", () => {
+  test("returns fetched tokens when fetch succeeds", async () => {
+    const fetcher = (async () =>
+      new Response(":root { --palette-day-background: #ffffff; }")) as unknown as typeof fetch;
+    const tokens = await portfolioTokens(fetcher, "fallback");
+    expect(tokens).toBe(":root { --palette-day-background: #ffffff; }");
+  });
+
+  test("falls back to fallback on HTTP error", async () => {
+    const fetcher = (async () => new Response("Not found", { status: 404 })) as unknown as typeof fetch;
+    const tokens = await portfolioTokens(fetcher, "fallback");
+    expect(tokens).toBe("fallback");
+  });
+
+  test("falls back to fallback on fetch exception", async () => {
+    const fetcher = (async () => {
+      throw new Error("network down");
+    }) as unknown as typeof fetch;
+    const tokens = await portfolioTokens(fetcher, "fallback");
+    expect(tokens).toBe("fallback");
+  });
+
+  test("returns empty string when fetch fails and no fallback provided", async () => {
+    const fetcher = (async () => {
+      throw new Error("network down");
+    }) as unknown as typeof fetch;
+    const tokens = await portfolioTokens(fetcher);
+    expect(tokens).toBe("");
   });
 });

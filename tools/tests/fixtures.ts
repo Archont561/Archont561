@@ -19,11 +19,14 @@ import { cp } from "node:fs/promises";
 import { join } from "node:path";
 import { test as base } from "@archont561/bun-test-utils";
 import type fc from "fast-check";
+import snapshot from "@/data/snapshot.json" with { type: "json" };
 import type { Accounts } from "@/tools/lib/capture/snapshot.ts";
 import { recordLog } from "@/tools/lib/log.ts";
 import { ROOT } from "@/tools/lib/paths.ts";
 import { runner } from "@/tools/lib/run.ts";
 import { isPixiTool, toolchain } from "@/tools/lib/toolchain.ts";
+
+export const DEFAULT_TOKENS_CSS: string = snapshot.tokens ?? "";
 
 export type FastCheck = typeof fc;
 
@@ -269,7 +272,21 @@ const prefixRoute: Handler = async ({ world, request, at }) => {
   });
 };
 
+const tokensRoute: Handler = ({ at }) => {
+  if (
+    at(
+      "raw.githubusercontent.com",
+      "/Archont561/archont561.github.io/main/apps/portfolio/src/app/tokens.css",
+    ) ||
+    at("api.github.com", "/repos/Archont561/archont561.github.io/contents/apps/portfolio/src/app/tokens.css")
+  ) {
+    return new Response(DEFAULT_TOKENS_CSS, { headers: { "Content-Type": "text/css" } });
+  }
+  return undefined;
+};
+
 const ROUTES: Handler[] = [
+  tokensRoute,
   githubRoute,
   npmRoute,
   pypiRoute,

@@ -93,5 +93,5 @@ test("the banner includes the portal content and is linked from the README", asy
 });
 
 test("contour colours step from the copper summit through sage slopes to forest lowlands", () => {
-  expect([0, 1, 2, 3, 6].map(contourColor)).toEqual(["#B9794D", "#8FA17D", "#8FA17D", "#3d6b4f", "#3d6b4f"]);
+  expect([0, 1, 2, 3, 6].map(contourColor)).toEqual(["#B9794D", "#bfd4b8", "#bfd4b8", "#3d6b4f", "#3d6b4f"]);
 });

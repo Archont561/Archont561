@@ -8,6 +8,7 @@
  */
 import figlet, { type FontName } from "figlet";
 import { siZsh } from "simple-icons";
+import { brandExtras, palette } from "@/tools/lib/render/palette.ts";
 import { contour, contourColor, type PortalRoute } from "./portal.ts";
 
 export type BannerPortalConfig = {
@@ -26,17 +27,17 @@ export type BannerConfig = {
   portal?: BannerPortalConfig;
 };
 
-/** Terrain palette shared with archont561.github.io. */
+/** Palette consumed from palette.ts (tokens.css + brandExtras). */
 const C = {
-  paper: "#131d18",
-  surface: "#1d2921",
-  line: "#34453a",
-  ink: "#e4ece5",
-  muted: "#a5b4a9",
-  green: "#a2c7ab",
-  sage: "#8FA17D",
-  forest: "#3d6b4f",
-  copper: "#B9794D",
+  paper: palette.paper,
+  surface: palette.surface,
+  line: palette.line,
+  ink: palette.ink,
+  muted: palette.muted,
+  green: palette.green,
+  sage: palette.sage,
+  forest: brandExtras.forest,
+  copper: brandExtras.copper,
 };
 
 const FONT =
@@ -343,9 +344,9 @@ export function renderBanner(config: BannerConfig): string {
 
     gradients.push(
       `<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="#fff" stop-opacity="0"/>
-<stop offset="0.5" stop-color="#fff" stop-opacity="0"><animate attributeName="stop-opacity" values="0;0.45;0" begin="${fmt(tCta + 0.2)}s" dur="0.9s" fill="freeze"/></stop>
-<stop offset="1" stop-color="#fff" stop-opacity="0"/>
+<stop offset="0" stop-color="${palette.white}" stop-opacity="0"/>
+<stop offset="0.5" stop-color="${palette.white}" stop-opacity="0"><animate attributeName="stop-opacity" values="0;0.45;0" begin="${fmt(tCta + 0.2)}s" dur="0.9s" fill="freeze"/></stop>
+<stop offset="1" stop-color="${palette.white}" stop-opacity="0"/>
 </linearGradient>`,
     );
 

@@ -6,6 +6,7 @@
  */
 import { makeBadge } from "badge-maker";
 import * as icons from "simple-icons";
+import { brandExtras, palette } from "@/tools/lib/render/palette.ts";
 
 export type BadgeSpec = {
   /** File stem under assets/badges/. */
@@ -22,20 +23,20 @@ export type BadgeSpec = {
 export type Badge = BadgeSpec & { src: string; svg: string };
 
 /** Terrain palette shared with archont561.github.io. */
-export const TERRAIN = {
-  label: "#1d2921",
-  forest: "#355b42",
-  moss: "#648b63",
-  sage: "#8FA17D",
-  copper: "#B9794D",
-};
+export const TERRAIN = Object.freeze({
+  label: palette.surface,
+  forest: palette.day.primary,
+  moss: brandExtras.moss,
+  sage: palette.sage,
+  copper: brandExtras.copper,
+});
 
 function logo(slug?: string): string | undefined {
   if (!slug) return undefined;
   const key = `si${slug.charAt(0).toUpperCase()}${slug.slice(1)}`;
   const icon = (icons as Record<string, { path: string } | undefined>)[key];
   if (!icon) throw new Error(`simple-icons has no ${key} (badge logo "${slug}")`);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#fff" d="${icon.path}"/></svg>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="${palette.white}" d="${icon.path}"/></svg>`;
   return `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
 }
 
