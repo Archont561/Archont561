@@ -398,3 +398,27 @@ export async function condaChannel(clients: Clients, channel: string): Promise<R
     packages: packages.sort(byName),
   };
 }
+
+export const TOKENS_URL =
+  "https://raw.githubusercontent.com/Archont561/archont561.github.io/main/apps/portfolio/src/app/tokens.css";
+export const TOKENS_API_URL =
+  "https://api.github.com/repos/Archont561/archont561.github.io/contents/apps/portfolio/src/app/tokens.css?ref=main";
+
+/**
+ * Fetch the portfolio tokens.css from its pinned ref, falling back to the committed snapshot
+ * on network or HTTP failure.
+ */
+export async function portfolioTokens(fetcher: typeof fetch = fetch, fallback?: string): Promise<string> {
+  const direct = await fetcher(TOKENS_URL)
+    .then(async (res) => (res.ok ? await res.text() : null))
+    .catch(() => null);
+  if (direct) return direct;
+
+  const api = await fetcher(TOKENS_API_URL, { headers: { Accept: "application/vnd.github.v3.raw" } })
+    .then(async (res) => (res.ok ? await res.text() : null))
+    .catch(() => null);
+  if (api) return api;
+
+  if (fallback !== undefined) return fallback;
+  return "";
+}

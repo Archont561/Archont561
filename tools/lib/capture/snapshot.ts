@@ -11,6 +11,7 @@ import {
   mavenNamespace,
   npmOrg,
   nugetOwner,
+  portfolioTokens,
   pypiUser,
   type Registry,
   rUniverse,
@@ -29,17 +30,23 @@ export type Accounts = {
   condaChannels: string[];
 };
 
-export type Snapshot = { captured: string; github: GithubSummary; registries: Registry[] };
+export type Snapshot = {
+  captured: string;
+  github: GithubSummary;
+  registries: Registry[];
+  tokens?: string;
+};
 
 export const today = (): string => new Date().toISOString().slice(0, 10);
 
 export async function capture(
   clients: Clients,
   accounts: Accounts,
-  options: { date?: string } = {},
+  options: { date?: string; tokensFallback?: string; fetch?: typeof fetch } = {},
 ): Promise<Snapshot> {
-  const [repositories, ...registries] = await Promise.all([
+  const [repositories, tokens, ...registries] = await Promise.all([
     github(clients, accounts.github),
+    portfolioTokens(options.fetch, options.tokensFallback),
     npmOrg(clients, accounts.npmScope),
     pypiUser(clients, accounts.pypi),
     cratesUser(clients, accounts.crates),
@@ -48,7 +55,12 @@ export async function capture(
     rUniverse(clients, accounts.github, accounts.rUniverse),
     ...accounts.condaChannels.map((channel) => condaChannel(clients, channel)),
   ]);
-  return { captured: options.date ?? today(), github: repositories, registries };
+  return {
+    captured: options.date ?? today(),
+    github: repositories,
+    registries,
+    ...(tokens ? { tokens } : {}),
+  };
 }
 
 /** Compare content only, ignoring the capture date. */

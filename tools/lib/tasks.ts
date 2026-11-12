@@ -5,7 +5,7 @@
 
 import { createClients } from "@/tools/lib/capture/clients.ts";
 import { createFetch } from "@/tools/lib/capture/http.ts";
-import { type Accounts, capture, saveIfChanged } from "@/tools/lib/capture/snapshot.ts";
+import { type Accounts, capture, type Snapshot, saveIfChanged } from "@/tools/lib/capture/snapshot.ts";
 import type { Env } from "@/tools/lib/config/env.ts";
 import { log } from "@/tools/lib/log.ts";
 import { BADGE_DIR, CARD_DIR, staleOutputs, writeOutputs } from "@/tools/lib/render/outputs.ts";
@@ -33,12 +33,18 @@ export async function captureTask(
     fetch: options.fetch ?? createFetch(),
     githubToken: options.env.githubToken,
   });
-  const fresh = await capture(clients, await accounts(root));
+  const snapshotPath = `${root}/${SNAPSHOT}`;
+  const file = Bun.file(snapshotPath);
+  const committed: Partial<Snapshot> = (await file.exists()) ? await file.json() : {};
+  const fresh = await capture(clients, await accounts(root), {
+    fetch: options.fetch,
+    tokensFallback: committed.tokens,
+  });
   if (options.print) {
     log.info(JSON.stringify(fresh, null, 2));
     return false;
   }
-  const changed = await saveIfChanged(`${root}/${SNAPSHOT}`, fresh);
+  const changed = await saveIfChanged(snapshotPath, fresh);
   log.success(changed ? `Snapshot updated (captured ${fresh.captured}).` : "Snapshot already current.");
   return changed;
 }

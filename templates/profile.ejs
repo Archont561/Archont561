@@ -171,10 +171,11 @@ the badges are rendered offline by [badge-maker](https://www.npmjs.com/package/b
 all of them are committed under `assets/`, so only the three live status badges call a service.
 GitHub serves them as images, which cannot react to hover or know they scrolled into view,
 so the spotlight tours the project cards on its own and the terminal replays its command.
-`bun run tools capture` records live GitHub and registry facts in `data/snapshot.json` through
-clients generated from each registry's OpenAPI or GraphQL schema, and
-`bun run tools readme` renders `templates/profile.ejs` with them and `data/profile.json`.
-Edit those, never this file. The portfolio itself lives in
+`bun run tools capture` records live GitHub and registry facts plus portfolio `tokens.css`
+in `data/snapshot.json` through clients generated from each registry's OpenAPI or GraphQL
+schema, and `bun run tools readme` renders `templates/profile.ejs`, cards, and badges with them
+and `data/profile.json`. Scheduled daily runs (`refresh.yml`) regenerate badges and cards whenever
+facts or portfolio design tokens drift. Edit those, never this file. The portfolio itself lives in
 [<%= portfolio.repo.replace('https://github.com/', '') %>](<%= portfolio.repo %>).
 
 </details>

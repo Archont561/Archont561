@@ -156,5 +156,7 @@ action is pinned to a full commit SHA (PCC-R05).
 | `pull-request.yml` | pull request | `commitlint` over the commit range and the title |
 | `refresh.yml` | daily, manual | `refresh --commit` |
 
+`refresh.yml` captures package registries and portfolio design tokens (`tokens.css`), regenerating badges and cards so they stay in sync with the portfolio palette.
+
 Codecov enforces 90% for the project and for each patch (`codecov.yml`); `bunfig.toml` applies
 the same floor locally.

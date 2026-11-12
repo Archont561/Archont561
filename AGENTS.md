@@ -95,7 +95,7 @@ freezes at the final prompt.
 - Images are local SVGs under `assets/`. The one exception is the repo-health footer: the CI, Codecov,
   and refresh status badges are remote because they report live state that a committed SVG cannot.
 - Health badge values (Bun version, coverage target, PCC pin) are read from the files that enforce them.
-- Colours come from the portfolio's terrain palette (paper `#131d18`, forest, sage `#8FA17D`, copper `#B9794D`).
+- Colours come from the portfolio's design tokens in tokens.css via data/snapshot.json (paper `#131d18`, forest, sage `#bfd4b8`, copper `#B9794D`).
 <!-- agents-md:end id=conventions -->
 
 <!-- agents-md:begin id=git sha=676d8596db47 -->

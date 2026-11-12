@@ -70,26 +70,12 @@
       {
         "name": "archont561.r-universe.dev",
         "language": null,
-        "topics": [
-          "cran",
-          "package-registry",
-          "r",
-          "r-package",
-          "r-universe",
-          "ropensci",
-          "rstats"
-        ]
+        "topics": ["cran", "package-registry", "r", "r-package", "r-universe", "ropensci", "rstats"]
       },
       {
         "name": "artifactspec",
         "language": "Python",
-        "topics": [
-          "ai-agents",
-          "artifacts",
-          "manim",
-          "python",
-          "visualization"
-        ]
+        "topics": ["ai-agents", "artifacts", "manim", "python", "visualization"]
       },
       {
         "name": "bun-test-utils",
@@ -198,24 +184,12 @@
       {
         "name": "pixi-sandbox",
         "language": "Rust",
-        "topics": [
-          "offline-first",
-          "pixi",
-          "rust",
-          "sandbox"
-        ]
+        "topics": ["offline-first", "pixi", "rust", "sandbox"]
       },
       {
         "name": "playtest",
         "language": "Python",
-        "topics": [
-          "bdd",
-          "fixtures",
-          "property-based-testing",
-          "rust",
-          "test-framework",
-          "testing"
-        ]
+        "topics": ["bdd", "fixtures", "property-based-testing", "rust", "test-framework", "testing"]
       },
       {
         "name": "polyglot-clean-code",
@@ -765,5 +739,6 @@
       "install": "https://prefix.dev/archont561/geospatial",
       "packages": []
     }
-  ]
+  ],
+  "tokens": ":root {\n  --palette-day-background: #f8f9f6;\n  --palette-day-text: #202d27;\n  --palette-day-muted: #596b5e;\n  --palette-day-border: #dde3db;\n  --palette-day-primary: #355b42;\n  --palette-day-on-primary: #ffffff;\n  --palette-day-secondary: #526f4f;\n  --palette-day-surface: #ecf0e7;\n  --palette-day-surface-border: #dce3d6;\n  --palette-day-code-background: #edf0e7;\n  --palette-day-code-border: #d9e0d3;\n  --palette-day-code-inline: #e9eee5;\n  --palette-night-background: #131d18;\n  --palette-night-text: #e4ece5;\n  --palette-night-muted: #a5b4a9;\n  --palette-night-border: #34453a;\n  --palette-night-primary: #a2c7ab;\n  --palette-night-on-primary: #131d18;\n  --palette-night-secondary: #bfd4b8;\n  --palette-night-surface: #26392a;\n  --palette-night-surface-border: #3c5140;\n  --palette-night-code-background: #1d2921;\n  --palette-night-code-border: #2c3f31;\n  --palette-night-code-inline: #243428;\n  --color-background: var(--palette-night-background);\n  --color-text: var(--palette-night-text);\n  --color-muted: var(--palette-night-muted);\n  --color-border: var(--palette-night-border);\n  --color-primary: var(--palette-night-primary);\n  --color-secondary: var(--palette-night-secondary);\n  --color-surface: var(--palette-night-surface);\n  --color-surface-border: var(--palette-night-surface-border);\n  --color-code-background: var(--palette-night-code-background);\n  --color-code-border: var(--palette-night-code-border);\n  --color-code-inline: var(--palette-night-code-inline);\n  --paper: var(--color-background);\n  --line: var(--color-border);\n  --ink: var(--color-text);\n  --code-bg: var(--color-code-background);\n  --atlas-accent: var(--color-secondary);\n  --green: var(--color-primary);\n}\n"
 }
