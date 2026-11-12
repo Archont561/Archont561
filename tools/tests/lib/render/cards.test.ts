@@ -103,7 +103,7 @@ describe("projectCard", () => {
 
   test("is an accessible SVG of the card size whose description names stack and registries", () => {
     expect(svg).toStartWith(
-      `<svg xmlns="http://www.w3.org/2000/svg" width="${CARD.width}" height="${CARD.height}"`,
+      `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD.width}" height="${CARD.height}"`,
     );
     expect(svg).toContain('<title id="t">geo-tools (docs)</title>');
     expect(svg).toContain("Stack: Python. Ships to PyPI, Conda.</desc>");

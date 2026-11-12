@@ -157,7 +157,7 @@ export function projectCard(card: ProjectCard): string {
         `<text class="desc-txt" x="${left}" y="${M + 84 + i * 18}" font-size="12.5" fill="${C.muted}">${esc(line)}</text>`,
     )
     .join("");
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
+  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
 <title id="t">${esc(card.name)} (${esc(card.cta ?? "docs")})</title>
 <desc id="d">${esc(card.description)}${card.stack.length ? ` Stack: ${esc(card.stack.join(", "))}.` : ""}${card.ships.length ? ` Ships to ${esc(card.ships.join(", "))}.` : ""}</desc>
 <style>
