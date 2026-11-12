@@ -47,30 +47,18 @@ Each card opens the project's page in the [portfolio](https://archont561.github.
 lists every repository. Stack and registry chips come from the captured snapshot.
 
 <p align="center">
-  <a href="https://archont561.github.io/docs/projects/qgis-sdk/"><img src="assets/cards/qgis-sdk.svg" width="49%" alt="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins."></a>
-  <a href="https://archont561.github.io/docs/projects/qgis-agent-harness/"><img src="assets/cards/qgis-agent-harness.svg" width="49%" alt="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle."></a>
+  <img src="assets/cards/qgis-sdk.svg" width="49%" alt="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins.">
+  <img src="assets/cards/qgis-agent-harness.svg" width="49%" alt="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle.">
 </p>
 
 <p align="center">
-  <sub><code>qgis-sdk</code>: <a href="https://github.com/Archont561/qgis-sdk">repo</a> · <a href="https://archont561.github.io/docs/projects/qgis-sdk/">docs</a> &nbsp;|&nbsp; <code>qgis-agent-harness</code>: <a href="https://github.com/Archont561/qgis-agent-harness">repo</a> · <a href="https://archont561.github.io/docs/projects/qgis-agent-harness/">docs</a></sub>
+  <img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects.">
+  <img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner.">
 </p>
 
 <p align="center">
-  <a href="https://archont561.github.io/docs/projects/pixi-sandbox/"><img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects."></a>
-  <a href="https://archont561.github.io/docs/projects/bun-test-utils/"><img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner."></a>
-</p>
-
-<p align="center">
-  <sub><code>pixi-sandbox</code>: <a href="https://github.com/Archont561/pixi-sandbox">repo</a> · <a href="https://archont561.github.io/docs/projects/pixi-sandbox/">docs</a> &nbsp;|&nbsp; <code>bun-test-utils</code>: <a href="https://github.com/Archont561/bun-test-utils">repo</a> · <a href="https://archont561.github.io/docs/projects/bun-test-utils/">docs</a></sub>
-</p>
-
-<p align="center">
-  <a href="https://archont561.github.io/docs/projects/playtest/"><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
-  <a href="https://archont561.github.io/docs/"><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."></a>
-</p>
-
-<p align="center">
-  <sub><code>playtest</code>: <a href="https://github.com/Archont561/playtest">repo</a> · <a href="https://archont561.github.io/docs/projects/playtest/">docs</a> &nbsp;|&nbsp; <code>all-projects</code>: <a href="https://github.com/Archont561/archont561.github.io">repo</a> · <a href="https://archont561.github.io/docs/">docs</a></sub>
+  <img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust.">
+  <img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt.">
 </p>
 
 ## `> cat contribution.log`

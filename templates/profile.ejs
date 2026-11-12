@@ -48,12 +48,8 @@ Each card opens the project's page in the [portfolio](<%= portfolio.url %>); the
 lists every repository. Stack and registry chips come from the captured snapshot.
 
 <% rows.forEach(row => { %><p align="center">
-<% row.forEach(card => { %>  <a href="<%= card.href %>"><img src="<%= card.src %>" width="49%" alt="<%= card.alt %>"></a>
+<% row.forEach(card => { %>  <img src="<%= card.src %>" width="49%" alt="<%= card.alt %>">
 <% }); %></p>
-
-<p align="center">
-  <sub><% row.forEach((card, idx) => { %><code><%= card.slug %></code>: <a href="<%= card.repoUrl %>">repo</a> · <a href="<%= card.href %>">docs</a><% if (idx < row.length - 1) { %> &nbsp;|&nbsp; <% } %><% }); %></sub>
-</p>
 
 <% }); %>## `> cat contribution.log`
 
