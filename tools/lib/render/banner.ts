@@ -15,7 +15,7 @@ export type BannerPortalConfig = {
   url: string;
   label: string;
   kicker: string;
-  cta: string;
+  cta?: string;
   routes: PortalRoute[];
 };
 
@@ -331,32 +331,12 @@ export function renderBanner(config: BannerConfig): string {
       );
     });
 
-    // CTA button
-    const ctaW = Math.ceil(portal.cta.length * rowCw + 32);
-    const ctaX = width - PAD - ctaW;
-    const ctaY = yKicker - 16;
-    const tCta = tRows + portal.routes.length * 0.25;
-    body.push(
-      `<g class="seq" opacity="0"><set attributeName="opacity" to="1" begin="${fmt(tCta)}s" fill="freeze"/>
-<rect x="${ctaX}" y="${ctaY}" width="${ctaW}" height="26" rx="13" fill="${C.copper}"/>
-<rect x="${ctaX}" y="${ctaY}" width="${ctaW}" height="26" rx="13" fill="url(#shine)"/>
-<text x="${fmt(ctaX + ctaW / 2)}" y="${ctaY + 17}" text-anchor="middle" class="cta">${esc(portal.cta)}</text></g>`,
-    );
-
-    gradients.push(
-      `<linearGradient id="shine" x1="0" y1="0" x2="1" y2="0">
-<stop offset="0" stop-color="${palette.white}" stop-opacity="0"/>
-<stop offset="0.5" stop-color="${palette.white}" stop-opacity="0"><animate attributeName="stop-opacity" values="0;0.45;0" begin="${fmt(tCta + 0.2)}s" dur="0.9s" fill="freeze"/></stop>
-<stop offset="1" stop-color="${palette.white}" stop-opacity="0"/>
-</linearGradient>`,
-    );
-
     clips.push(
       `<clipPath id="map"><rect x="${mapX}" y="${mapY}" width="${MAP_W}" height="${mapH}" rx="8"/></clipPath>`,
     );
 
     // Idle zsh prompt at bottom
-    const tPrompt = tCta + 0.35;
+    const tPrompt = tRows + portal.routes.length * 0.25 + 0.35;
     body.push(
       `<g class="seq" opacity="0">${appear(tPrompt)}<text x="${x0}" y="${yPrompt}" class="p">~ ❯</text>` +
         `<rect class="cursor" x="${fmt(x0 + 3.2 * textCw)}" y="${fmt(yPrompt - TEXT_SIZE + 2)}" width="${fmt(textCw)}" height="${TEXT_SIZE + 2}" fill="${C.green}"/></g>`,
@@ -401,7 +381,6 @@ text{font-family:${FONT};white-space:pre}
 .u{fill:${C.ink};font-size:${URL_SIZE}px;font-weight:700}
 .r{fill:${C.green};font-size:${TEXT_SIZE}px;font-weight:700}
 .d{fill:${C.muted};font-size:${TEXT_SIZE}px}
-.cta{fill:${C.paper};font-size:${TEXT_SIZE}px;font-weight:700}
 .contour{fill:none;stroke-width:1.3;opacity:.85}
 .grid path{stroke:${C.line};stroke-width:1;stroke-dasharray:2 5}
 .cursor{animation:blink 1.1s steps(1) infinite}
@@ -417,7 +396,6 @@ text{font-family:${FONT};white-space:pre}
 .u{fill:${palette.day.ink}}
 .r{fill:${palette.day.green}}
 .d{fill:${palette.day.muted}}
-.cta{fill:${palette.day.paper}}
 .cursor{fill:${palette.day.green}}
 .div-line{stroke:${palette.day.line}}
 .grid path{stroke:${palette.day.line}}
