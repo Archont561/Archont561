@@ -47,7 +47,8 @@
           "profile-readme",
           "readme-generator",
           "typescript"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "archont561.github.io",
@@ -65,17 +66,20 @@
           "reproducibility",
           "testing",
           "unocss"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "archont561.r-universe.dev",
         "language": null,
-        "topics": ["cran", "package-registry", "r", "r-package", "r-universe", "ropensci", "rstats"]
+        "topics": ["cran", "package-registry", "r", "r-package", "r-universe", "ropensci", "rstats"],
+        "stars": 0
       },
       {
         "name": "artifactspec",
         "language": "Python",
-        "topics": ["ai-agents", "artifacts", "manim", "python", "visualization"]
+        "topics": ["ai-agents", "artifacts", "manim", "python", "visualization"],
+        "stars": 0
       },
       {
         "name": "bun-test-utils",
@@ -95,7 +99,8 @@
           "test-fixtures",
           "testing",
           "typescript"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "clifacet",
@@ -111,7 +116,8 @@
           "rust-library",
           "terminal",
           "tui"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "CloudCompare-conda",
@@ -126,17 +132,20 @@
           "point-cloud",
           "rattler-build",
           "windows"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "digital-terrain-hub",
         "language": "Astro",
-        "topics": []
+        "topics": [],
+        "stars": 0
       },
       {
         "name": "geospatial-conda-recipes",
         "language": null,
-        "topics": []
+        "topics": [],
+        "stars": 0
       },
       {
         "name": "gh-repoconf",
@@ -159,12 +168,14 @@
           "rust",
           "toml",
           "workflow-generator"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "NinjaODM",
         "language": "Python",
-        "topics": []
+        "topics": [],
+        "stars": 0
       },
       {
         "name": "ODM-conda",
@@ -179,17 +190,20 @@
           "pixi",
           "point-cloud",
           "rattler-build"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "pixi-sandbox",
         "language": "Rust",
-        "topics": ["offline-first", "pixi", "rust", "sandbox"]
+        "topics": ["offline-first", "pixi", "rust", "sandbox"],
+        "stars": 0
       },
       {
         "name": "playtest",
         "language": "Python",
-        "topics": ["bdd", "fixtures", "property-based-testing", "rust", "test-framework", "testing"]
+        "topics": ["bdd", "fixtures", "property-based-testing", "rust", "test-framework", "testing"],
+        "stars": 0
       },
       {
         "name": "polyglot-clean-code",
@@ -207,7 +221,8 @@
           "semgrep",
           "static-analysis",
           "vale"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "PyShellForge",
@@ -224,7 +239,8 @@
           "shell-script",
           "shell-scripting",
           "transpiler"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "qgis-agent-harness",
@@ -244,7 +260,8 @@
           "reproducibility",
           "research-software",
           "spatial-data"
-        ]
+        ],
+        "stars": 1
       },
       {
         "name": "qgis-sdk",
@@ -261,7 +278,8 @@
           "qgis-plugins",
           "sdk",
           "typescript"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "rude-clean-code",
@@ -278,7 +296,8 @@
           "solid",
           "solid-principles",
           "static-analysis"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "skills",
@@ -293,7 +312,8 @@
           "pixi",
           "python",
           "skills-registry"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "staged-recipes-submit",
@@ -305,7 +325,8 @@
           "github-actions",
           "rattler-build",
           "staged-recipes"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "universe",
@@ -320,7 +341,8 @@
           "self-hosted",
           "software-distribution",
           "supply-chain-security"
-        ]
+        ],
+        "stars": 0
       },
       {
         "name": "workloop",
@@ -340,7 +362,8 @@
           "rust",
           "toml",
           "workflow-automation"
-        ]
+        ],
+        "stars": 0
       }
     ]
   },
@@ -355,7 +378,7 @@
           "name": "@archont561/bun-test-utils",
           "version": "0.2.0",
           "published": "2026-11-10",
-          "description": "General-purpose test extension for the Bun test runner covering unit, integration, and e2e tests — Playwright-style typed fixtures composed with test.extend(), with scopes and LIFO teardown, plus BDD, property-based testing, snapshots, HTTP record/replay,",
+          "description": "General-purpose test extension for the Bun test runner covering unit, integration, and e2e tests \u2014 Playwright-style typed fixtures composed with test.extend(), with scopes and LIFO teardown, plus BDD, property-based testing, snapshots, HTTP record/replay,",
           "reserved": false,
           "url": "https://www.npmjs.com/package/@archont561/bun-test-utils"
         },

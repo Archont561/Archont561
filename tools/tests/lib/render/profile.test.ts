@@ -3,6 +3,7 @@ import { ROOT } from "@/tools/lib/paths.ts";
 import { cardPath } from "@/tools/lib/render/cards.ts";
 import { CARD_DIR } from "@/tools/lib/render/outputs.ts";
 import {
+  assertValidSvgXml,
   badgeCount,
   buildOutputs,
   curatedBadges,
@@ -194,6 +195,21 @@ describe("buildOutputs", async () => {
     expect(readme).toContain("actions/workflows/ci.yml/badge.svg");
     expect(readme).toContain("codecov.io/gh/Archont561/Archont561");
     expect(readme).toContain("assets/badges/health-coverage.svg");
+  });
+
+  test("assertValidSvgXml passes valid SVGs and rejects unbound prefixes", () => {
+    expect(() =>
+      assertValidSvgXml("test.svg", '<svg xmlns="http://www.w3.org/2000/svg"><rect/></svg>'),
+    ).not.toThrow();
+    expect(() =>
+      assertValidSvgXml(
+        "test.svg",
+        '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><a xlink:href="x"/></svg>',
+      ),
+    ).not.toThrow();
+    expect(() =>
+      assertValidSvgXml("test.svg", '<svg xmlns="http://www.w3.org/2000/svg"><a xlink:href="x"/></svg>'),
+    ).toThrow("Unbound XML namespace prefix 'xlink' in test.svg");
   });
 
   test("matches the committed README", async () => {

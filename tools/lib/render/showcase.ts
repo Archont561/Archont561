@@ -81,6 +81,7 @@ export function projectCards(
 ): CardView[] {
   const featured = projects.filter((project) => project.featured);
   const count = featured.length + 1;
+  const totalStars = repos.reduce((sum, r) => sum + (r.stars ?? 0), 0);
   const cards = featured.map((project, index): CardView => {
     const repo = repos.find((candidate) => candidate.name.toLowerCase() === project.name.toLowerCase());
     const slug = slugOf(project.name);
@@ -91,9 +92,7 @@ export function projectCards(
       kind: project.kind,
       stack: repo?.language ? [repo.language] : [],
       ships: shipsTo(project.name, registries),
-      cta: "docs",
-      repoUrl: project.url,
-      docsUrl: project.docs,
+      stars: repo?.stars ?? 0,
       index,
       count,
     });
@@ -119,8 +118,7 @@ export function projectCards(
       ...all,
       description,
       ships: [],
-      repoUrl: links.repo ?? links.docs,
-      docsUrl: links.docs,
+      stars: totalStars,
       index: featured.length,
       count,
     }),

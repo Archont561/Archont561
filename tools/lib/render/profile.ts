@@ -91,6 +91,17 @@ export const curatedBadges = (specs: BadgeSpec[], tokens: Tokens): Badge[] =>
 export const markdownBadge = (badge: { alt: string; src: string; url: string }): string =>
   `[![${badge.alt}](${badge.src})](${badge.url})`;
 
+export function assertValidSvgXml(path: string, svg: string): void {
+  const attrPrefixes = [...svg.matchAll(/\s([a-zA-Z0-9_-]+):[a-zA-Z0-9_-]+=/g)]
+    .map((m) => m[1])
+    .filter((prefix) => prefix !== "xmlns" && prefix !== "xml");
+  for (const prefix of attrPrefixes) {
+    if (!svg.includes(`xmlns:${prefix}=`)) {
+      throw new Error(`Unbound XML namespace prefix '${prefix}' in ${path}`);
+    }
+  }
+}
+
 export async function buildOutputs(root: string): Promise<Map<string, string>> {
   const read = (path: string) => Bun.file(`${root}/${path}`).json();
   const [profile, snapshot]: [Profile, Snapshot] = await Promise.all([
@@ -149,7 +160,7 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
   );
 
   const all = [...badges.nav, ...badges.connect, ...badges.health, ...badges.registries];
-  return new Map<string, string>([
+  const outputs = new Map<string, string>([
     ["README.md", readme],
     [DOCS_INDEX, await renderDocsIndex(root)],
     [PR_TEMPLATE, await renderPrTemplate(root)],
@@ -157,4 +168,8 @@ export async function buildOutputs(root: string): Promise<Map<string, string>> {
     ...cards.map((card): [string, string] => [card.src, card.svg]),
     ...all.map((badge): [string, string] => [badge.src, badge.svg]),
   ]);
+  for (const [path, content] of outputs) {
+    if (path.endsWith(".svg")) assertValidSvgXml(path, content);
+  }
+  return outputs;
 }

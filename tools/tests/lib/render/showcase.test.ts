@@ -109,15 +109,10 @@ describe("projectCards", () => {
     expect(cards[2]?.svg).toContain("All 7 repositories.");
   });
 
-  test("renders repo and docs buttons on featured cards and the every-project card", () => {
-    expect(cards[0]?.svg).toContain(">repo</text>");
-    expect(cards[0]?.svg).toContain(">docs</text>");
-    expect(cards[0]?.svg).toContain('href="https://github.com/x/geo-tools"');
-    expect(cards[0]?.svg).toContain('href="https://x.test/docs/projects/geo-tools/"');
-
-    expect(cards[2]?.svg).toContain(">repo</text>");
-    expect(cards[2]?.svg).toContain(">docs</text>");
-    expect(cards[2]?.svg).toContain('href="https://x.test/docs/"');
+  test("renders star badges on featured cards and the every-project card", () => {
+    expect(cards[0]?.svg).toContain('class="star-badge"');
+    expect(cards[0]?.svg).toContain('<title id="t">geo-tools: geo-tools does things.</title>');
+    expect(cards[2]?.svg).toContain('class="star-badge"');
   });
 
   test("shares one spotlight tour across all cards", () => {

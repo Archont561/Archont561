@@ -48,7 +48,7 @@ Each card links to its repository on GitHub; the last one
 lists every repository. Stack and registry chips come from the captured snapshot.
 
 <% rows.forEach(row => { %><p align="center">
-<% row.forEach(card => { %>  <a href="<%= card.repoUrl %>"><img src="<%= card.src %>" width="49%" alt="<%= card.alt %>"></a>
+<% row.forEach(card => { %>  <a href="<%= card.repoUrl %>" title="<%= card.alt %>"><img src="<%= card.src %>" width="49%" alt="<%= card.alt %>"></a>
 <% }); %></p>
 
 <% }); %>## `> cat contribution.log`
@@ -70,9 +70,9 @@ lists every repository. Stack and registry chips come from the captured snapshot
 
 Every project, with its source repository; each name opens its page in the portfolio.
 
-| Project | What it is | Source |
-| --- | --- | --- |
-<% projects.forEach(p => { %>| [<%= p.name %>](<%= p.docs %>) | <%= p.description %> | [GitHub](<%= p.url %>) |
+| Project | Kind | What it is | Source |
+| --- | --- | --- | --- |
+<% projects.forEach(p => { %>| [<%= p.name %>](<%= p.docs %>) | `<%= p.kind %>` | <%= p.description %> | [GitHub](<%= p.url %>) |
 <% }); %>
 </details>
 
