@@ -9,7 +9,7 @@
 import figlet, { type FontName } from "figlet";
 import { siZsh } from "simple-icons";
 import { brandExtras, palette } from "@/tools/lib/render/palette.ts";
-import { contour, contourColor, type PortalRoute } from "./portal.ts";
+import { contour, contourClass, contourColor, type PortalRoute } from "./portal.ts";
 
 export type BannerPortalConfig = {
   url: string;
@@ -156,7 +156,7 @@ export function renderBanner(config: BannerConfig): string {
   const body: string[] = [];
   const gradients: string[] = [
     `<linearGradient id="terrain" gradientUnits="userSpaceOnUse" x1="${x0}" y1="0" x2="${fmt(x0 + cols * artCw)}" y2="0">
-<stop offset="0" stop-color="${C.forest}"/><stop offset="0.5" stop-color="${C.sage}"/><stop offset="1" stop-color="${C.copper}"/>
+<stop class="stop-forest" offset="0" stop-color="${C.forest}"/><stop class="stop-sage" offset="0.5" stop-color="${C.sage}"/><stop offset="1" stop-color="${C.copper}"/>
 </linearGradient>`,
   ];
   let clipId = 0;
@@ -247,7 +247,7 @@ export function renderBanner(config: BannerConfig): string {
     // Divider line inside terminal
     const divClip = reveal(x0, yDivider - 2, 4, width - 2 * x0, t4 + 0.15, 0.35);
     body.push(
-      `<path d="M${x0} ${yDivider}H${width - x0}" stroke="${C.line}" stroke-dasharray="4 4" opacity=".6" class="anim" clip-path="url(#${divClip})"/>`,
+      `<path d="M${x0} ${yDivider}H${width - x0}" stroke="${C.line}" stroke-dasharray="4 4" opacity=".6" class="anim div-line" clip-path="url(#${divClip})"/>`,
     );
 
     // Command 3: "$ open ..."
@@ -268,7 +268,8 @@ export function renderBanner(config: BannerConfig): string {
       const stroke = contourColor(level);
       const dur = fmt(1.2 + level * 0.15);
       const fromOffset = level % 2 ? 60 : -60;
-      return `<path class="contour" d="${contour(cx, cy, level)}" stroke="${stroke}" stroke-dasharray="5 4" stroke-dashoffset="${fromOffset}">
+      const levelClass = contourClass(level);
+      return `<path class="contour contour-${levelClass}" d="${contour(cx, cy, level)}" stroke="${stroke}" stroke-dasharray="5 4" stroke-dashoffset="${fromOffset}">
 <animate attributeName="stroke-dashoffset" from="${fromOffset}" to="0" begin="${fmt(tUrl - 0.15)}s" dur="${dur}s" fill="freeze"/>
 </path>`;
     }).join("\n");
@@ -287,14 +288,14 @@ export function renderBanner(config: BannerConfig): string {
 <animate attributeName="opacity" from="1" to="0" begin="${fmt(tUrl)}s" dur="1.2s" fill="freeze"/>
 </circle>
 <path d="M0 0C-3 -6 -9 -10 -9 -16A9 9 0 1 1 9 -16C9 -10 3 -6 0 0Z" fill="${C.copper}"/>
-<circle cy="-16" r="3.5" fill="${C.paper}"/>
+<circle class="pin-dot" cy="-16" r="3.5" fill="${C.paper}"/>
 </g>`;
 
     // Map group
     body.push(
       `<g class="seq" opacity="0">${appear(tUrl - 0.2)}` +
-        `<g clip-path="url(#map)"><rect x="${mapX}" y="${mapY}" width="${MAP_W}" height="${mapH}" fill="${C.surface}"/><g class="grid">${grid}</g>${contours}</g>` +
-        `<rect x="${mapX + 0.5}" y="${mapY + 0.5}" width="${MAP_W - 1}" height="${mapH - 1}" rx="8" fill="none" stroke="${C.line}"/>` +
+        `<g clip-path="url(#map)"><rect class="map-bg" x="${mapX}" y="${mapY}" width="${MAP_W}" height="${mapH}" fill="${C.surface}"/><g class="grid">${grid}</g>${contours}</g>` +
+        `<rect class="map-line" x="${mapX + 0.5}" y="${mapY + 0.5}" width="${MAP_W - 1}" height="${mapH - 1}" rx="8" fill="none" stroke="${C.line}"/>` +
         `${pin}` +
         `</g>`,
     );
@@ -372,8 +373,12 @@ export function renderBanner(config: BannerConfig): string {
   }
 
   const label = `${config.text}: ${config.tagline.join(" ")}`;
+  const dotClasses = ["copper", "sage", "green"] as const;
   const dots = [C.copper, C.sage, C.green]
-    .map((fill, i) => `<circle cx="${20 + i * 20}" cy="${BAR / 2}" r="6" fill="${fill}"/>`)
+    .map(
+      (fill, i) =>
+        `<circle class="dot-${dotClasses[i]}" cx="${20 + i * 20}" cy="${BAR / 2}" r="6" fill="${fill}"/>`,
+    )
     .join("");
 
   const zshX = width - 38;
@@ -401,6 +406,31 @@ text{font-family:${FONT};white-space:pre}
 .grid path{stroke:${C.line};stroke-width:1;stroke-dasharray:2 5}
 .cursor{animation:blink 1.1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
+@media (prefers-color-scheme: light){
+.bg{fill:${palette.day.paper};stroke:${palette.day.line}}
+.bar-bg{fill:${palette.day.surface}}
+.bar-line{stroke:${palette.day.line}}
+.p{fill:${palette.day.green}}
+.c{fill:${palette.day.ink}}
+.t{fill:${palette.day.muted}}
+.h{fill:${palette.day.muted}}
+.u{fill:${palette.day.ink}}
+.r{fill:${palette.day.green}}
+.d{fill:${palette.day.muted}}
+.cta{fill:${palette.day.paper}}
+.cursor{fill:${palette.day.green}}
+.div-line{stroke:${palette.day.line}}
+.grid path{stroke:${palette.day.line}}
+.map-bg{fill:${palette.day.surface}}
+.map-line{stroke:${palette.day.line}}
+.pin-dot{fill:${palette.day.paper}}
+.dot-sage{fill:${palette.day.sage}}
+.dot-green{fill:${palette.day.green}}
+.contour-sage{stroke:${palette.day.sage}}
+.contour-forest{stroke:${palette.day.green}}
+.stop-forest{stop-color:${palette.day.green}}
+.stop-sage{stop-color:${palette.day.sage}}
+}
 @media (prefers-reduced-motion:reduce){
 .anim{clip-path:none!important}
 .seq{opacity:1!important}
@@ -410,9 +440,9 @@ text{font-family:${FONT};white-space:pre}
 <defs>
 ${defs}
 </defs>
-<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="${C.paper}" stroke="${C.line}"/>
-<path d="M0.5 ${BAR}H${width - 0.5}" stroke="${C.line}"/>
-<path d="M10.5 0.5H${width - 10.5}A10 10 0 0 1 ${width - 0.5} 10.5V${BAR}H0.5V10.5A10 10 0 0 1 10.5 0.5Z" fill="${C.surface}"/>
+<rect class="bg" x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="${C.paper}" stroke="${C.line}"/>
+<path class="bar-line" d="M0.5 ${BAR}H${width - 0.5}" stroke="${C.line}"/>
+<path class="bar-bg" d="M10.5 0.5H${width - 10.5}A10 10 0 0 1 ${width - 0.5} 10.5V${BAR}H0.5V10.5A10 10 0 0 1 10.5 0.5Z" fill="${C.surface}"/>
 ${dots}
 <text x="${width / 2}" y="${BAR / 2 + 4}" text-anchor="middle" class="h">${esc(config.title)}</text>
 ${zshHeader}

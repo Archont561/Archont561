@@ -73,6 +73,13 @@ export function contour(cx: number, cy: number, level: number, points = 96): str
 }
 
 /** The summit ring is copper, the slopes sage, the lowlands forest. */
+export function contourClass(level: number): "copper" | "sage" | "forest" {
+  if (level === 0) return "copper";
+  if (level < 3) return "sage";
+  return "forest";
+}
+
+/** The summit ring is copper, the slopes sage, the lowlands forest. */
 export function contourColor(level: number): string {
   if (level === 0) return C.copper;
   if (level < 3) return C.sage;
@@ -108,8 +115,9 @@ export function renderPortal(config: PortalConfig): string {
 
   const contours = Array.from({ length: LEVELS }, (_, level) => {
     const cls = level % 2 ? "flow rev" : "flow";
+    const levelClass = contourClass(level);
     const stroke = contourColor(level);
-    return `<path class="${cls}" d="${contour(cx, cy, level)}" stroke="${stroke}" style="animation-duration:${14 + level * 3}s"/>`;
+    return `<path class="${cls}" data-c="${levelClass}" d="${contour(cx, cy, level)}" stroke="${stroke}" style="animation-duration:${14 + level * 3}s"/>`;
   }).join("\n");
 
   const grid = [0.25, 0.5, 0.75]
@@ -123,7 +131,7 @@ export function renderPortal(config: PortalConfig): string {
 <circle class="pulse" r="10" fill="none" stroke="${C.copper}" stroke-width="2"/>
 <circle class="pulse late" r="10" fill="none" stroke="${C.copper}" stroke-width="2"/>
 <path d="M0 0C-3 -6 -9 -10 -9 -16A9 9 0 1 1 9 -16C9 -10 3 -6 0 0Z" fill="${C.copper}"/>
-<circle cy="-16" r="3.5" fill="${C.paper}"/>
+<circle class="pin-dot" cy="-16" r="3.5" fill="${C.paper}"/>
 </g>`;
 
   const urlW = config.label.length * urlCw;
@@ -152,10 +160,14 @@ export function renderPortal(config: PortalConfig): string {
 <rect x="${ctaX}" y="${ctaY}" width="${ctaW}" height="26" rx="13" fill="url(#shine)"/>
 <text x="${fmt(ctaX + ctaW / 2)}" y="${ctaY + 17}" text-anchor="middle" class="cta">${esc(config.cta)}</text></g>`;
 
-  const address = `<rect x="${fmt(width / 2 - 150)}" y="8" width="300" height="18" rx="9" fill="${C.paper}" stroke="${C.line}"/>
+  const address = `<rect class="portal-addr-bg" x="${fmt(width / 2 - 150)}" y="8" width="300" height="18" rx="9" fill="${C.paper}" stroke="${C.line}"/>
 <text x="${width / 2}" y="21" text-anchor="middle" class="h">${esc(config.url)}</text>`;
+  const dotClasses = ["copper", "sage", "green"] as const;
   const dots = [C.copper, C.sage, C.green]
-    .map((color, i) => `<circle cx="${20 + i * 20}" cy="${BAR / 2}" r="6" fill="${color}"/>`)
+    .map(
+      (color, i) =>
+        `<circle class="dot-${dotClasses[i]}" cx="${20 + i * 20}" cy="${BAR / 2}" r="6" fill="${color}"/>`,
+    )
     .join("");
   const summary = `${config.kicker} ${config.label}: ${rows.map((row) => `${row.path} ${row.text}`).join("; ")}`;
 
@@ -179,6 +191,26 @@ text{font-family:${FONT};white-space:pre}
 @keyframes flow{to{stroke-dashoffset:-90}}
 @keyframes pulse{0%{transform:scale(.6);opacity:.9}100%{transform:scale(3.2);opacity:0}}
 @keyframes blink{50%{opacity:0}}
+@media (prefers-color-scheme: light){
+.portal-bg{fill:${palette.day.paper};stroke:${palette.day.line}}
+.portal-bar{fill:${palette.day.surface}}
+.portal-line{stroke:${palette.day.line}}
+.portal-addr-bg{fill:${palette.day.paper};stroke:${palette.day.line}}
+.portal-map-bg{fill:${palette.day.surface}}
+.portal-map-border{stroke:${palette.day.line}}
+.h{fill:${palette.day.muted}}
+.u{fill:${palette.day.ink}}
+.r{fill:${palette.day.green}}
+.d{fill:${palette.day.muted}}
+.cta{fill:${palette.day.paper}}
+.cursor{fill:${palette.day.green}}
+.grid path{stroke:${palette.day.line}}
+.pin-dot{fill:${palette.day.paper}}
+.dot-sage{fill:${palette.day.sage}}
+.dot-green{fill:${palette.day.green}}
+.flow[data-c="sage"]{stroke:${palette.day.sage}}
+.flow[data-c="forest"]{stroke:${palette.day.green}}
+}
 @media (prefers-reduced-motion:reduce){
 .anim{clip-path:none!important}
 .seq{opacity:1!important}
@@ -195,17 +227,17 @@ text{font-family:${FONT};white-space:pre}
 <stop offset="1" stop-color="${palette.white}" stop-opacity="0"/>
 </linearGradient>
 </defs>
-<rect x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="${C.paper}" stroke="${C.line}"/>
-<path d="M10.5 0.5H${width - 10.5}A10 10 0 0 1 ${width - 0.5} 10.5V${BAR}H0.5V10.5A10 10 0 0 1 10.5 0.5Z" fill="${C.surface}"/>
-<path d="M0.5 ${BAR}H${width - 0.5}" stroke="${C.line}"/>
+<rect class="portal-bg" x="0.5" y="0.5" width="${width - 1}" height="${height - 1}" rx="10" fill="${C.paper}" stroke="${C.line}"/>
+<path class="portal-bar" d="M10.5 0.5H${width - 10.5}A10 10 0 0 1 ${width - 0.5} 10.5V${BAR}H0.5V10.5A10 10 0 0 1 10.5 0.5Z" fill="${C.surface}"/>
+<path class="portal-line" d="M0.5 ${BAR}H${width - 0.5}" stroke="${C.line}"/>
 ${dots}
 ${address}
 <g clip-path="url(#map)">
-<rect x="${mapX}" y="${mapY}" width="${MAP_W}" height="${mapH}" fill="${C.surface}"/>
+<rect class="portal-map-bg" x="${mapX}" y="${mapY}" width="${MAP_W}" height="${mapH}" fill="${C.surface}"/>
 <g class="grid">${grid}</g>
 ${contours}
 </g>
-<rect x="${mapX + 0.5}" y="${mapY + 0.5}" width="${MAP_W - 1}" height="${mapH - 1}" rx="8" fill="none" stroke="${C.line}"/>
+<rect class="portal-map-border" x="${mapX + 0.5}" y="${mapY + 0.5}" width="${MAP_W - 1}" height="${mapH - 1}" rx="8" fill="none" stroke="${C.line}"/>
 ${pin}
 <text x="${textX}" y="${yKicker}" class="k">${esc(config.kicker)}</text>
 ${url}

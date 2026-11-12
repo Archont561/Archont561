@@ -1,5 +1,12 @@
 import { ROOT } from "@/tools/lib/paths.ts";
-import { contour, contourColor, portalRoutes, renderPortal, svgWidth } from "@/tools/lib/render/portal.ts";
+import {
+  contour,
+  contourClass,
+  contourColor,
+  portalRoutes,
+  renderPortal,
+  svgWidth,
+} from "@/tools/lib/render/portal.ts";
 import { buildOutputs } from "@/tools/lib/render/profile.ts";
 import { describe, expect, test } from "@/tools/tests/fixtures.ts";
 
@@ -28,6 +35,7 @@ describe("renderPortal", () => {
     expect(svg).toContain('calcMode="discrete"');
     expect(svg).toContain("@keyframes flow");
     expect(svg).toContain("@media (prefers-reduced-motion:reduce)");
+    expect(svg).toContain("@media (prefers-color-scheme: light)");
     expect(svg.match(/class="flow( rev)?"/g)).toHaveLength(7);
     expect(svg.match(/<animateTransform /g)).toHaveLength(config.routes.length);
   });
@@ -94,4 +102,8 @@ test("the banner includes the portal content and is linked from the README", asy
 
 test("contour colours step from the copper summit through sage slopes to forest lowlands", () => {
   expect([0, 1, 2, 3, 6].map(contourColor)).toEqual(["#B9794D", "#bfd4b8", "#bfd4b8", "#3d6b4f", "#3d6b4f"]);
+});
+
+test("contour classes step from copper summit through sage slopes to forest lowlands", () => {
+  expect([0, 1, 2, 3, 6].map(contourClass)).toEqual(["copper", "sage", "sage", "forest", "forest"]);
 });

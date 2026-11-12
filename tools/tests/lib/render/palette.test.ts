@@ -37,7 +37,16 @@ describe("palette", () => {
     expect(parsed.sage).toBe("#bfd4b8");
     expect(parsed.white).toBe("#fff");
     expect(parsed.day.primary).toBe("#355b42");
+    expect(parsed.day.paper).toBe("#f8f9f6");
+    expect(parsed.day.surface).toBe("#edf0e7");
+    expect(parsed.day.green).toBe("#355b42");
+    expect(parsed.day.sage).toBe("#526f4f");
+    expect(parsed.day.ink).toBe("#202d27");
+    expect(parsed.day.white).toBe("#fff");
     expect(parsed.night.secondary).toBe("#bfd4b8");
+    expect(parsed.night.paper).toBe("#131d18");
+    expect(parsed.night.green).toBe("#a2c7ab");
+    expect(parsed.night.sage).toBe("#bfd4b8");
   });
 
   test("resolves fallback when input CSS is empty", () => {
