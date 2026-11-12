@@ -44,11 +44,11 @@ review-style = "<%= profile.reviewStyle %>"
 
 ## `> ls --infrastructure` — shipped and maintained
 
-Each card opens the project's page in the [portfolio](<%= portfolio.url %>); the last one
+Each card links to its repository on GitHub; the last one
 lists every repository. Stack and registry chips come from the captured snapshot.
 
 <% rows.forEach(row => { %><p align="center">
-<% row.forEach(card => { %>  <img src="<%= card.src %>" width="49%" alt="<%= card.alt %>">
+<% row.forEach(card => { %>  <a href="<%= card.repoUrl %>"><img src="<%= card.src %>" width="49%" alt="<%= card.alt %>"></a>
 <% }); %></p>
 
 <% }); %>## `> cat contribution.log`

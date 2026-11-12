@@ -43,22 +43,22 @@ review-style = "Reproducible or it did not happen."
 
 ## `> ls --infrastructure` — shipped and maintained
 
-Each card opens the project's page in the [portfolio](https://archont561.github.io/); the last one
+Each card links to its repository on GitHub; the last one
 lists every repository. Stack and registry chips come from the captured snapshot.
 
 <p align="center">
-  <img src="assets/cards/qgis-sdk.svg" width="49%" alt="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins.">
-  <img src="assets/cards/qgis-agent-harness.svg" width="49%" alt="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle.">
+  <a href="https://github.com/Archont561/qgis-sdk"><img src="assets/cards/qgis-sdk.svg" width="49%" alt="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins."></a>
+  <a href="https://github.com/Archont561/qgis-agent-harness"><img src="assets/cards/qgis-agent-harness.svg" width="49%" alt="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle."></a>
 </p>
 
 <p align="center">
-  <img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects.">
-  <img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner.">
+  <a href="https://github.com/Archont561/pixi-sandbox"><img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects."></a>
+  <a href="https://github.com/Archont561/bun-test-utils"><img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner."></a>
 </p>
 
 <p align="center">
-  <img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust.">
-  <img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt.">
+  <a href="https://github.com/Archont561/playtest"><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
+  <a href="https://github.com/Archont561/archont561.github.io"><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
