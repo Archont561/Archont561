@@ -92,6 +92,8 @@ export function projectCards(
       stack: repo?.language ? [repo.language] : [],
       ships: shipsTo(project.name, registries),
       cta: "docs",
+      repoUrl: project.url,
+      docsUrl: project.docs,
       index,
       count,
     });
@@ -113,7 +115,15 @@ export function projectCards(
     src: cardPath("all-projects"),
     href: links.docs,
     alt: `${all.name}: ${description}`,
-    svg: projectCard({ ...all, description, ships: [], index: featured.length, count }),
+    svg: projectCard({
+      ...all,
+      description,
+      ships: [],
+      repoUrl: links.repo ?? links.docs,
+      docsUrl: links.docs,
+      index: featured.length,
+      count,
+    }),
   });
   return cards;
 }

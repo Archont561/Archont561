@@ -74,7 +74,9 @@ export type ProjectCard = {
   /** Stack chips (outlined green), then registry chips (outlined copper). */
   stack: string[];
   ships: string[];
-  cta: string;
+  cta?: string;
+  repoUrl?: string;
+  docsUrl?: string;
   /** Position in the grid and its size, so the spotlight can take turns. */
   index: number;
   count: number;
@@ -109,14 +111,38 @@ export function spotlightKeyframes(index: number, count: number, slot: number = 
   };
 }
 
+function actionWidth(card: ProjectCard): number {
+  if (card.repoUrl && card.docsUrl) {
+    return 98;
+  }
+  return (card.cta ?? "docs").length * 12 * ADVANCE;
+}
+
+function renderCardActions(card: ProjectCard, right: number, H: number, M: number): string {
+  if (card.repoUrl && card.docsUrl) {
+    const btnW = 46;
+    const btnGap = 6;
+    const docsX = right - btnW;
+    const repoX = docsX - btnGap - btnW;
+    return (
+      `<a href="${esc(card.repoUrl)}" xlink:href="${esc(card.repoUrl)}" target="_blank" rel="noopener noreferrer" class="btn">` +
+      `<rect class="btn-rect btn-repo" x="${fmt(repoX)}" y="${H - M - 40}" width="${btnW}" height="20" rx="10" fill="${C.paper}" stroke="${C.line}"/>` +
+      `<text class="btn-txt btn-repo-txt" x="${fmt(repoX + btnW / 2)}" y="${H - M - 26}" text-anchor="middle" font-size="11" font-weight="600" fill="${C.muted}">repo</text></a>` +
+      `<a href="${esc(card.docsUrl)}" xlink:href="${esc(card.docsUrl)}" target="_blank" rel="noopener noreferrer" class="btn">` +
+      `<rect class="btn-rect btn-docs" x="${fmt(docsX)}" y="${H - M - 40}" width="${btnW}" height="20" rx="10" fill="${C.paper}" stroke="${C.green}"/>` +
+      `<text class="btn-txt btn-docs-txt" x="${fmt(docsX + btnW / 2)}" y="${H - M - 26}" text-anchor="middle" font-size="11" font-weight="600" fill="${C.green}">docs</text></a>`
+    );
+  }
+  return `<text class="cta-txt" x="${right}" y="${H - M - 25}" font-size="12" text-anchor="end" fill="${C.green}">${esc(card.cta ?? "docs")} <tspan fill="${C.copper}">→</tspan></text>`;
+}
+
 export function projectCard(card: ProjectCard): string {
   const { width: W, height: H, margin: M } = CARD;
   const spot = spotlightKeyframes(card.index, card.count);
   const left = M + 18;
   const right = W - M - 18;
-  const cta = `${card.cta} →`;
   const accent = KIND_ACCENTS[card.kind.toLowerCase()] ?? C.sage;
-  const chips = layoutChips(card.stack, card.ships, left, right - cta.length * 12 * ADVANCE - 12)
+  const chips = layoutChips(card.stack, card.ships, left, right - actionWidth(card) - 12)
     .map(
       (chip) =>
         `<g transform="translate(${fmt(chip.x)} ${H - M - 40})"><rect class="${chip.shipped ? "chip-shipped" : "chip-stack"}" width="${fmt(chip.width)}" height="20" rx="10" fill="${chip.shipped ? "none" : C.paper}" stroke="${chip.shipped ? C.copper : C.line}"/>` +
@@ -132,7 +158,7 @@ export function projectCard(card: ProjectCard): string {
     )
     .join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
-<title id="t">${esc(card.name)} (${esc(card.cta)})</title>
+<title id="t">${esc(card.name)} (${esc(card.cta ?? "docs")})</title>
 <desc id="d">${esc(card.description)}${card.stack.length ? ` Stack: ${esc(card.stack.join(", "))}.` : ""}${card.ships.length ? ` Ships to ${esc(card.ships.join(", "))}.` : ""}</desc>
 <style>
 text{font-family:${FONT};white-space:pre}
@@ -142,6 +168,11 @@ text{font-family:${FONT};white-space:pre}
 @keyframes spot{${spot.frames}}
 .sheen{transform:translateX(-160px);animation:sheen ${fmt(spot.cycle)}s ease-in-out ${fmt(spot.delay)}s infinite}
 @keyframes sheen{0%{transform:translateX(-160px)}${spot.sweep}%{transform:translateX(${W + 40}px)}100%{transform:translateX(${W + 40}px)}}
+.btn{cursor:pointer}
+.btn:hover .btn-repo{stroke:${C.copper}}
+.btn:hover .btn-repo-txt{fill:${C.copper}}
+.btn:hover .btn-docs{stroke:${C.copper}}
+.btn:hover .btn-docs-txt{fill:${C.copper}}
 @media (prefers-color-scheme: light){
 .card-bg{fill:${palette.day.surface};stroke:${palette.day.line}}
 .path-txt{fill:${palette.day.muted}}
@@ -152,6 +183,10 @@ text{font-family:${FONT};white-space:pre}
 .chip-stack-txt{fill:${palette.day.green}}
 .accent-testing{stroke:${palette.day.sage}}
 .accent-portfolio{stroke:${palette.day.green}}
+.btn-rect{fill:${palette.day.paper};stroke:${palette.day.line}}
+.btn-docs{stroke:${palette.day.green}}
+.btn-repo-txt{fill:${palette.day.muted}}
+.btn-docs-txt{fill:${palette.day.green}}
 }
 ${REDUCED}
 </style>
@@ -170,7 +205,7 @@ ${REDUCED}
 <g ${rise(1)}><text class="title-txt" x="${left}" y="${M + 58}" font-size="21" font-weight="700" fill="${C.ink}">${esc(card.name)}</text></g>
 <g ${rise(2)}>${desc}</g>
 <g ${rise(3)}>${chips}</g>
-<g ${rise(4)}><text class="cta-txt" x="${right}" y="${H - M - 25}" font-size="12" text-anchor="end" fill="${C.green}">${esc(card.cta)} <tspan fill="${C.copper}">→</tspan></text></g>
+<g ${rise(4)}>${renderCardActions(card, right, H, M)}</g>
 </svg>
 `;
 }

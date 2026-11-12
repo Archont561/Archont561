@@ -119,6 +119,19 @@ describe("projectCard", () => {
     expect(projectCard({ ...card, kind: "testing" })).toContain('stroke="#bfd4b8" stroke-width="2"');
   });
 
+  test("renders repo and docs buttons when repoUrl and docsUrl are provided", () => {
+    const cardWithButtons = projectCard({
+      ...card,
+      repoUrl: "https://github.com/Archont561/geo-tools",
+      docsUrl: "https://archont561.github.io/docs/projects/geo-tools/",
+    });
+    expect(cardWithButtons).toContain(">repo</text>");
+    expect(cardWithButtons).toContain(">docs</text>");
+    expect(cardWithButtons).toContain('href="https://github.com/Archont561/geo-tools"');
+    expect(cardWithButtons).toContain('href="https://archont561.github.io/docs/projects/geo-tools/"');
+    expect(cardWithButtons).not.toContain('docs <tspan fill="#B9794D">→</tspan>');
+  });
+
   test("tours with the spotlight and goes still for reduced motion", () => {
     expect(svg).toContain(`animation:spot ${CARD.slot * 3}s ease-in-out ${CARD.slot}s infinite`);
     expect(svg).toContain("@media (prefers-reduced-motion:reduce){*{animation:none!important}");
