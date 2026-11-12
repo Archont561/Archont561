@@ -105,31 +105,31 @@ describe("projectCard", () => {
     expect(svg).toStartWith(
       `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${CARD.width}" height="${CARD.height}"`,
     );
-    expect(svg).toContain('<title id="t">geo-tools (docs)</title>');
+    expect(svg).toContain(
+      '<title id="t">geo-tools: Tools for &lt;maps&gt; &amp; &quot;rasters&quot;.</title>',
+    );
     expect(svg).toContain("Stack: Python. Ships to PyPI, Conda.</desc>");
   });
 
-  test("escapes text and draws the kind, chips and call to action", () => {
+  test("escapes text and draws the kind, chips and star count badge", () => {
     expect(svg).toContain("Tools for &lt;maps&gt; &amp; &quot;rasters&quot;.");
     expect(svg).not.toContain("<maps>");
     expect(svg).toContain(">GEOSPATIAL</text>");
     for (const chip of ["Python", "PyPI", "Conda"]) expect(svg).toContain(`>${chip}</text>`);
-    expect(svg).toContain('docs <tspan fill="#B9794D">→</tspan>');
+    expect(svg).toContain('class="star-badge"');
+    expect(svg).toContain(">0</text>");
     expect(svg).toContain('stroke="#B9794D" stroke-width="2" stroke-linecap="round"');
     expect(projectCard({ ...card, kind: "testing" })).toContain('stroke="#bfd4b8" stroke-width="2"');
   });
 
-  test("renders repo and docs buttons when repoUrl and docsUrl are provided", () => {
-    const cardWithButtons = projectCard({
+  test("renders custom star count when provided", () => {
+    const cardWithStars = projectCard({
       ...card,
-      repoUrl: "https://github.com/Archont561/geo-tools",
-      docsUrl: "https://archont561.github.io/docs/projects/geo-tools/",
+      stars: 42,
     });
-    expect(cardWithButtons).toContain(">repo</text>");
-    expect(cardWithButtons).toContain(">docs</text>");
-    expect(cardWithButtons).toContain('href="https://github.com/Archont561/geo-tools"');
-    expect(cardWithButtons).toContain('href="https://archont561.github.io/docs/projects/geo-tools/"');
-    expect(cardWithButtons).not.toContain('docs <tspan fill="#B9794D">→</tspan>');
+    expect(cardWithStars).toContain('class="star-badge"');
+    expect(cardWithStars).toContain(">42</text>");
+    expect(cardWithStars).toContain("Stars: 42.</desc>");
   });
 
   test("tours with the spotlight and goes still for reduced motion", () => {

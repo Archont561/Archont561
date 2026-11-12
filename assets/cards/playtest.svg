@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="420" height="178" viewBox="0 0 420 178" role="img" aria-labelledby="t d">
-<title id="t">playtest (docs)</title>
-<desc id="d">Playwright-style testing for Rust. Stack: Python.</desc>
+<title id="t">playtest: Playwright-style testing for Rust.</title>
+<desc id="d">Playwright-style testing for Rust. Stack: Python. Stars: 0.</desc>
 <style>
 text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;white-space:pre}
 .rise{opacity:0;animation:rise .6s ease-out forwards}
@@ -9,11 +9,6 @@ text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Deja
 @keyframes spot{0%{opacity:0}5%{opacity:.75}11.67%{opacity:.75}16.67%{opacity:0}100%{opacity:0}}
 .sheen{transform:translateX(-160px);animation:sheen 18s ease-in-out 12s infinite}
 @keyframes sheen{0%{transform:translateX(-160px)}16.67%{transform:translateX(460px)}100%{transform:translateX(460px)}}
-.btn{cursor:pointer}
-.btn:hover .btn-repo{stroke:#B9794D}
-.btn:hover .btn-repo-txt{fill:#B9794D}
-.btn:hover .btn-docs{stroke:#B9794D}
-.btn:hover .btn-docs-txt{fill:#B9794D}
 @media (prefers-color-scheme: light){
 .card-bg{fill:#edf0e7;stroke:#dde3db}
 .path-txt{fill:#596b5e}
@@ -24,10 +19,7 @@ text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Deja
 .chip-stack-txt{fill:#355b42}
 .accent-testing{stroke:#526f4f}
 .accent-portfolio{stroke:#355b42}
-.btn-rect{fill:#f8f9f6;stroke:#dde3db}
-.btn-docs{stroke:#355b42}
-.btn-repo-txt{fill:#596b5e}
-.btn-docs-txt{fill:#355b42}
+.star-txt{fill:#596b5e}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important}.spot{opacity:0!important}.rise,.line{opacity:1!important;transform:none!important}.cover{display:none}}
 </style>
@@ -46,5 +38,5 @@ text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Deja
 <g class="rise" style="animation-delay:0.72s"><text class="title-txt" x="27" y="67" font-size="21" font-weight="700" fill="#e4ece5">playtest</text></g>
 <g class="rise" style="animation-delay:0.84s"><text class="desc-txt" x="27" y="93" font-size="12.5" fill="#a5b4a9">Playwright-style testing for Rust.</text></g>
 <g class="rise" style="animation-delay:0.96s"><g transform="translate(27 129)"><rect class="chip-stack" width="55.6" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text class="chip-stack-txt" x="27.8" y="14" text-anchor="middle" font-size="11" fill="#a2c7ab">Python</text></g></g>
-<g class="rise" style="animation-delay:1.08s"><a href="https://github.com/Archont561/playtest" xlink:href="https://github.com/Archont561/playtest" target="_blank" rel="noopener noreferrer" class="btn"><rect class="btn-rect btn-repo" x="295" y="129" width="46" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text class="btn-txt btn-repo-txt" x="318" y="143" text-anchor="middle" font-size="11" font-weight="600" fill="#a5b4a9">repo</text></a><a href="https://archont561.github.io/docs/projects/playtest/" xlink:href="https://archont561.github.io/docs/projects/playtest/" target="_blank" rel="noopener noreferrer" class="btn"><rect class="btn-rect btn-docs" x="347" y="129" width="46" height="20" rx="10" fill="#131d18" stroke="#a2c7ab"/><text class="btn-txt btn-docs-txt" x="370" y="143" text-anchor="middle" font-size="11" font-weight="600" fill="#a2c7ab">docs</text></a></g>
+<g class="rise" style="animation-delay:1.08s"><g class="star-badge"><svg class="star-icon" x="368.4" y="133" width="14" height="14" viewBox="0 0 16 16" fill="#B9794D"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg><text class="star-txt" x="386.4" y="144" font-size="12" font-weight="600" fill="#a5b4a9">0</text></g></g>
 </svg>

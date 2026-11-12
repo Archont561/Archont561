@@ -47,18 +47,18 @@ Each card links to its repository on GitHub; the last one
 lists every repository. Stack and registry chips come from the captured snapshot.
 
 <p align="center">
-  <a href="https://github.com/Archont561/qgis-sdk"><img src="assets/cards/qgis-sdk.svg" width="49%" alt="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins."></a>
-  <a href="https://github.com/Archont561/qgis-agent-harness"><img src="assets/cards/qgis-agent-harness.svg" width="49%" alt="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle."></a>
+  <a href="https://github.com/Archont561/qgis-sdk" title="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins."><img src="assets/cards/qgis-sdk.svg" width="49%" alt="qgis-sdk: Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins."></a>
+  <a href="https://github.com/Archont561/qgis-agent-harness" title="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle."><img src="assets/cards/qgis-agent-harness.svg" width="49%" alt="qgis-agent-harness: Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle."></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Archont561/pixi-sandbox"><img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects."></a>
-  <a href="https://github.com/Archont561/bun-test-utils"><img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner."></a>
+  <a href="https://github.com/Archont561/pixi-sandbox" title="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects."><img src="assets/cards/pixi-sandbox.svg" width="49%" alt="pixi-sandbox: Cloneable, verifiable environment packs for Pixi projects."></a>
+  <a href="https://github.com/Archont561/bun-test-utils" title="bun-test-utils: Typed fixtures and test extensions for the Bun test runner."><img src="assets/cards/bun-test-utils.svg" width="49%" alt="bun-test-utils: Typed fixtures and test extensions for the Bun test runner."></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/Archont561/playtest"><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
-  <a href="https://github.com/Archont561/archont561.github.io"><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/playtest" title="playtest: Playwright-style testing for Rust."><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -88,17 +88,17 @@ lists every repository. Stack and registry chips come from the captured snapshot
 
 Every project, with its source repository; each name opens its page in the portfolio.
 
-| Project | What it is | Source |
-| --- | --- | --- |
-| [qgis-sdk](https://archont561.github.io/docs/projects/qgis-sdk/) | Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins. | [GitHub](https://github.com/Archont561/qgis-sdk) |
-| [qgis-agent-harness](https://archont561.github.io/docs/projects/qgis-agent-harness/) | Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle. | [GitHub](https://github.com/Archont561/qgis-agent-harness) |
-| [pixi-sandbox](https://archont561.github.io/docs/projects/pixi-sandbox/) | Cloneable, verifiable environment packs for Pixi projects. | [GitHub](https://github.com/Archont561/pixi-sandbox) |
-| [bun-test-utils](https://archont561.github.io/docs/projects/bun-test-utils/) | Typed fixtures and test extensions for the Bun test runner. | [GitHub](https://github.com/Archont561/bun-test-utils) |
-| [playtest](https://archont561.github.io/docs/projects/playtest/) | Playwright-style testing for Rust. | [GitHub](https://github.com/Archont561/playtest) |
-| [universe](https://archont561.github.io/docs/projects/universe/) | Rust toolkit for self-hosted universes of software, data, models, and skills. | [GitHub](https://github.com/Archont561/universe) |
-| [PyShellForge](https://archont561.github.io/docs/projects/pyshellforge/) | Python DSL and AST-based compiler that emits clean, readable shell scripts. | [GitHub](https://github.com/Archont561/PyShellForge) |
-| [ODM-conda](https://archont561.github.io/docs/projects/odm-conda/) | Modular, Pixi-managed conda packaging for OpenDroneMap components. | [GitHub](https://github.com/Archont561/ODM-conda) |
-| [CloudCompare-conda](https://archont561.github.io/docs/projects/cloudcompare-conda/) | Cross-platform Conda packaging for point-cloud and mesh processing. | [GitHub](https://github.com/Archont561/CloudCompare-conda) |
+| Project | Kind | What it is | Source |
+| --- | --- | --- | --- |
+| [qgis-sdk](https://archont561.github.io/docs/projects/qgis-sdk/) | `geospatial` | Python-first SDK and TypeScript bridge for typed, testable QGIS 4 plugins. | [GitHub](https://github.com/Archont561/qgis-sdk) |
+| [qgis-agent-harness](https://archont561.github.io/docs/projects/qgis-agent-harness/) | `geospatial` | Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle. | [GitHub](https://github.com/Archont561/qgis-agent-harness) |
+| [pixi-sandbox](https://archont561.github.io/docs/projects/pixi-sandbox/) | `environments` | Cloneable, verifiable environment packs for Pixi projects. | [GitHub](https://github.com/Archont561/pixi-sandbox) |
+| [bun-test-utils](https://archont561.github.io/docs/projects/bun-test-utils/) | `testing` | Typed fixtures and test extensions for the Bun test runner. | [GitHub](https://github.com/Archont561/bun-test-utils) |
+| [playtest](https://archont561.github.io/docs/projects/playtest/) | `testing` | Playwright-style testing for Rust. | [GitHub](https://github.com/Archont561/playtest) |
+| [universe](https://archont561.github.io/docs/projects/universe/) | `environments` | Rust toolkit for self-hosted universes of software, data, models, and skills. | [GitHub](https://github.com/Archont561/universe) |
+| [PyShellForge](https://archont561.github.io/docs/projects/pyshellforge/) | `compilers` | Python DSL and AST-based compiler that emits clean, readable shell scripts. | [GitHub](https://github.com/Archont561/PyShellForge) |
+| [ODM-conda](https://archont561.github.io/docs/projects/odm-conda/) | `packaging` | Modular, Pixi-managed conda packaging for OpenDroneMap components. | [GitHub](https://github.com/Archont561/ODM-conda) |
+| [CloudCompare-conda](https://archont561.github.io/docs/projects/cloudcompare-conda/) | `packaging` | Cross-platform Conda packaging for point-cloud and mesh processing. | [GitHub](https://github.com/Archont561/CloudCompare-conda) |
 
 </details>
 

@@ -41,7 +41,7 @@ export type GithubSummary = {
   repos: RepoFacts[];
 };
 
-export type RepoFacts = { name: string; language: string | null; topics: string[] };
+export type RepoFacts = { name: string; language: string | null; topics: string[]; stars?: number };
 
 /** Placeholder releases that hold a name rather than ship code. */
 const RESERVATION = /placeholder|reserved package name|trusted.?publishing/i;
@@ -54,7 +54,14 @@ export const isReserved = (version: string | null, description: string | null): 
 export const byName = (a: { name: string }, b: { name: string }): number =>
   a.name.toLowerCase().localeCompare(b.name.toLowerCase());
 
-type Repo = { name: string; language?: string | null; fork: boolean; archived?: boolean; topics?: string[] };
+type Repo = {
+  name: string;
+  language?: string | null;
+  fork: boolean;
+  archived?: boolean;
+  topics?: string[];
+  stargazers_count?: number;
+};
 
 export function summarize(repos: Repo[]): GithubSummary {
   const languages = new Map<string, number>();
@@ -72,7 +79,15 @@ export function summarize(repos: Repo[]): GithubSummary {
       .map(([name, count]) => ({ name, count })),
     repos: repos
       .filter((repo) => !repo.fork)
-      .map((repo) => ({ name: repo.name, language: repo.language ?? null, topics: repo.topics ?? [] }))
+      .map((repo) => {
+        const facts: RepoFacts = {
+          name: repo.name,
+          language: repo.language ?? null,
+          topics: repo.topics ?? [],
+        };
+        if (typeof repo.stargazers_count === "number") facts.stars = repo.stargazers_count;
+        return facts;
+      })
       .sort(byName),
   };
 }
