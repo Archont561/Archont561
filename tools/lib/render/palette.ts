@@ -32,8 +32,8 @@ export type SemanticTokens = {
 };
 
 export type Palette = SemanticTokens & {
-  readonly day: ThemeTokens;
-  readonly night: ThemeTokens;
+  readonly day: ThemeTokens & SemanticTokens;
+  readonly night: ThemeTokens & SemanticTokens;
 };
 
 export type BrandExtras = {
@@ -149,6 +149,32 @@ export function parseCssTokens(css: string): Palette {
   const sage = night.secondary || resolveVariable(rawVars.get("atlas-accent"), rawVars) || "#bfd4b8";
   const white = "#fff";
 
+  const daySemantics: SemanticTokens = {
+    paper: day.background || resolveVariable(rawVars.get("palette-day-background"), rawVars) || "#f8f9f6",
+    surface:
+      day.codeBackground ||
+      day.surface ||
+      resolveVariable(rawVars.get("palette-day-code-background"), rawVars) ||
+      "#edf0e7",
+    line: day.border || resolveVariable(rawVars.get("palette-day-border"), rawVars) || "#dde3db",
+    ink: day.text || resolveVariable(rawVars.get("palette-day-text"), rawVars) || "#202d27",
+    muted: day.muted || resolveVariable(rawVars.get("palette-day-muted"), rawVars) || "#596b5e",
+    green: day.primary || resolveVariable(rawVars.get("palette-day-primary"), rawVars) || "#355b42",
+    sage: day.secondary || resolveVariable(rawVars.get("palette-day-secondary"), rawVars) || "#526f4f",
+    white,
+  };
+
+  const nightSemantics: SemanticTokens = {
+    paper,
+    surface,
+    line,
+    ink,
+    muted,
+    green,
+    sage,
+    white,
+  };
+
   return Object.freeze({
     paper,
     surface,
@@ -158,8 +184,8 @@ export function parseCssTokens(css: string): Palette {
     green,
     sage,
     white,
-    day: Object.freeze(day as ThemeTokens),
-    night: Object.freeze(night as ThemeTokens),
+    day: Object.freeze({ ...day, ...daySemantics } as ThemeTokens & SemanticTokens),
+    night: Object.freeze({ ...night, ...nightSemantics } as ThemeTokens & SemanticTokens),
   });
 }
 

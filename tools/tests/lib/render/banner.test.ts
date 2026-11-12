@@ -52,6 +52,12 @@ describe("renderBanner", () => {
     expect(svg).toContain("prefers-reduced-motion");
   });
 
+  test("supports light mode via prefers-color-scheme media query", () => {
+    expect(svg).toContain("@media (prefers-color-scheme: light)");
+    expect(svg).toContain(".bg{fill:");
+    expect(svg).toContain(".bar-bg{fill:");
+  });
+
   test.prop(
     "escapes any tagline text",
     (fc) => ({ line: fc.string({ maxLength: 30 }) }),

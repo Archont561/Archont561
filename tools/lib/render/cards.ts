@@ -119,8 +119,8 @@ export function projectCard(card: ProjectCard): string {
   const chips = layoutChips(card.stack, card.ships, left, right - cta.length * 12 * ADVANCE - 12)
     .map(
       (chip) =>
-        `<g transform="translate(${fmt(chip.x)} ${H - M - 40})"><rect width="${fmt(chip.width)}" height="20" rx="10" fill="${chip.shipped ? "none" : C.paper}" stroke="${chip.shipped ? C.copper : C.line}"/>` +
-        `<text x="${fmt(chip.width / 2)}" y="14" text-anchor="middle" font-size="11" fill="${chip.shipped ? C.copper : C.green}">${esc(chip.label)}</text></g>`,
+        `<g transform="translate(${fmt(chip.x)} ${H - M - 40})"><rect class="${chip.shipped ? "chip-shipped" : "chip-stack"}" width="${fmt(chip.width)}" height="20" rx="10" fill="${chip.shipped ? "none" : C.paper}" stroke="${chip.shipped ? C.copper : C.line}"/>` +
+        `<text class="${chip.shipped ? "chip-shipped-txt" : "chip-stack-txt"}" x="${fmt(chip.width / 2)}" y="14" text-anchor="middle" font-size="11" fill="${chip.shipped ? C.copper : C.green}">${esc(chip.label)}</text></g>`,
     )
     .join("");
   const rise = (n: number) => `class="rise" style="animation-delay:${fmt(0.15 * card.index + 0.12 * n)}s"`;
@@ -128,7 +128,7 @@ export function projectCard(card: ProjectCard): string {
   const desc = wrap(card.description, 46, 2)
     .map(
       (line, i) =>
-        `<text x="${left}" y="${M + 84 + i * 18}" font-size="12.5" fill="${C.muted}">${esc(line)}</text>`,
+        `<text class="desc-txt" x="${left}" y="${M + 84 + i * 18}" font-size="12.5" fill="${C.muted}">${esc(line)}</text>`,
     )
     .join("");
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
@@ -142,6 +142,17 @@ text{font-family:${FONT};white-space:pre}
 @keyframes spot{${spot.frames}}
 .sheen{transform:translateX(-160px);animation:sheen ${fmt(spot.cycle)}s ease-in-out ${fmt(spot.delay)}s infinite}
 @keyframes sheen{0%{transform:translateX(-160px)}${spot.sweep}%{transform:translateX(${W + 40}px)}100%{transform:translateX(${W + 40}px)}}
+@media (prefers-color-scheme: light){
+.card-bg{fill:${palette.day.surface};stroke:${palette.day.line}}
+.path-txt{fill:${palette.day.muted}}
+.title-txt{fill:${palette.day.ink}}
+.desc-txt{fill:${palette.day.muted}}
+.cta-txt{fill:${palette.day.green}}
+.chip-stack{fill:${palette.day.paper};stroke:${palette.day.line}}
+.chip-stack-txt{fill:${palette.day.green}}
+.accent-testing{stroke:${palette.day.sage}}
+.accent-portfolio{stroke:${palette.day.green}}
+}
 ${REDUCED}
 </style>
 <defs>
@@ -150,16 +161,16 @@ ${REDUCED}
 <linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="${palette.white}" stop-opacity="0"/><stop offset=".5" stop-color="${palette.white}" stop-opacity=".06"/><stop offset="1" stop-color="${palette.white}" stop-opacity="0"/></linearGradient>
 </defs>
 <rect class="spot" ${box} fill="none" stroke="${C.copper}" stroke-width="3" filter="url(#glow)"/>
-<rect ${box} fill="${C.surface}" stroke="${C.line}"/>
-<path d="M${fmt(M + 14)} ${fmt(M + 1)}H${fmt(W - M - 14)}" stroke="${accent}" stroke-width="2" stroke-linecap="round" opacity=".85"/>
+<rect class="card-bg" ${box} fill="${C.surface}" stroke="${C.line}"/>
+<path class="accent accent-${card.kind.toLowerCase()}" d="M${fmt(M + 14)} ${fmt(M + 1)}H${fmt(W - M - 14)}" stroke="${accent}" stroke-width="2" stroke-linecap="round" opacity=".85"/>
 <rect class="spot" ${box} fill="none" stroke="${C.copper}" stroke-width="1.2"/>
 <g clip-path="url(#shape)"><rect class="sheen" x="0" y="0" width="120" height="${H}" fill="url(#sh)" transform="skewX(-18)"/></g>
-<g ${rise(0)}><text x="${left}" y="${M + 26}" font-size="11" fill="${C.muted}"><tspan fill="${C.moss}">~/archont561/</tspan>${esc(card.path)}</text>
+<g ${rise(0)}><text class="path-txt" x="${left}" y="${M + 26}" font-size="11" fill="${C.muted}"><tspan fill="${C.moss}">~/archont561/</tspan>${esc(card.path)}</text>
 <text x="${right}" y="${M + 26}" font-size="10.5" text-anchor="end" fill="${C.copper}" letter-spacing="1.5">${esc(card.kind.toUpperCase())}</text></g>
-<g ${rise(1)}><text x="${left}" y="${M + 58}" font-size="21" font-weight="700" fill="${C.ink}">${esc(card.name)}</text></g>
+<g ${rise(1)}><text class="title-txt" x="${left}" y="${M + 58}" font-size="21" font-weight="700" fill="${C.ink}">${esc(card.name)}</text></g>
 <g ${rise(2)}>${desc}</g>
 <g ${rise(3)}>${chips}</g>
-<g ${rise(4)}><text x="${right}" y="${H - M - 25}" font-size="12" text-anchor="end" fill="${C.green}">${esc(card.cta)} <tspan fill="${C.copper}">→</tspan></text></g>
+<g ${rise(4)}><text class="cta-txt" x="${right}" y="${H - M - 25}" font-size="12" text-anchor="end" fill="${C.green}">${esc(card.cta)} <tspan fill="${C.copper}">→</tspan></text></g>
 </svg>
 `;
 }
@@ -213,8 +224,8 @@ export function terminalCard(term: Terminal): string {
   const body = term.lines.map(
     (line, i) =>
       `<text class="line" style="animation:l${i} ${LOOP.cycle}s linear infinite" x="22" y="${top + 30 + i * STEP}" font-size="13.5">` +
-      `<tspan fill="${C.green}">${esc(line.key.padEnd(keyWidth))}</tspan><tspan fill="${C.ink}">${esc(line.rule)}</tspan>` +
-      `<tspan fill="${C.muted}">  ${esc(line.detail)}</tspan></text>`,
+      `<tspan class="term-key" fill="${C.green}">${esc(line.key.padEnd(keyWidth))}</tspan><tspan class="term-rule" fill="${C.ink}">${esc(line.rule)}</tspan>` +
+      `<tspan class="term-detail" fill="${C.muted}">  ${esc(line.detail)}</tspan></text>`,
   );
   const footY = top + 30 + term.lines.length * STEP + 14;
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-labelledby="t d">
@@ -229,17 +240,31 @@ ${typingKeyframes(term.command.length, cmdW)}
 .cur{animation:blink 1.1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
 .ft{animation:ft ${LOOP.cycle}s linear infinite}
 ${frames.join("\n")}
+@media (prefers-color-scheme: light){
+.term-bg{fill:${palette.day.paper};stroke:${palette.day.line}}
+.term-bar{fill:${palette.day.surface}}
+.term-line{stroke:${palette.day.line}}
+.term-title{fill:${palette.day.muted}}
+.cmd-txt{fill:${palette.day.ink}}
+.term-cover{fill:${palette.day.paper}}
+.term-key{fill:${palette.day.green}}
+.term-rule{fill:${palette.day.ink}}
+.term-detail{fill:${palette.day.muted}}
+.term-cur{fill:${palette.day.green}}
+.dot-sage{fill:${palette.day.sage}}
+.dot-green{fill:${palette.day.green}}
+}
 ${REDUCED}
 </style>
-<rect x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="12" fill="${C.paper}" stroke="${C.line}"/>
-<path d="M.5 ${BAR}V12.5a12 12 0 0 1 12-12h${W - 25}a12 12 0 0 1 12 12V${BAR}z" fill="${C.surface}"/>
-<line x1="0" y1="${BAR}" x2="${W}" y2="${BAR}" stroke="${C.line}"/>
-${[C.copper, C.sage, C.green].map((color, i) => `<circle cx="${20 + i * 18}" cy="15" r="5.5" fill="${color}"/>`).join("")}
-<text x="${W / 2}" y="20" font-size="11.5" text-anchor="middle" fill="${C.muted}">archont561 — zsh</text>
-<g class="cmd"><text x="22" y="${top}" font-size="14"><tspan fill="${C.copper}">❯ </tspan><tspan fill="${C.ink}" font-weight="700">${esc(term.command)}</tspan></text>
-<rect class="cover" x="${fmt(cmdX)}" y="${top - 15}" width="${fmt(cmdW + 14)}" height="21" fill="${C.paper}"/></g>
+<rect class="term-bg" x=".5" y=".5" width="${W - 1}" height="${H - 1}" rx="12" fill="${C.paper}" stroke="${C.line}"/>
+<path class="term-bar" d="M.5 ${BAR}V12.5a12 12 0 0 1 12-12h${W - 25}a12 12 0 0 1 12 12V${BAR}z" fill="${C.surface}"/>
+<line class="term-line" x1="0" y1="${BAR}" x2="${W}" y2="${BAR}" stroke="${C.line}"/>
+${[C.copper, C.sage, C.green].map((color, i) => `<circle class="dot-${(["copper", "sage", "green"] as const)[i]}" cx="${20 + i * 18}" cy="15" r="5.5" fill="${color}"/>`).join("")}
+<text class="term-title" x="${W / 2}" y="20" font-size="11.5" text-anchor="middle" fill="${C.muted}">archont561 — zsh</text>
+<g class="cmd"><text x="22" y="${top}" font-size="14"><tspan fill="${C.copper}">❯ </tspan><tspan class="cmd-txt" fill="${C.ink}" font-weight="700">${esc(term.command)}</tspan></text>
+<rect class="cover term-cover" x="${fmt(cmdX)}" y="${top - 15}" width="${fmt(cmdW + 14)}" height="21" fill="${C.paper}"/></g>
 ${body.join("\n")}
-<text class="line ft" x="22" y="${footY}" font-size="13.5" fill="${C.copper}" font-weight="700">${esc(term.footer)}<tspan class="cur" fill="${C.green}"> █</tspan></text>
+<text class="line ft" x="22" y="${footY}" font-size="13.5" fill="${C.copper}" font-weight="700">${esc(term.footer)}<tspan class="cur term-cur" fill="${C.green}"> █</tspan></text>
 </svg>
 `;
 }

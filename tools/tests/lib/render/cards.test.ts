@@ -124,6 +124,11 @@ describe("projectCard", () => {
     expect(svg).toContain("@media (prefers-reduced-motion:reduce){*{animation:none!important}");
   });
 
+  test("supports light mode via prefers-color-scheme media query", () => {
+    expect(svg).toContain("@media (prefers-color-scheme: light)");
+    expect(svg).toContain(".card-bg{fill:");
+  });
+
   test("omits empty stack and registry clauses", () => {
     expect(projectCard({ ...card, stack: [], ships: [] })).toContain("rasters&quot;.</desc>");
   });
@@ -160,5 +165,11 @@ describe("terminal", () => {
     expect(terminalCard({ ...terminal, lines: [...terminal.lines, terminal.lines[0] as never] })).toContain(
       'height="192"',
     );
+  });
+
+  test("terminalCard supports light mode via prefers-color-scheme media query", () => {
+    const svg = terminalCard(terminal);
+    expect(svg).toContain("@media (prefers-color-scheme: light)");
+    expect(svg).toContain(".term-bg{fill:");
   });
 });
