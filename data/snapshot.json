@@ -1,5 +1,5 @@
 {
-  "captured": "2026-11-11",
+  "captured": "2026-11-12",
   "github": {
     "owned": 23,
     "forks": 0,
@@ -16,7 +16,7 @@
       },
       {
         "name": "TypeScript",
-        "count": 2
+        "count": 3
       },
       {
         "name": "Astro",
@@ -26,7 +26,7 @@
     "repos": [
       {
         "name": "Archont561",
-        "language": null,
+        "language": "TypeScript",
         "topics": [
           "ascii-art",
           "biome",
@@ -70,12 +70,26 @@
       {
         "name": "archont561.r-universe.dev",
         "language": null,
-        "topics": ["cran", "package-registry", "r", "r-package", "r-universe", "ropensci", "rstats"]
+        "topics": [
+          "cran",
+          "package-registry",
+          "r",
+          "r-package",
+          "r-universe",
+          "ropensci",
+          "rstats"
+        ]
       },
       {
         "name": "artifactspec",
         "language": "Python",
-        "topics": ["ai-agents", "artifacts", "manim", "python", "visualization"]
+        "topics": [
+          "ai-agents",
+          "artifacts",
+          "manim",
+          "python",
+          "visualization"
+        ]
       },
       {
         "name": "bun-test-utils",
@@ -184,12 +198,24 @@
       {
         "name": "pixi-sandbox",
         "language": "Rust",
-        "topics": ["offline-first", "pixi", "rust", "sandbox"]
+        "topics": [
+          "offline-first",
+          "pixi",
+          "rust",
+          "sandbox"
+        ]
       },
       {
         "name": "playtest",
         "language": "Python",
-        "topics": ["bdd", "fixtures", "property-based-testing", "rust", "test-framework", "testing"]
+        "topics": [
+          "bdd",
+          "fixtures",
+          "property-based-testing",
+          "rust",
+          "test-framework",
+          "testing"
+        ]
       },
       {
         "name": "polyglot-clean-code",
@@ -497,8 +523,8 @@
         },
         {
           "name": "rude-clean-code",
-          "version": "0.1.0",
-          "published": "2026-11-10",
+          "version": "0.3.1",
+          "published": "2026-11-11",
           "description": "Clean Code plugin for the Rude Python linter.",
           "reserved": false,
           "url": "https://pypi.org/project/rude-clean-code/"

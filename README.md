@@ -132,8 +132,8 @@ Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 12
 Conda          archont561/geospatial   packages 0
-latest         universe 0.1.0 · Conda · 2026-11-11
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-11
+latest         rude-clean-code 0.3.1 · PyPI · 2026-11-11
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-12
 ```
 <!-- registry:end -->
 
@@ -163,8 +163,8 @@ rather than hand-tuned. No badge service is involved.
 ```text
 public repositories   23  (authored: 23, forks: 0, archived: 2)
 topic metadata        20/23 repositories
-primary languages     Python 14 · Rust 3 · TypeScript 2 · Astro 1
-source                GitHub REST, captured 2026-11-11
+primary languages     Python 14 · Rust 3 · TypeScript 3 · Astro 1
+source                GitHub REST, captured 2026-11-12
 ```
 <!-- repo-hygiene:end -->
 
