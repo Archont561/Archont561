@@ -34,7 +34,7 @@ describe("renderBanner", () => {
     expect(bannerWithPortal).toContain("START HERE");
     expect(bannerWithPortal).toContain("example.org");
     expect(bannerWithPortal).toContain("/docs/");
-    expect(bannerWithPortal).toContain("enter →");
+    expect(bannerWithPortal).not.toContain("enter →");
     expect(bannerWithPortal).toContain("~ ❯");
     expect(bannerWithPortal).toContain('attributeName="stroke-dashoffset"');
     expect(bannerWithPortal).toContain('attributeName="r"');
