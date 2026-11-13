@@ -1,5 +1,5 @@
 {
-  "captured": "2026-11-12",
+  "captured": "2026-11-13",
   "github": {
     "owned": 23,
     "forks": 0,
@@ -72,13 +72,27 @@
       {
         "name": "archont561.r-universe.dev",
         "language": null,
-        "topics": ["cran", "package-registry", "r", "r-package", "r-universe", "ropensci", "rstats"],
+        "topics": [
+          "cran",
+          "package-registry",
+          "r",
+          "r-package",
+          "r-universe",
+          "ropensci",
+          "rstats"
+        ],
         "stars": 0
       },
       {
         "name": "artifactspec",
         "language": "Python",
-        "topics": ["ai-agents", "artifacts", "manim", "python", "visualization"],
+        "topics": [
+          "ai-agents",
+          "artifacts",
+          "manim",
+          "python",
+          "visualization"
+        ],
         "stars": 0
       },
       {
@@ -196,13 +210,39 @@
       {
         "name": "pixi-sandbox",
         "language": "Rust",
-        "topics": ["offline-first", "pixi", "rust", "sandbox"],
+        "topics": [
+          "offline-first",
+          "pixi",
+          "rust",
+          "sandbox"
+        ],
         "stars": 0
       },
       {
         "name": "playtest",
         "language": "Python",
-        "topics": ["bdd", "fixtures", "property-based-testing", "rust", "test-framework", "testing"],
+        "topics": [
+          "bdd",
+          "c",
+          "cli",
+          "code-coverage",
+          "cpp",
+          "csharp",
+          "developer-tools",
+          "fixtures",
+          "golang",
+          "java",
+          "polyglot",
+          "property-based-testing",
+          "python",
+          "r",
+          "rust",
+          "snapshot-testing",
+          "test-automation",
+          "test-framework",
+          "testing",
+          "typescript"
+        ],
         "stars": 0
       },
       {
@@ -378,7 +418,7 @@
           "name": "@archont561/bun-test-utils",
           "version": "0.2.0",
           "published": "2026-11-10",
-          "description": "General-purpose test extension for the Bun test runner covering unit, integration, and e2e tests \u2014 Playwright-style typed fixtures composed with test.extend(), with scopes and LIFO teardown, plus BDD, property-based testing, snapshots, HTTP record/replay,",
+          "description": "General-purpose test extension for the Bun test runner covering unit, integration, and e2e tests — Playwright-style typed fixtures composed with test.extend(), with scopes and LIFO teardown, plus BDD, property-based testing, snapshots, HTTP record/replay,",
           "reserved": false,
           "url": "https://www.npmjs.com/package/@archont561/bun-test-utils"
         },
@@ -496,24 +536,24 @@
         },
         {
           "name": "qgis-sdk",
-          "version": "0.10.0",
-          "published": "2026-11-06",
+          "version": "0.11.0",
+          "published": "2026-11-13",
           "description": "The next-generation Python SDK for effortless QGIS plugin authoring.",
           "reserved": false,
           "url": "https://pypi.org/project/qgis-sdk/"
         },
         {
           "name": "qgis-sdk-runtime",
-          "version": "0.10.0",
-          "published": "2026-11-06",
+          "version": "0.11.0",
+          "published": "2026-11-13",
           "description": "The Python runtime for building QGIS plugins with less boilerplate.",
           "reserved": false,
           "url": "https://pypi.org/project/qgis-sdk-runtime/"
         },
         {
           "name": "qgis-sdk-tools",
-          "version": "0.10.0",
-          "published": "2026-11-06",
+          "version": "0.11.0",
+          "published": "2026-11-13",
           "description": "Scaffold, test and ship QGIS plugins from the command line.",
           "reserved": false,
           "url": "https://pypi.org/project/qgis-sdk-tools/"
@@ -573,6 +613,30 @@
           "description": "Reserved package name on crates.io for playtest",
           "reserved": true,
           "url": "https://crates.io/crates/playtest"
+        },
+        {
+          "name": "playtest-assets",
+          "version": "0.0.0",
+          "published": "2026-11-12",
+          "description": "Placeholder Rust crate",
+          "reserved": true,
+          "url": "https://crates.io/crates/playtest-assets"
+        },
+        {
+          "name": "playtest-cli",
+          "version": "0.0.0",
+          "published": "2026-11-12",
+          "description": "Placeholder Rust crate",
+          "reserved": true,
+          "url": "https://crates.io/crates/playtest-cli"
+        },
+        {
+          "name": "playtest-core",
+          "version": "0.0.0",
+          "published": "2026-11-12",
+          "description": "Placeholder Rust crate",
+          "reserved": true,
+          "url": "https://crates.io/crates/playtest-core"
         },
         {
           "name": "playtest-macros",
@@ -706,24 +770,24 @@
         },
         {
           "name": "qgis-sdk",
-          "version": "0.10.0",
-          "published": "2026-11-06",
+          "version": "0.11.0",
+          "published": "2026-11-13",
           "description": "Python SDK foundations for QGIS plugin development",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk"
         },
         {
           "name": "qgis-sdk-runtime",
-          "version": "0.10.0",
-          "published": "2026-11-06",
+          "version": "0.11.0",
+          "published": "2026-11-13",
           "description": "The in-QGIS runtime of qgis-sdk, dependency-free",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk-runtime"
         },
         {
           "name": "qgis-sdk-tools",
-          "version": "0.10.0",
-          "published": "2026-11-06",
+          "version": "0.11.0",
+          "published": "2026-11-13",
           "description": "The developer tooling of qgis-sdk - the `qgis-sdk` command",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk-tools"
@@ -731,7 +795,7 @@
         {
           "name": "universe",
           "version": "0.1.0",
-          "published": "2026-11-11",
+          "published": "2026-11-12",
           "description": "Thin front door for separately installable Universe producer and consumer tools",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe"
@@ -739,15 +803,23 @@
         {
           "name": "universe-airlock",
           "version": "0.1.0",
-          "published": "2026-11-11",
+          "published": "2026-11-12",
           "description": "Finite offline consumer for verified sealed Universe snapshots",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock"
         },
         {
+          "name": "universe-airlock-bootstrap",
+          "version": "0.1.0",
+          "published": "2026-11-12",
+          "description": "Thin native bootstrapper that verifies and activates a pinned Airlock restore",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock-bootstrap"
+        },
+        {
           "name": "universe-kit",
           "version": "0.1.0",
-          "published": "2026-11-11",
+          "published": "2026-11-12",
           "description": "Connected owner and producer CLI for portable Universe catalogs",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-kit"
@@ -763,5 +835,5 @@
       "packages": []
     }
   ],
-  "tokens": ":root {\n  --palette-day-background: #f8f9f6;\n  --palette-day-text: #202d27;\n  --palette-day-muted: #596b5e;\n  --palette-day-border: #dde3db;\n  --palette-day-primary: #355b42;\n  --palette-day-on-primary: #ffffff;\n  --palette-day-secondary: #526f4f;\n  --palette-day-surface: #ecf0e7;\n  --palette-day-surface-border: #dce3d6;\n  --palette-day-code-background: #edf0e7;\n  --palette-day-code-border: #d9e0d3;\n  --palette-day-code-inline: #e9eee5;\n  --palette-night-background: #131d18;\n  --palette-night-text: #e4ece5;\n  --palette-night-muted: #a5b4a9;\n  --palette-night-border: #34453a;\n  --palette-night-primary: #a2c7ab;\n  --palette-night-on-primary: #131d18;\n  --palette-night-secondary: #bfd4b8;\n  --palette-night-surface: #26392a;\n  --palette-night-surface-border: #3c5140;\n  --palette-night-code-background: #1d2921;\n  --palette-night-code-border: #2c3f31;\n  --palette-night-code-inline: #243428;\n  --color-background: var(--palette-night-background);\n  --color-text: var(--palette-night-text);\n  --color-muted: var(--palette-night-muted);\n  --color-border: var(--palette-night-border);\n  --color-primary: var(--palette-night-primary);\n  --color-secondary: var(--palette-night-secondary);\n  --color-surface: var(--palette-night-surface);\n  --color-surface-border: var(--palette-night-surface-border);\n  --color-code-background: var(--palette-night-code-background);\n  --color-code-border: var(--palette-night-code-border);\n  --color-code-inline: var(--palette-night-code-inline);\n  --paper: var(--color-background);\n  --line: var(--color-border);\n  --ink: var(--color-text);\n  --code-bg: var(--color-code-background);\n  --atlas-accent: var(--color-secondary);\n  --green: var(--color-primary);\n}\n"
+  "tokens": "/* Edit these palette primitives once; semantic tokens below select a theme. */\n:root {\n  --font-sans: system-ui, -apple-system, \"Segoe UI\", sans-serif;\n  --space-1: 4px;\n  --space-2: 8px;\n  --space-3: 12px;\n  --space-4: 16px;\n  --space-6: 24px;\n  --space-8: 32px;\n  --radius-sm: 4px;\n  --radius-control: 5px;\n  --radius-md: 6px;\n  --radius-lg: 14px;\n  --viewport-small: 100vh;\n  --viewport-dynamic: 100vh;\n\n  /* Day and night palettes; category and illustration colors remain separate. */\n  --palette-day-background: #f8f9f6;\n  --palette-day-text: #202d27;\n  --palette-day-muted: #596b5e;\n  --palette-day-border: #dde3db;\n  --palette-day-primary: #355b42;\n  --palette-day-on-primary: #ffffff;\n  --palette-day-secondary: #526f4f;\n  --palette-day-surface: #ecf0e7;\n  --palette-day-surface-border: #dce3d6;\n  --palette-day-code-background: #edf0e7;\n  --palette-day-code-border: #d9e0d3;\n  --palette-day-code-inline: #e9eee5;\n  --palette-day-syntax-tag: #285b4b;\n  --palette-day-syntax-attribute: #775332;\n  --palette-day-syntax-value: #6e4e71;\n  --palette-day-syntax-punctuation: #596b5e;\n  --palette-day-link: #476744;\n  --palette-day-filter-background: #e7ece2;\n  --palette-day-filter-text: #3e5a37;\n  --palette-day-atlas-background: #e8eee5;\n  --palette-day-atlas-text: #294936;\n  --palette-day-atlas-muted: #526d57;\n  --palette-day-atlas-border: #cbd8c8;\n  --palette-day-atlas-period: #63845f;\n  --palette-day-atlas-hover: #cadbc5;\n\n  --palette-night-background: #131d18;\n  --palette-night-text: #e4ece5;\n  --palette-night-muted: #a5b4a9;\n  --palette-night-border: #34453a;\n  --palette-night-primary: #a2c7ab;\n  --palette-night-on-primary: #131d18;\n  --palette-night-secondary: #bfd4b8;\n  --palette-night-surface: #26392a;\n  --palette-night-surface-border: #3c5140;\n  --palette-night-code-background: #1d2921;\n  --palette-night-code-border: #2c3f31;\n  --palette-night-code-inline: #243428;\n  --palette-night-syntax-tag: #a8d3b5;\n  --palette-night-syntax-attribute: #d5bf8c;\n  --palette-night-syntax-value: #c9adc9;\n  --palette-night-syntax-punctuation: #a5b4a9;\n  --palette-night-link: #a2c7ab;\n  --palette-night-filter-background: #334a37;\n  --palette-night-filter-text: #d0dfc9;\n  --palette-night-atlas-background: #243b2c;\n  --palette-night-atlas-text: #e3eee0;\n  --palette-night-atlas-muted: #bfd0b9;\n  --palette-night-atlas-border: #506b52;\n  --palette-night-atlas-period: #adc7a5;\n  --palette-night-atlas-hover: #415c42;\n}\n\n/* Existing components use short aliases while new code can use semantic names. */\n:root,\n[data-terrain-theme=\"day\"],\n[data-terrain-theme=\"night\"],\n.portfolio.night,\n.portfolio.night-auto {\n  --paper: var(--color-background);\n  --ink: var(--color-text);\n  --muted: var(--color-muted);\n  --line: var(--color-border);\n  --green: var(--color-primary);\n  --atlas-accent: var(--color-secondary);\n  --surface: var(--color-surface);\n  --surface-line: var(--color-surface-border);\n  --code-bg: var(--color-code-background);\n  --code-line: var(--color-code-border);\n  --code-inline: var(--color-code-inline);\n  --link: var(--color-link);\n  --filter-active-bg: var(--color-filter-background);\n  --filter-active-ink: var(--color-filter-text);\n  --atlas-bg: var(--color-atlas-background);\n  --atlas-ink: var(--color-atlas-text);\n  --atlas-muted: var(--color-atlas-muted);\n  --atlas-line: var(--color-atlas-border);\n  --atlas-period: var(--color-atlas-period);\n  --atlas-hover: var(--color-atlas-hover);\n  --color-focus: var(--color-primary);\n}\n\n:root,\n[data-terrain-theme=\"day\"] {\n  color-scheme: light;\n  --color-background: var(--palette-day-background);\n  --color-text: var(--palette-day-text);\n  --color-muted: var(--palette-day-muted);\n  --color-border: var(--palette-day-border);\n  --color-primary: var(--palette-day-primary);\n  --color-on-primary: var(--palette-day-on-primary);\n  --color-secondary: var(--palette-day-secondary);\n  --color-surface: var(--palette-day-surface);\n  --color-surface-border: var(--palette-day-surface-border);\n  --color-code-background: var(--palette-day-code-background);\n  --color-code-border: var(--palette-day-code-border);\n  --color-code-inline: var(--palette-day-code-inline);\n  --color-syntax-tag: var(--palette-day-syntax-tag);\n  --color-syntax-attribute: var(--palette-day-syntax-attribute);\n  --color-syntax-value: var(--palette-day-syntax-value);\n  --color-syntax-punctuation: var(--palette-day-syntax-punctuation);\n  --color-link: var(--palette-day-link);\n  --color-filter-background: var(--palette-day-filter-background);\n  --color-filter-text: var(--palette-day-filter-text);\n  --color-atlas-background: var(--palette-day-atlas-background);\n  --color-atlas-text: var(--palette-day-atlas-text);\n  --color-atlas-muted: var(--palette-day-atlas-muted);\n  --color-atlas-border: var(--palette-day-atlas-border);\n  --color-atlas-period: var(--palette-day-atlas-period);\n  --color-atlas-hover: var(--palette-day-atlas-hover);\n}\n\n@supports (height: 100svh) {\n  :root {\n    --viewport-small: 100svh;\n  }\n}\n\n@supports (height: 100dvh) {\n  :root {\n    --viewport-dynamic: 100dvh;\n  }\n}\n\n@media (prefers-color-scheme: dark) {\n  :root:not([data-terrain-theme=\"day\"]) {\n    color-scheme: dark;\n    --color-background: var(--palette-night-background);\n    --color-text: var(--palette-night-text);\n    --color-muted: var(--palette-night-muted);\n    --color-border: var(--palette-night-border);\n    --color-primary: var(--palette-night-primary);\n    --color-on-primary: var(--palette-night-on-primary);\n    --color-secondary: var(--palette-night-secondary);\n    --color-surface: var(--palette-night-surface);\n    --color-surface-border: var(--palette-night-surface-border);\n    --color-code-background: var(--palette-night-code-background);\n    --color-code-border: var(--palette-night-code-border);\n    --color-code-inline: var(--palette-night-code-inline);\n    --color-syntax-tag: var(--palette-night-syntax-tag);\n    --color-syntax-attribute: var(--palette-night-syntax-attribute);\n    --color-syntax-value: var(--palette-night-syntax-value);\n    --color-syntax-punctuation: var(--palette-night-syntax-punctuation);\n    --color-link: var(--palette-night-link);\n    --color-filter-background: var(--palette-night-filter-background);\n    --color-filter-text: var(--palette-night-filter-text);\n    --color-atlas-background: var(--palette-night-atlas-background);\n    --color-atlas-text: var(--palette-night-atlas-text);\n    --color-atlas-muted: var(--palette-night-atlas-muted);\n    --color-atlas-border: var(--palette-night-atlas-border);\n    --color-atlas-period: var(--palette-night-atlas-period);\n    --color-atlas-hover: var(--palette-night-atlas-hover);\n  }\n}\n\n.portfolio.night,\n[data-terrain-theme=\"night\"] {\n  color-scheme: dark;\n  --color-background: var(--palette-night-background);\n  --color-text: var(--palette-night-text);\n  --color-muted: var(--palette-night-muted);\n  --color-border: var(--palette-night-border);\n  --color-primary: var(--palette-night-primary);\n  --color-on-primary: var(--palette-night-on-primary);\n  --color-secondary: var(--palette-night-secondary);\n  --color-surface: var(--palette-night-surface);\n  --color-surface-border: var(--palette-night-surface-border);\n  --color-code-background: var(--palette-night-code-background);\n  --color-code-border: var(--palette-night-code-border);\n  --color-code-inline: var(--palette-night-code-inline);\n  --color-syntax-tag: var(--palette-night-syntax-tag);\n  --color-syntax-attribute: var(--palette-night-syntax-attribute);\n  --color-syntax-value: var(--palette-night-syntax-value);\n  --color-syntax-punctuation: var(--palette-night-syntax-punctuation);\n  --color-link: var(--palette-night-link);\n  --color-filter-background: var(--palette-night-filter-background);\n  --color-filter-text: var(--palette-night-filter-text);\n  --color-atlas-background: var(--palette-night-atlas-background);\n  --color-atlas-text: var(--palette-night-atlas-text);\n  --color-atlas-muted: var(--palette-night-atlas-muted);\n  --color-atlas-border: var(--palette-night-atlas-border);\n  --color-atlas-period: var(--palette-night-atlas-period);\n  --color-atlas-hover: var(--palette-night-atlas-hover);\n}\n\n@media (prefers-color-scheme: light) {\n  .portfolio.night-auto {\n    color-scheme: light;\n    --color-background: var(--palette-day-background);\n    --color-text: var(--palette-day-text);\n    --color-muted: var(--palette-day-muted);\n    --color-border: var(--palette-day-border);\n    --color-primary: var(--palette-day-primary);\n    --color-on-primary: var(--palette-day-on-primary);\n    --color-secondary: var(--palette-day-secondary);\n    --color-surface: var(--palette-day-surface);\n    --color-surface-border: var(--palette-day-surface-border);\n    --color-code-background: var(--palette-day-code-background);\n    --color-code-border: var(--palette-day-code-border);\n    --color-code-inline: var(--palette-day-code-inline);\n    --color-syntax-tag: var(--palette-day-syntax-tag);\n    --color-syntax-attribute: var(--palette-day-syntax-attribute);\n    --color-syntax-value: var(--palette-day-syntax-value);\n    --color-syntax-punctuation: var(--palette-day-syntax-punctuation);\n    --color-link: var(--palette-day-link);\n    --color-filter-background: var(--palette-day-filter-background);\n    --color-filter-text: var(--palette-day-filter-text);\n    --color-atlas-background: var(--palette-day-atlas-background);\n    --color-atlas-text: var(--palette-day-atlas-text);\n    --color-atlas-muted: var(--palette-day-atlas-muted);\n    --color-atlas-border: var(--palette-day-atlas-border);\n    --color-atlas-period: var(--palette-day-atlas-period);\n    --color-atlas-hover: var(--palette-day-atlas-hover);\n  }\n}\n"
 }

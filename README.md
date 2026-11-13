@@ -6,7 +6,7 @@
 
 [![Portfolio: explore](assets/badges/nav-portfolio.svg)](https://archont561.github.io/)
 [![Docs: notes](assets/badges/nav-docs.svg)](https://archont561.github.io/docs/)
-[![Packages: 23](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
+[![Packages: 24](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
 [![GitHub: 23](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
@@ -78,7 +78,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 | **npm** | `@archont561` | 4 |
 | **PyPI** | `Archont561` | 5 |
 | **crates.io** | `Archont561` | 2 |
-| **Conda** | `archont561/archont561` | 12 |
+| **Conda** | `archont561/archont561` | 13 |
 
 
 ## `> man archont561` — FAQ
@@ -114,14 +114,14 @@ a `0.0.0` stub or a registered but unbuilt package is never presented as a publi
 ```text
 npm            @archont561             published 4   (reserved names: 5)
 PyPI           Archont561              published 5   (reserved names: 4)
-crates.io      Archont561              published 2   (reserved names: 6)
+crates.io      Archont561              published 2   (reserved names: 9)
 NuGet          Archont561              published 0   (reserved names: 1)
 Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
-Conda          archont561/archont561   packages 12
+Conda          archont561/archont561   packages 13
 Conda          archont561/geospatial   packages 0
-latest         rude-clean-code 0.3.1 · PyPI · 2026-11-11
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-12
+latest         qgis-sdk 0.11.0 · PyPI · 2026-11-13
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-13
 ```
 <!-- registry:end -->
 
@@ -131,7 +131,7 @@ source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefi
 [![NuGet Archont561: 1 reserved](assets/badges/registry-nuget.svg)](https://www.nuget.org/profiles/Archont561)
 [![Maven Central io.github.archont561: 1 reserved](assets/badges/registry-maven.svg)](https://central.sonatype.com/namespace/io.github.archont561)
 [![R-universe archont561: 1 reserved](assets/badges/registry-r-universe.svg)](https://github.com/Archont561/archont561.r-universe.dev)
-[![Conda archont561/archont561: 12 packages](assets/badges/registry-conda-archont561.svg)](https://prefix.dev/channels/@archont561/archont561)
+[![Conda archont561/archont561: 13 packages](assets/badges/registry-conda-archont561.svg)](https://prefix.dev/channels/@archont561/archont561)
 [![Conda archont561/geospatial: open channel](assets/badges/registry-conda-geospatial.svg)](https://prefix.dev/channels/@archont561/geospatial)
 
 Conda channels install from `https://prefix.dev/archont561/archont561` and `https://prefix.dev/archont561/geospatial`.
@@ -152,7 +152,7 @@ rather than hand-tuned. No badge service is involved.
 public repositories   23  (authored: 23, forks: 0, archived: 2)
 topic metadata        20/23 repositories
 primary languages     Python 14 · Rust 3 · TypeScript 3 · Astro 1
-source                GitHub REST, captured 2026-11-12
+source                GitHub REST, captured 2026-11-13
 ```
 <!-- repo-hygiene:end -->
 
