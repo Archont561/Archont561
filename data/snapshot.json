@@ -1,5 +1,5 @@
 {
-  "captured": "2026-11-13",
+  "captured": "2026-11-14",
   "github": {
     "owned": 23,
     "forks": 0,
@@ -472,8 +472,8 @@
         },
         {
           "name": "@archont561/qgis-sdk",
-          "version": "0.7.0",
-          "published": "2026-11-06",
+          "version": "0.8.0",
+          "published": "2026-11-13",
           "description": "Typed QGIS plugin actions and host services for your web UI.",
           "reserved": false,
           "url": "https://www.npmjs.com/package/@archont561/qgis-sdk"

@@ -120,8 +120,8 @@ Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 13
 Conda          archont561/geospatial   packages 0
-latest         qgis-sdk 0.11.0 · PyPI · 2026-11-13
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-13
+latest         @archont561/qgis-sdk 0.8.0 · npm · 2026-11-13
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-14
 ```
 <!-- registry:end -->
 
@@ -152,7 +152,7 @@ rather than hand-tuned. No badge service is involved.
 public repositories   23  (authored: 23, forks: 0, archived: 2)
 topic metadata        20/23 repositories
 primary languages     Python 14 · Rust 3 · TypeScript 3 · Astro 1
-source                GitHub REST, captured 2026-11-13
+source                GitHub REST, captured 2026-11-14
 ```
 <!-- repo-hygiene:end -->
 
