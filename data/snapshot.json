@@ -1,14 +1,14 @@
 {
-  "captured": "2026-11-14",
+  "captured": "2026-11-15",
   "github": {
-    "owned": 23,
+    "owned": 26,
     "forks": 0,
     "archived": 2,
-    "titled": 20,
+    "titled": 22,
     "languages": [
       {
         "name": "Python",
-        "count": 14
+        "count": 15
       },
       {
         "name": "Rust",
@@ -183,6 +183,12 @@
           "toml",
           "workflow-generator"
         ],
+        "stars": 0
+      },
+      {
+        "name": "marklog",
+        "language": null,
+        "topics": [],
         "stars": 0
       },
       {
@@ -365,6 +371,37 @@
           "github-actions",
           "rattler-build",
           "staged-recipes"
+        ],
+        "stars": 0
+      },
+      {
+        "name": "tasknest",
+        "language": "Python",
+        "topics": [
+          "build-automation",
+          "cli",
+          "developer-tools",
+          "pixi",
+          "python",
+          "task-runner",
+          "typescript"
+        ],
+        "stars": 0
+      },
+      {
+        "name": "umcs-wnozigp-geoinfo",
+        "language": null,
+        "topics": [
+          "academic-writing",
+          "biber",
+          "biblatex",
+          "geoinformatics",
+          "latex",
+          "polish-language",
+          "thesis-template",
+          "typst",
+          "umcs",
+          "wnozigp"
         ],
         "stars": 0
       },
@@ -565,6 +602,14 @@
           "description": "Clean Code plugin for the Rude Python linter.",
           "reserved": false,
           "url": "https://pypi.org/project/rude-clean-code/"
+        },
+        {
+          "name": "tasknest",
+          "version": "0.0.0",
+          "published": "2026-11-15",
+          "description": "Placeholder Python package",
+          "reserved": true,
+          "url": "https://pypi.org/project/tasknest/"
         }
       ]
     },
@@ -605,6 +650,14 @@
           "description": "placeholder",
           "reserved": true,
           "url": "https://crates.io/crates/nadir-rs"
+        },
+        {
+          "name": "omnidist",
+          "version": "0.0.0",
+          "published": "2026-11-15",
+          "description": "Placeholder Rust crate",
+          "reserved": true,
+          "url": "https://crates.io/crates/omnidist"
         },
         {
           "name": "playtest",
@@ -794,32 +847,32 @@
         },
         {
           "name": "universe",
-          "version": "0.1.0",
-          "published": "2026-11-12",
+          "version": "0.1.1",
+          "published": "2026-11-14",
           "description": "Thin front door for separately installable Universe producer and consumer tools",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe"
         },
         {
           "name": "universe-airlock",
-          "version": "0.1.0",
-          "published": "2026-11-12",
+          "version": "0.1.1",
+          "published": "2026-11-14",
           "description": "Finite offline consumer for verified sealed Universe snapshots",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock"
         },
         {
           "name": "universe-airlock-bootstrap",
-          "version": "0.1.0",
-          "published": "2026-11-12",
+          "version": "0.1.1",
+          "published": "2026-11-14",
           "description": "Thin native bootstrapper that verifies and activates a pinned Airlock restore",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock-bootstrap"
         },
         {
           "name": "universe-kit",
-          "version": "0.1.0",
-          "published": "2026-11-12",
+          "version": "0.1.1",
+          "published": "2026-11-14",
           "description": "Connected owner and producer CLI for portable Universe catalogs",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-kit"

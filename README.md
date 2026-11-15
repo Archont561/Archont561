@@ -9,7 +9,7 @@
 [![Packages: 24](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
-[![GitHub: 23](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![GitHub: 26](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
 [![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
@@ -58,7 +58,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 
 <p align="center">
   <a href="https://github.com/Archont561/playtest" title="playtest: Playwright-style testing for Rust."><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
-  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 23 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 26 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 26 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -113,15 +113,15 @@ a `0.0.0` stub or a registered but unbuilt package is never presented as a publi
 <!-- registry:start -->
 ```text
 npm            @archont561             published 4   (reserved names: 5)
-PyPI           Archont561              published 5   (reserved names: 4)
-crates.io      Archont561              published 2   (reserved names: 9)
+PyPI           Archont561              published 5   (reserved names: 5)
+crates.io      Archont561              published 2   (reserved names: 10)
 NuGet          Archont561              published 0   (reserved names: 1)
 Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 13
 Conda          archont561/geospatial   packages 0
-latest         @archont561/qgis-sdk 0.8.0 · npm · 2026-11-13
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-14
+latest         universe 0.1.1 · Conda · 2026-11-14
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-15
 ```
 <!-- registry:end -->
 
@@ -149,10 +149,10 @@ rather than hand-tuned. No badge service is involved.
 
 <!-- repo-hygiene:start -->
 ```text
-public repositories   23  (authored: 23, forks: 0, archived: 2)
-topic metadata        20/23 repositories
-primary languages     Python 14 · Rust 3 · TypeScript 3 · Astro 1
-source                GitHub REST, captured 2026-11-14
+public repositories   26  (authored: 26, forks: 0, archived: 2)
+topic metadata        22/26 repositories
+primary languages     Python 15 · Rust 3 · TypeScript 3 · Astro 1
+source                GitHub REST, captured 2026-11-15
 ```
 <!-- repo-hygiene:end -->
 
