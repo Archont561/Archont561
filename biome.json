@@ -8,6 +8,7 @@
       "!vendor",
       "!assets",
       "!coverage",
+      "!data/snapshot.json",
       "!tools/lib/capture/clients",
       "!**/*.md"
     ]
