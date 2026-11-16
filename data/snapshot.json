@@ -1,21 +1,21 @@
 {
-  "captured": "2026-11-15",
+  "captured": "2026-11-16",
   "github": {
-    "owned": 26,
+    "owned": 25,
     "forks": 0,
     "archived": 2,
-    "titled": 22,
+    "titled": 20,
     "languages": [
       {
         "name": "Python",
-        "count": 15
-      },
-      {
-        "name": "Rust",
-        "count": 3
+        "count": 11
       },
       {
         "name": "TypeScript",
+        "count": 5
+      },
+      {
+        "name": "Rust",
         "count": 3
       },
       {
@@ -162,30 +162,6 @@
         "stars": 0
       },
       {
-        "name": "gh-repoconf",
-        "language": "Python",
-        "topics": [
-          "cli",
-          "code-generation",
-          "developer-tools",
-          "formatting",
-          "gh-extension",
-          "github-actions",
-          "github-cli",
-          "github-config",
-          "github-templates",
-          "issue-forms",
-          "linting",
-          "minijinja",
-          "pull-request-templates",
-          "repository-management",
-          "rust",
-          "toml",
-          "workflow-generator"
-        ],
-        "stars": 0
-      },
-      {
         "name": "marklog",
         "language": null,
         "topics": [],
@@ -214,6 +190,20 @@
         "stars": 0
       },
       {
+        "name": "omnidist",
+        "language": "Python",
+        "topics": [
+          "cargo",
+          "cli",
+          "cross-platform",
+          "distribution",
+          "package-manager",
+          "packaging",
+          "rust"
+        ],
+        "stars": 0
+      },
+      {
         "name": "pixi-sandbox",
         "language": "Rust",
         "topics": [
@@ -221,33 +211,6 @@
           "pixi",
           "rust",
           "sandbox"
-        ],
-        "stars": 0
-      },
-      {
-        "name": "playtest",
-        "language": "Python",
-        "topics": [
-          "bdd",
-          "c",
-          "cli",
-          "code-coverage",
-          "cpp",
-          "csharp",
-          "developer-tools",
-          "fixtures",
-          "golang",
-          "java",
-          "polyglot",
-          "property-based-testing",
-          "python",
-          "r",
-          "rust",
-          "snapshot-testing",
-          "test-automation",
-          "test-framework",
-          "testing",
-          "typescript"
         ],
         "stars": 0
       },
@@ -271,43 +234,10 @@
         "stars": 0
       },
       {
-        "name": "PyShellForge",
-        "language": "Python",
-        "topics": [
-          "automation",
-          "bash",
-          "cli",
-          "code-generation",
-          "compiler",
-          "developer-tools",
-          "python",
-          "shell",
-          "shell-script",
-          "shell-scripting",
-          "transpiler"
-        ],
+        "name": "polylib-monorepo-template",
+        "language": null,
+        "topics": [],
         "stars": 0
-      },
-      {
-        "name": "qgis-agent-harness",
-        "language": "Python",
-        "topics": [
-          "agent-harness",
-          "artefact-scoring",
-          "evaluation-harness",
-          "geoinformatics",
-          "geoprocessing",
-          "gis",
-          "llm-agents",
-          "model-context-protocol",
-          "pixi",
-          "python",
-          "qgis",
-          "reproducibility",
-          "research-software",
-          "spatial-data"
-        ],
-        "stars": 1
       },
       {
         "name": "qgis-sdk",
@@ -346,6 +276,23 @@
         "stars": 0
       },
       {
+        "name": "rust-ts-product-template",
+        "language": "TypeScript",
+        "topics": [
+          "browser-extension",
+          "bun",
+          "cross-platform",
+          "monorepo-template",
+          "product-template",
+          "rust",
+          "svelte",
+          "tauri",
+          "typescript",
+          "wasm"
+        ],
+        "stars": 0
+      },
+      {
         "name": "skills",
         "language": "Python",
         "topics": [
@@ -376,7 +323,7 @@
       },
       {
         "name": "tasknest",
-        "language": "Python",
+        "language": "TypeScript",
         "topics": [
           "build-automation",
           "cli",
@@ -522,6 +469,14 @@
           "description": "Light-DOM web components for QGIS SDK web views: form, pickers, progress and log on the @archont561/qgis-sdk store core, with React, Vue and Svelte wrappers and palette tokens.",
           "reserved": false,
           "url": "https://www.npmjs.com/package/@archont561/qgis-sdk-ui"
+        },
+        {
+          "name": "@archont561/tasknest",
+          "version": "0.4.0",
+          "published": "2026-11-15",
+          "description": "Native TypeScript task runner scaffold",
+          "reserved": false,
+          "url": "https://www.npmjs.com/package/@archont561/tasknest"
         }
       ]
     },
@@ -556,22 +511,6 @@
           "url": "https://pypi.org/project/playtest-py/"
         },
         {
-          "name": "polybridge-py",
-          "version": "0.0.0",
-          "published": "2026-10-15",
-          "description": "placeholder",
-          "reserved": true,
-          "url": "https://pypi.org/project/polybridge-py/"
-        },
-        {
-          "name": "pyshellforge",
-          "version": "0.1.0",
-          "published": "2026-11-10",
-          "description": "A Python-native DSL for building, composing and rendering structured Bash scripts.",
-          "reserved": false,
-          "url": "https://pypi.org/project/pyshellforge/"
-        },
-        {
           "name": "qgis-sdk",
           "version": "0.11.0",
           "published": "2026-11-13",
@@ -597,18 +536,18 @@
         },
         {
           "name": "rude-clean-code",
-          "version": "0.3.1",
-          "published": "2026-11-11",
+          "version": "0.4.0",
+          "published": "2026-11-15",
           "description": "Clean Code plugin for the Rude Python linter.",
           "reserved": false,
           "url": "https://pypi.org/project/rude-clean-code/"
         },
         {
           "name": "tasknest",
-          "version": "0.0.0",
+          "version": "0.4.0",
           "published": "2026-11-15",
-          "description": "Placeholder Python package",
-          "reserved": true,
+          "description": "Python task runner scaffold",
+          "reserved": false,
           "url": "https://pypi.org/project/tasknest/"
         }
       ]

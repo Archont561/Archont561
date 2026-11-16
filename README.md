@@ -6,10 +6,10 @@
 
 [![Portfolio: explore](assets/badges/nav-portfolio.svg)](https://archont561.github.io/)
 [![Docs: notes](assets/badges/nav-docs.svg)](https://archont561.github.io/docs/)
-[![Packages: 24](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
+[![Packages: 25](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
-[![GitHub: 26](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![GitHub: 25](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
 [![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
@@ -58,7 +58,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 
 <p align="center">
   <a href="https://github.com/Archont561/playtest" title="playtest: Playwright-style testing for Rust."><img src="assets/cards/playtest.svg" width="49%" alt="playtest: Playwright-style testing for Rust."></a>
-  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 26 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 26 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 25 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 25 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -75,7 +75,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 
 | Ecosystem | Namespace | Released |
 | :--- | :--- | :---: |
-| **npm** | `@archont561` | 4 |
+| **npm** | `@archont561` | 5 |
 | **PyPI** | `Archont561` | 5 |
 | **crates.io** | `Archont561` | 2 |
 | **Conda** | `archont561/archont561` | 13 |
@@ -112,20 +112,20 @@ a `0.0.0` stub or a registered but unbuilt package is never presented as a publi
 
 <!-- registry:start -->
 ```text
-npm            @archont561             published 4   (reserved names: 5)
-PyPI           Archont561              published 5   (reserved names: 5)
+npm            @archont561             published 5   (reserved names: 5)
+PyPI           Archont561              published 5   (reserved names: 3)
 crates.io      Archont561              published 2   (reserved names: 10)
 NuGet          Archont561              published 0   (reserved names: 1)
 Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 13
 Conda          archont561/geospatial   packages 0
-latest         universe 0.1.1 · Conda · 2026-11-14
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-15
+latest         @archont561/tasknest 0.4.0 · npm · 2026-11-15
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-16
 ```
 <!-- registry:end -->
 
-[![npm @archont561: 4 published](assets/badges/registry-npm.svg)](https://www.npmjs.com/org/archont561)
+[![npm @archont561: 5 published](assets/badges/registry-npm.svg)](https://www.npmjs.com/org/archont561)
 [![PyPI Archont561: 5 published](assets/badges/registry-pypi.svg)](https://pypi.org/user/Archont561/)
 [![crates.io Archont561: 2 published](assets/badges/registry-crates.svg)](https://crates.io/users/Archont561)
 [![NuGet Archont561: 1 reserved](assets/badges/registry-nuget.svg)](https://www.nuget.org/profiles/Archont561)
@@ -149,10 +149,10 @@ rather than hand-tuned. No badge service is involved.
 
 <!-- repo-hygiene:start -->
 ```text
-public repositories   26  (authored: 26, forks: 0, archived: 2)
-topic metadata        22/26 repositories
-primary languages     Python 15 · Rust 3 · TypeScript 3 · Astro 1
-source                GitHub REST, captured 2026-11-15
+public repositories   25  (authored: 25, forks: 0, archived: 2)
+topic metadata        20/25 repositories
+primary languages     Python 11 · TypeScript 5 · Rust 3 · Astro 1
+source                GitHub REST, captured 2026-11-16
 ```
 <!-- repo-hygiene:end -->
 
