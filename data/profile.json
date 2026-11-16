@@ -306,8 +306,8 @@
       "featured": true
     },
     {
-      "name": "qgis-agent-harness",
-      "url": "https://github.com/Archont561/qgis-agent-harness",
+      "name": "geoai-mcp-eval",
+      "url": "https://github.com/Archont561/geoai-mcp-eval",
       "description": "Harness for evaluating GIS-agent artefacts with a shared QGIS runtime and oracle.",
       "docs": "https://archont561.github.io/docs/projects/qgis-agent-harness/",
       "kind": "geospatial",
@@ -330,26 +330,11 @@
       "featured": true
     },
     {
-      "name": "playtest",
-      "url": "https://github.com/Archont561/playtest",
-      "description": "Playwright-style testing for Rust.",
-      "docs": "https://archont561.github.io/docs/projects/playtest/",
-      "kind": "testing",
-      "featured": true
-    },
-    {
       "name": "universe",
       "url": "https://github.com/Archont561/universe",
       "description": "Rust toolkit for self-hosted universes of software, data, models, and skills.",
       "docs": "https://archont561.github.io/docs/projects/universe/",
       "kind": "environments"
-    },
-    {
-      "name": "PyShellForge",
-      "url": "https://github.com/Archont561/PyShellForge",
-      "description": "Python DSL and AST-based compiler that emits clean, readable shell scripts.",
-      "docs": "https://archont561.github.io/docs/projects/pyshellforge/",
-      "kind": "compilers"
     },
     {
       "name": "ODM-conda",
