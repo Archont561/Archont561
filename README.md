@@ -9,7 +9,7 @@
 [![Packages: 25](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
-[![GitHub: 25](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![GitHub: 26](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
 [![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
@@ -57,7 +57,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 </p>
 
 <p align="center">
-  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 25 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 25 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 26 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 26 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -118,7 +118,7 @@ R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 13
 Conda          archont561/geospatial   packages 0
 latest         @archont561/tasknest 0.4.0 · npm · 2026-11-15
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-16
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-17
 ```
 <!-- registry:end -->
 
@@ -146,10 +146,10 @@ rather than hand-tuned. No badge service is involved.
 
 <!-- repo-hygiene:start -->
 ```text
-public repositories   25  (authored: 25, forks: 0, archived: 2)
-topic metadata        20/25 repositories
-primary languages     Python 11 · TypeScript 5 · Rust 3 · Astro 1
-source                GitHub REST, captured 2026-11-16
+public repositories   26  (authored: 26, forks: 0, archived: 2)
+topic metadata        21/26 repositories
+primary languages     Python 13 · TypeScript 5 · Rust 2 · Astro 1
+source                GitHub REST, captured 2026-11-17
 ```
 <!-- repo-hygiene:end -->
 

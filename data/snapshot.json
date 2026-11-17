@@ -1,14 +1,14 @@
 {
-  "captured": "2026-11-16",
+  "captured": "2026-11-17",
   "github": {
-    "owned": 25,
+    "owned": 26,
     "forks": 0,
     "archived": 2,
-    "titled": 20,
+    "titled": 21,
     "languages": [
       {
         "name": "Python",
-        "count": 11
+        "count": 13
       },
       {
         "name": "TypeScript",
@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "count": 3
+        "count": 2
       },
       {
         "name": "Astro",
@@ -156,6 +156,21 @@
         "stars": 0
       },
       {
+        "name": "geoai-mcp-eval",
+        "language": "Python",
+        "topics": [
+          "evaluation",
+          "geospatial",
+          "gis",
+          "llm",
+          "mcp",
+          "pyqgis",
+          "python",
+          "research"
+        ],
+        "stars": 0
+      },
+      {
         "name": "geospatial-conda-recipes",
         "language": null,
         "topics": [],
@@ -234,7 +249,7 @@
         "stars": 0
       },
       {
-        "name": "polylib-monorepo-template",
+        "name": "qgis-plugin-template",
         "language": null,
         "topics": [],
         "stars": 0
@@ -254,6 +269,28 @@
           "qgis-plugins",
           "sdk",
           "typescript"
+        ],
+        "stars": 0
+      },
+      {
+        "name": "rs-polylib-monorepo-template",
+        "language": "Python",
+        "topics": [
+          "ffi",
+          "javascript",
+          "kotlin",
+          "monorepo",
+          "napi-rs",
+          "pixi",
+          "pybind",
+          "python",
+          "ruby",
+          "rust",
+          "swift",
+          "template",
+          "typescript",
+          "uniffi",
+          "wasm"
         ],
         "stars": 0
       },
@@ -349,22 +386,6 @@
           "typst",
           "umcs",
           "wnozigp"
-        ],
-        "stars": 0
-      },
-      {
-        "name": "universe",
-        "language": "Rust",
-        "topics": [
-          "air-gapped",
-          "conda",
-          "developer-tools",
-          "offline-first",
-          "package-management",
-          "rust",
-          "self-hosted",
-          "software-distribution",
-          "supply-chain-security"
         ],
         "stars": 0
       },
