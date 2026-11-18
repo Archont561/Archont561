@@ -1,14 +1,14 @@
 {
-  "captured": "2026-11-17",
+  "captured": "2026-11-18",
   "github": {
-    "owned": 26,
+    "owned": 33,
     "forks": 0,
     "archived": 2,
-    "titled": 21,
+    "titled": 20,
     "languages": [
       {
         "name": "Python",
-        "count": 13
+        "count": 11
       },
       {
         "name": "TypeScript",
@@ -16,7 +16,7 @@
       },
       {
         "name": "Rust",
-        "count": 2
+        "count": 3
       },
       {
         "name": "Astro",
@@ -24,6 +24,12 @@
       }
     ],
     "repos": [
+      {
+        "name": "anywidget-template",
+        "language": null,
+        "topics": [],
+        "stars": 0
+      },
       {
         "name": "Archont561",
         "language": "TypeScript",
@@ -177,6 +183,50 @@
         "stars": 0
       },
       {
+        "name": "geosurveyor-anywidgets",
+        "language": null,
+        "topics": [],
+        "stars": 0
+      },
+      {
+        "name": "isolock",
+        "language": "Rust",
+        "topics": [
+          "cargo",
+          "conda",
+          "content-addressed-storage",
+          "dependency-management",
+          "hermetic-builds",
+          "loopback-proxy",
+          "npm",
+          "offline-builds",
+          "package-manager",
+          "pypi",
+          "reproducible-builds",
+          "rust",
+          "supply-chain-security"
+        ],
+        "stars": 0
+      },
+      {
+        "name": "latex-report-template",
+        "language": null,
+        "topics": [],
+        "stars": 0
+      },
+      {
+        "name": "LayerLense",
+        "language": null,
+        "topics": [],
+        "stars": 0
+      },
+      {
+        "name": "manim-anywidget",
+        "language": null,
+        "topics": [],
+        "stars": 0
+      },
+      {
         "name": "marklog",
         "language": null,
         "topics": [],
@@ -185,6 +235,12 @@
       {
         "name": "NinjaODM",
         "language": "Python",
+        "topics": [],
+        "stars": 0
+      },
+      {
+        "name": "notebook-template",
+        "language": null,
         "topics": [],
         "stars": 0
       },
@@ -205,17 +261,9 @@
         "stars": 0
       },
       {
-        "name": "omnidist",
-        "language": "Python",
-        "topics": [
-          "cargo",
-          "cli",
-          "cross-platform",
-          "distribution",
-          "package-manager",
-          "packaging",
-          "rust"
-        ],
+        "name": "oxidist",
+        "language": null,
+        "topics": [],
         "stars": 0
       },
       {
@@ -313,6 +361,12 @@
         "stars": 0
       },
       {
+        "name": "rust-cli-template",
+        "language": null,
+        "topics": [],
+        "stars": 0
+      },
+      {
         "name": "rust-ts-product-template",
         "language": "TypeScript",
         "topics": [
@@ -326,22 +380,6 @@
           "tauri",
           "typescript",
           "wasm"
-        ],
-        "stars": 0
-      },
-      {
-        "name": "skills",
-        "language": "Python",
-        "topics": [
-          "agent-skills",
-          "ai-agents",
-          "claude",
-          "claude-code",
-          "conventional-commits",
-          "llm-tools",
-          "pixi",
-          "python",
-          "skills-registry"
         ],
         "stars": 0
       },
@@ -612,14 +650,6 @@
           "url": "https://crates.io/crates/nadir-rs"
         },
         {
-          "name": "omnidist",
-          "version": "0.0.0",
-          "published": "2026-11-15",
-          "description": "Placeholder Rust crate",
-          "reserved": true,
-          "url": "https://crates.io/crates/omnidist"
-        },
-        {
           "name": "playtest",
           "version": "0.0.0",
           "published": "2026-10-22",
@@ -804,38 +834,6 @@
           "description": "The developer tooling of qgis-sdk - the `qgis-sdk` command",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/qgis-sdk-tools"
-        },
-        {
-          "name": "universe",
-          "version": "0.1.1",
-          "published": "2026-11-14",
-          "description": "Thin front door for separately installable Universe producer and consumer tools",
-          "reserved": false,
-          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe"
-        },
-        {
-          "name": "universe-airlock",
-          "version": "0.1.1",
-          "published": "2026-11-14",
-          "description": "Finite offline consumer for verified sealed Universe snapshots",
-          "reserved": false,
-          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock"
-        },
-        {
-          "name": "universe-airlock-bootstrap",
-          "version": "0.1.1",
-          "published": "2026-11-14",
-          "description": "Thin native bootstrapper that verifies and activates a pinned Airlock restore",
-          "reserved": false,
-          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-airlock-bootstrap"
-        },
-        {
-          "name": "universe-kit",
-          "version": "0.1.1",
-          "published": "2026-11-14",
-          "description": "Connected owner and producer CLI for portable Universe catalogs",
-          "reserved": false,
-          "url": "https://prefix.dev/channels/@archont561/archont561/packages/universe-kit"
         }
       ]
     },
