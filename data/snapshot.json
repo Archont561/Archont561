@@ -1,14 +1,14 @@
 {
-  "captured": "2026-11-18",
+  "captured": "2026-11-19",
   "github": {
-    "owned": 33,
+    "owned": 31,
     "forks": 0,
     "archived": 2,
-    "titled": 20,
+    "titled": 18,
     "languages": [
       {
         "name": "Python",
-        "count": 11
+        "count": 9
       },
       {
         "name": "TypeScript",
@@ -86,18 +86,6 @@
           "r-universe",
           "ropensci",
           "rstats"
-        ],
-        "stars": 0
-      },
-      {
-        "name": "artifactspec",
-        "language": "Python",
-        "topics": [
-          "ai-agents",
-          "artifacts",
-          "manim",
-          "python",
-          "visualization"
         ],
         "stars": 0
       },
@@ -426,27 +414,6 @@
           "wnozigp"
         ],
         "stars": 0
-      },
-      {
-        "name": "workloop",
-        "language": "Python",
-        "topics": [
-          "ai-agents",
-          "archon",
-          "cli",
-          "coding-agents",
-          "continuous-delivery",
-          "developer-tools",
-          "github-automation",
-          "minijinja",
-          "opencode",
-          "pull-requests",
-          "quality-gates",
-          "rust",
-          "toml",
-          "workflow-automation"
-        ],
-        "stars": 0
       }
     ]
   },
@@ -619,16 +586,16 @@
       "packages": [
         {
           "name": "clifacet",
-          "version": "0.5.0",
-          "published": "2026-11-10",
-          "description": "Composable command-line presentation modes",
+          "version": "0.7.0",
+          "published": "2026-11-19",
+          "description": "Build one CLI command; run it noninteractive, as a questionnaire, or as a TUI",
           "reserved": false,
           "url": "https://crates.io/crates/clifacet"
         },
         {
           "name": "clifacet-macros",
-          "version": "0.5.0",
-          "published": "2026-11-10",
+          "version": "0.7.0",
+          "published": "2026-11-19",
           "description": "Procedural macros for Clifacet",
           "reserved": false,
           "url": "https://crates.io/crates/clifacet-macros"

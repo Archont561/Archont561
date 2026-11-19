@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="420" height="178" viewBox="0 0 420 178" role="img" aria-labelledby="t d">
-<title id="t">Every project: Field notes, architecture and install guides for all 33 repositories, plus search and llms.txt.</title>
-<desc id="d">Field notes, architecture and install guides for all 33 repositories, plus search and llms.txt. Stack: /docs/, /search/, /llms.txt. Stars: 0.</desc>
+<title id="t">Every project: Field notes, architecture and install guides for all 31 repositories, plus search and llms.txt.</title>
+<desc id="d">Field notes, architecture and install guides for all 31 repositories, plus search and llms.txt. Stack: /docs/, /search/, /llms.txt. Stars: 0.</desc>
 <style>
 text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', 'Liberation Mono', monospace;white-space:pre}
 .rise{opacity:0;animation:rise .6s ease-out forwards}
@@ -36,7 +36,7 @@ text{font-family:ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Deja
 <g class="rise" style="animation-delay:0.6s"><text class="path-txt" x="27" y="35" font-size="11" fill="#a5b4a9"><tspan fill="#648b63">~/archont561/</tspan>docs</text>
 <text x="393" y="35" font-size="10.5" text-anchor="end" fill="#B9794D" letter-spacing="1.5">PORTFOLIO</text></g>
 <g class="rise" style="animation-delay:0.72s"><text class="title-txt" x="27" y="67" font-size="21" font-weight="700" fill="#e4ece5">Every project</text></g>
-<g class="rise" style="animation-delay:0.84s"><text class="desc-txt" x="27" y="93" font-size="12.5" fill="#a5b4a9">Field notes, architecture and install guides</text><text class="desc-txt" x="27" y="111" font-size="12.5" fill="#a5b4a9">for all 33 repositories, plus search and…</text></g>
+<g class="rise" style="animation-delay:0.84s"><text class="desc-txt" x="27" y="93" font-size="12.5" fill="#a5b4a9">Field notes, architecture and install guides</text><text class="desc-txt" x="27" y="111" font-size="12.5" fill="#a5b4a9">for all 31 repositories, plus search and…</text></g>
 <g class="rise" style="animation-delay:0.96s"><g transform="translate(27 129)"><rect class="chip-stack" width="55.6" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text class="chip-stack-txt" x="27.8" y="14" text-anchor="middle" font-size="11" fill="#a2c7ab">/docs/</text></g><g transform="translate(88.6 129)"><rect class="chip-stack" width="68.8" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text class="chip-stack-txt" x="34.4" y="14" text-anchor="middle" font-size="11" fill="#a2c7ab">/search/</text></g><g transform="translate(163.4 129)"><rect class="chip-stack" width="75.4" height="20" rx="10" fill="#131d18" stroke="#34453a"/><text class="chip-stack-txt" x="37.7" y="14" text-anchor="middle" font-size="11" fill="#a2c7ab">/llms.txt</text></g></g>
 <g class="rise" style="animation-delay:1.08s"><g class="star-badge"><svg class="star-icon" x="368.4" y="133" width="14" height="14" viewBox="0 0 16 16" fill="#B9794D"><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg><text class="star-txt" x="386.4" y="144" font-size="12" font-weight="600" fill="#a5b4a9">0</text></g></g>
 </svg>

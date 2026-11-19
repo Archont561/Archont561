@@ -9,7 +9,7 @@
 [![Packages: 21](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
-[![GitHub: 33](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![GitHub: 31](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
 [![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
@@ -57,7 +57,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 </p>
 
 <p align="center">
-  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 33 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 33 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 31 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 31 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -117,8 +117,8 @@ Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 9
 Conda          archont561/geospatial   packages 0
-latest         @archont561/tasknest 0.4.0 · npm · 2026-11-15
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-18
+latest         clifacet 0.7.0 · crates.io · 2026-11-19
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-19
 ```
 <!-- registry:end -->
 
@@ -146,10 +146,10 @@ rather than hand-tuned. No badge service is involved.
 
 <!-- repo-hygiene:start -->
 ```text
-public repositories   33  (authored: 33, forks: 0, archived: 2)
-topic metadata        20/33 repositories
-primary languages     Python 11 · TypeScript 5 · Rust 3 · Astro 1
-source                GitHub REST, captured 2026-11-18
+public repositories   31  (authored: 31, forks: 0, archived: 2)
+topic metadata        18/31 repositories
+primary languages     Python 9 · TypeScript 5 · Rust 3 · Astro 1
+source                GitHub REST, captured 2026-11-19
 ```
 <!-- repo-hygiene:end -->
 
