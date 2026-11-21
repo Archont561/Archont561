@@ -9,7 +9,7 @@
 [![Packages: 21](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
-[![GitHub: 31](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![GitHub: 27](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
 [![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
@@ -57,7 +57,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 </p>
 
 <p align="center">
-  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 31 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 31 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 27 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 27 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -109,7 +109,7 @@ a `0.0.0` stub or a registered but unbuilt package is never presented as a publi
 
 <!-- registry:start -->
 ```text
-npm            @archont561             published 5   (reserved names: 5)
+npm            @archont561             published 5   (reserved names: 4)
 PyPI           Archont561              published 5   (reserved names: 3)
 crates.io      Archont561              published 2   (reserved names: 9)
 NuGet          Archont561              published 0   (reserved names: 1)
@@ -117,8 +117,8 @@ Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 9
 Conda          archont561/geospatial   packages 0
-latest         clifacet 0.7.0 · crates.io · 2026-11-19
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-19
+latest         clifacet 0.9.0 · crates.io · 2026-11-21
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-21
 ```
 <!-- registry:end -->
 
@@ -146,10 +146,10 @@ rather than hand-tuned. No badge service is involved.
 
 <!-- repo-hygiene:start -->
 ```text
-public repositories   31  (authored: 31, forks: 0, archived: 2)
-topic metadata        18/31 repositories
-primary languages     Python 9 · TypeScript 5 · Rust 3 · Astro 1
-source                GitHub REST, captured 2026-11-19
+public repositories   27  (authored: 27, forks: 0, archived: 2)
+topic metadata        19/27 repositories
+primary languages     Python 10 · TypeScript 5 · Rust 3 · Astro 1
+source                GitHub REST, captured 2026-11-21
 ```
 <!-- repo-hygiene:end -->
 

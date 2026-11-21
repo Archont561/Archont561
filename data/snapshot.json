@@ -1,14 +1,14 @@
 {
-  "captured": "2026-11-19",
+  "captured": "2026-11-21",
   "github": {
-    "owned": 31,
+    "owned": 27,
     "forks": 0,
     "archived": 2,
-    "titled": 18,
+    "titled": 19,
     "languages": [
       {
         "name": "Python",
-        "count": 9
+        "count": 10
       },
       {
         "name": "TypeScript",
@@ -25,7 +25,7 @@
     ],
     "repos": [
       {
-        "name": "anywidget-template",
+        "name": "anywidgets",
         "language": null,
         "topics": [],
         "stars": 0
@@ -171,12 +171,6 @@
         "stars": 0
       },
       {
-        "name": "geosurveyor-anywidgets",
-        "language": null,
-        "topics": [],
-        "stars": 0
-      },
-      {
         "name": "isolock",
         "language": "Rust",
         "topics": [
@@ -197,24 +191,6 @@
         "stars": 0
       },
       {
-        "name": "latex-report-template",
-        "language": null,
-        "topics": [],
-        "stars": 0
-      },
-      {
-        "name": "LayerLense",
-        "language": null,
-        "topics": [],
-        "stars": 0
-      },
-      {
-        "name": "manim-anywidget",
-        "language": null,
-        "topics": [],
-        "stars": 0
-      },
-      {
         "name": "marklog",
         "language": null,
         "topics": [],
@@ -223,12 +199,6 @@
       {
         "name": "NinjaODM",
         "language": "Python",
-        "topics": [],
-        "stars": 0
-      },
-      {
-        "name": "notebook-template",
-        "language": null,
         "topics": [],
         "stars": 0
       },
@@ -263,6 +233,12 @@
           "rust",
           "sandbox"
         ],
+        "stars": 0
+      },
+      {
+        "name": "polgeo",
+        "language": null,
+        "topics": [],
         "stars": 0
       },
       {
@@ -349,12 +325,6 @@
         "stars": 0
       },
       {
-        "name": "rust-cli-template",
-        "language": null,
-        "topics": [],
-        "stars": 0
-      },
-      {
         "name": "rust-ts-product-template",
         "language": "TypeScript",
         "topics": [
@@ -399,6 +369,20 @@
         "stars": 0
       },
       {
+        "name": "templates",
+        "language": "Python",
+        "topics": [
+          "copier",
+          "github-actions",
+          "polyglot",
+          "project-template",
+          "rust",
+          "scaffolding",
+          "typescript"
+        ],
+        "stars": 0
+      },
+      {
         "name": "umcs-wnozigp-geoinfo",
         "language": null,
         "topics": [
@@ -431,14 +415,6 @@
           "description": "General-purpose test extension for the Bun test runner covering unit, integration, and e2e tests — Playwright-style typed fixtures composed with test.extend(), with scopes and LIFO teardown, plus BDD, property-based testing, snapshots, HTTP record/replay,",
           "reserved": false,
           "url": "https://www.npmjs.com/package/@archont561/bun-test-utils"
-        },
-        {
-          "name": "@archont561/ferra",
-          "version": "0.0.0",
-          "published": "2026-10-17",
-          "description": "OIDC trusted publishing setup package for @archont561/ferra",
-          "reserved": true,
-          "url": "https://www.npmjs.com/package/@archont561/ferra"
         },
         {
           "name": "@archont561/geoquery",
@@ -586,16 +562,16 @@
       "packages": [
         {
           "name": "clifacet",
-          "version": "0.7.0",
-          "published": "2026-11-19",
+          "version": "0.9.0",
+          "published": "2026-11-21",
           "description": "Build one CLI command; run it noninteractive, as a questionnaire, or as a TUI",
           "reserved": false,
           "url": "https://crates.io/crates/clifacet"
         },
         {
           "name": "clifacet-macros",
-          "version": "0.7.0",
-          "published": "2026-11-19",
+          "version": "0.9.0",
+          "published": "2026-11-21",
           "description": "Procedural macros for Clifacet",
           "reserved": false,
           "url": "https://crates.io/crates/clifacet-macros"
