@@ -1,5 +1,5 @@
 {
-  "captured": "2026-11-21",
+  "captured": "2026-11-22",
   "github": {
     "owned": 27,
     "forks": 0,
@@ -8,7 +8,7 @@
     "languages": [
       {
         "name": "Python",
-        "count": 10
+        "count": 11
       },
       {
         "name": "TypeScript",
@@ -384,7 +384,7 @@
       },
       {
         "name": "umcs-wnozigp-geoinfo",
-        "language": null,
+        "language": "Python",
         "topics": [
           "academic-writing",
           "biber",
