@@ -117,8 +117,8 @@ Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
 Conda          archont561/archont561   packages 9
 Conda          archont561/geospatial   packages 0
-latest         clifacet 0.9.0 · crates.io · 2026-11-21
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-22
+latest         clifacet 0.10.0 · crates.io · 2026-11-22
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-23
 ```
 <!-- registry:end -->
 
@@ -149,7 +149,7 @@ rather than hand-tuned. No badge service is involved.
 public repositories   27  (authored: 27, forks: 0, archived: 2)
 topic metadata        19/27 repositories
 primary languages     Python 11 · TypeScript 5 · Rust 3 · Astro 1
-source                GitHub REST, captured 2026-11-22
+source                GitHub REST, captured 2026-11-23
 ```
 <!-- repo-hygiene:end -->
 

@@ -1,5 +1,5 @@
 {
-  "captured": "2026-11-22",
+  "captured": "2026-11-23",
   "github": {
     "owned": 27,
     "forks": 0,
@@ -562,16 +562,16 @@
       "packages": [
         {
           "name": "clifacet",
-          "version": "0.9.0",
-          "published": "2026-11-21",
+          "version": "0.10.0",
+          "published": "2026-11-22",
           "description": "Build one CLI command; run it noninteractive, as a questionnaire, or as a TUI",
           "reserved": false,
           "url": "https://crates.io/crates/clifacet"
         },
         {
           "name": "clifacet-macros",
-          "version": "0.9.0",
-          "published": "2026-11-21",
+          "version": "0.10.0",
+          "published": "2026-11-22",
           "description": "Procedural macros for Clifacet",
           "reserved": false,
           "url": "https://crates.io/crates/clifacet-macros"
