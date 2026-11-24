@@ -1,7 +1,7 @@
 {
-  "captured": "2026-11-23",
+  "captured": "2026-11-24",
   "github": {
-    "owned": 27,
+    "owned": 28,
     "forks": 0,
     "archived": 2,
     "titled": 19,
@@ -233,6 +233,12 @@
           "rust",
           "sandbox"
         ],
+        "stars": 0
+      },
+      {
+        "name": "playtest",
+        "language": null,
+        "topics": [],
         "stars": 0
       },
       {
@@ -737,6 +743,14 @@
           "description": "Fast point-cloud cropping, sampling, and outlier filtering",
           "reserved": false,
           "url": "https://prefix.dev/channels/@archont561/archont561/packages/fpcfilter"
+        },
+        {
+          "name": "isolock",
+          "version": "0.1.0",
+          "published": "2026-11-24",
+          "description": "Dedicated dependency airlock manager",
+          "reserved": false,
+          "url": "https://prefix.dev/channels/@archont561/archont561/packages/isolock"
         },
         {
           "name": "odm-orthophoto",

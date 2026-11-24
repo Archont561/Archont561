@@ -6,10 +6,10 @@
 
 [![Portfolio: explore](assets/badges/nav-portfolio.svg)](https://archont561.github.io/)
 [![Docs: notes](assets/badges/nav-docs.svg)](https://archont561.github.io/docs/)
-[![Packages: 21](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
+[![Packages: 22](assets/badges/nav-packages.svg)](https://archont561.github.io/packages/)
 <br/>
 
-[![GitHub: 27](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
+[![GitHub: 28](assets/badges/nav-github.svg)](https://github.com/Archont561?tab=repositories)
 [![llms.txt: agents](assets/badges/nav-llms.svg)](https://archont561.github.io/llms.txt)
 
 </div>
@@ -57,7 +57,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 </p>
 
 <p align="center">
-  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 27 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 27 repositories, plus search and llms.txt."></a>
+  <a href="https://github.com/Archont561/archont561.github.io" title="Every project: Field notes, architecture and install guides for all 28 repositories, plus search and llms.txt."><img src="assets/cards/all-projects.svg" width="49%" alt="Every project: Field notes, architecture and install guides for all 28 repositories, plus search and llms.txt."></a>
 </p>
 
 ## `> cat contribution.log`
@@ -77,7 +77,7 @@ lists every repository. Stack and registry chips come from the captured snapshot
 | **npm** | `@archont561` | 5 |
 | **PyPI** | `Archont561` | 5 |
 | **crates.io** | `Archont561` | 2 |
-| **Conda** | `archont561/archont561` | 9 |
+| **Conda** | `archont561/archont561` | 10 |
 
 
 ## `> man archont561` — FAQ
@@ -115,10 +115,10 @@ crates.io      Archont561              published 2   (reserved names: 9)
 NuGet          Archont561              published 0   (reserved names: 1)
 Maven Central  io.github.archont561    published 0   (reserved names: 1)
 R-universe     archont561              published 0   (reserved names: 1)
-Conda          archont561/archont561   packages 9
+Conda          archont561/archont561   packages 10
 Conda          archont561/geospatial   packages 0
-latest         clifacet 0.10.0 · crates.io · 2026-11-22
-source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-23
+latest         isolock 0.1.0 · Conda · 2026-11-24
+source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefix.dev APIs, captured 2026-11-24
 ```
 <!-- registry:end -->
 
@@ -128,7 +128,7 @@ source         npm, PyPI, crates.io, NuGet, Maven Central, R-universe, and prefi
 [![NuGet Archont561: 1 reserved](assets/badges/registry-nuget.svg)](https://www.nuget.org/profiles/Archont561)
 [![Maven Central io.github.archont561: 1 reserved](assets/badges/registry-maven.svg)](https://central.sonatype.com/namespace/io.github.archont561)
 [![R-universe archont561: 1 reserved](assets/badges/registry-r-universe.svg)](https://github.com/Archont561/archont561.r-universe.dev)
-[![Conda archont561/archont561: 9 packages](assets/badges/registry-conda-archont561.svg)](https://prefix.dev/channels/@archont561/archont561)
+[![Conda archont561/archont561: 10 packages](assets/badges/registry-conda-archont561.svg)](https://prefix.dev/channels/@archont561/archont561)
 [![Conda archont561/geospatial: open channel](assets/badges/registry-conda-geospatial.svg)](https://prefix.dev/channels/@archont561/geospatial)
 
 Conda channels install from `https://prefix.dev/archont561/archont561` and `https://prefix.dev/archont561/geospatial`.
@@ -146,10 +146,10 @@ rather than hand-tuned. No badge service is involved.
 
 <!-- repo-hygiene:start -->
 ```text
-public repositories   27  (authored: 27, forks: 0, archived: 2)
-topic metadata        19/27 repositories
+public repositories   28  (authored: 28, forks: 0, archived: 2)
+topic metadata        19/28 repositories
 primary languages     Python 11 · TypeScript 5 · Rust 3 · Astro 1
-source                GitHub REST, captured 2026-11-23
+source                GitHub REST, captured 2026-11-24
 ```
 <!-- repo-hygiene:end -->
 
